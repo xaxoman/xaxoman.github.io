@@ -1,5 +1,86 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
+    font-weight: bold;
+}
+
 body {
 
     background-color: black;
+    color: white;
+    font-family: 'satoshi';
+    padding: 1rem;
+}
+
+#navbar {
+
+    display: flex;
+    font-size: 0.85rem;
+}
+
+#navbar a {
+
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.4s;
+    
+}
+
+#navbar li  {
+
+    list-style-type: none;
+}
+
+#navbar a:hover {
+
+    color: gray;
+    transition: 0.4s;
+    
+}
+
+
+
+#navbar p {
+
+    color: gray;
+}
+
+.hero-section h1 {
+
+    font-size: 14rem;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+}
+
+.hero-section img {
+
+    width: 80rem;
+    height: 50rem;
+    object-fit: cover; /* per non distorcere le immagini*/
+    display: block;
+    margin: auto;
+
+}
+
+/* section boxes css*/
+
+section {
+
+    color: rgb(221, 221, 221);
+    background-color: rgb(20, 20, 20);
+}
+
+section h3 {
+
+    color: gray;
+    font-weight:900
+
+}
+
+#aboutMe-section {
+    
+    max-width: 30rem;
+    font-size: 1.4rem;
     
 }
