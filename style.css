@@ -16,6 +16,7 @@ body {
 
     display: flex;
     font-size: 0.85rem;
+    
 }
 
 #navbar a {
@@ -83,4 +84,23 @@ section h3 {
     max-width: 30rem;
     font-size: 1.4rem;
     
+}
+
+
+#work-section img {
+
+    width: 25rem;
+    height: 20rem;
+    object-fit: cover;
+    padding: 0.5rem;
+}
+
+footer {
+
+    color: gray;
+    font-size: 0.9rem;
+    font-weight: bold;
+    float: right;
+    padding: 1.2rem;
+
 }
