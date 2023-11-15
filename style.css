@@ -76,14 +76,24 @@ body {
 section {
 
     color: rgb(221, 221, 221);
-    background-color: rgb(20, 20, 20);
     font-size: 1.4rem;
+    
+
+}
+
+section > div {
+
+    border: 1px solid red;
+    margin: 1rem;
+    background-color: rgb(20, 20, 20);
+    
 }
 
 section h3 {
 
     color: rgba(255, 255, 255, .64);
-    font-weight:900
+    font-weight:900;
+    font-size: 1.3rem;
 
 }
 
@@ -98,18 +108,19 @@ section h3 {
 
     max-width: 2.2rem;
     height: 2rem !important; /* to overwrite the #work-section img, height propriety conflict */
+    filter: invert(1); /* it inverts the color of the svg arrow */
     
 }
 
 #aboutMe-section {
     
     max-width: 50rem;
-    padding: 1.5rem;
     display: flex;
     
-    
-    
+      
 }
+
+
 
 
 #work-section img {
@@ -119,6 +130,7 @@ section h3 {
     object-fit: cover;
     padding: 0.5rem;
 }
+
 
 #Contact-section {
 
