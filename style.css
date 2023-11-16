@@ -16,6 +16,7 @@ body {
 
     display: flex;
     justify-content: space-between;
+    align-items: center; /* to align the logo inside the flex continer */
     font-size: 0.85rem;
     
 }
@@ -48,9 +49,11 @@ body {
 
 
 
-#navbar p {
+#navbar span {
 
     color: rgba(255, 255, 255, .64);
+    margin-left: 1rem;
+    
 }
 
 .hero-section h1 {
