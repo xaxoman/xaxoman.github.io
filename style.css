@@ -136,12 +136,21 @@ a.section-url:hover img {
       
 }
 
-#work-section div img {
+.image-container { /* IMAGES CONTAINER */
 
-    width: 100%;
-    height: 20rem;
+    display: flex;
+    flex-wrap: wrap; /* to not let the images overflow the div contaienr */
+    justify-content: center;
+    
+    
+}
+
+#work-section img {
+
+    width: 23rem;
+    height: 18rem;
     object-fit: cover;
-    padding: 0.5rem;
+    padding: 1rem;
     
 }
 
