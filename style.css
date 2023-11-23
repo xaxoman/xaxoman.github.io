@@ -4,12 +4,19 @@
     font-weight: normal;
 }
 
+* {
+
+    box-sizing: border-box;
+}
+
 body {
 
     background-color: black;
     color: white;
     font-family: 'satoshi';
     padding: 1.5rem;
+    max-width: 100rem;
+    margin: auto;
 }
 
 #navbar {
@@ -82,9 +89,11 @@ body {
     display: grid;
     grid-template-rows: repeat(4,min-content);
     grid-template-columns:  repeat(3,minmax(200px,1fr));
-    gap: 1.5rem;
+    gap: 2rem;
+    display: grid;
+    /*background-color: red;*/
+    
 }
-
 
 
 /* section boxes css*/
@@ -93,7 +102,6 @@ section {
 
     color: rgb(221, 221, 221);
     font-size: 1.4rem;
-    
 
 }
 
@@ -102,7 +110,6 @@ section > div {
     
     background-color: rgb(20, 20, 20);
     padding: 0.4rem 1.5rem;
-   
    
     
 }
@@ -144,11 +151,13 @@ a.section-url:hover img {
 
 #aboutMe-section { 
     
+    grid-column: auto / span 3; 
     display: flex;
-    grid-column: auto / span 2;
-             
+    gap: 2rem;
       
 }
+
+
 
 .image-container { /* IMAGES CONTAINER */
 
@@ -178,9 +187,9 @@ a.section-url:hover img {
 
 #Contact-section {
 
-    display: flex;
-    grid-column: auto / span 2;
-    
+    display: flex;  
+    grid-column: auto / span 3; 
+    gap: 2rem;
 }
 
 #signUp {
