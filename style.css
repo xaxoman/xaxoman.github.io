@@ -1,20 +1,28 @@
+@media screen and (min-width: 600px) {
+    body {
+      color: rgb(204, 72, 72);
+    }
+  }
+
 @font-face {
     font-family: 'Satoshi';
     src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
     font-weight: normal;
 }
 
+
 * {
 
     box-sizing: border-box;
 }
+
 
 body {
 
     background-color: black;
     color: white;
     font-family: 'satoshi';
-    padding: 1.5rem;
+    padding: 2rem;
     max-width: 100rem;
     margin: auto;
 }
@@ -78,22 +86,33 @@ body {
     object-fit: cover; /* per non distorcere le immagini*/
     display: block;
     margin: auto;
-    grid-row: 1 / 2; /* VERTICALE grid proprieties for the main img */
-    grid-column: 1 / 4; /* ORRIZZONTALE */
 }
 
 /* GRID LAYOUT */
 
-#grid-container {
+    #grid-container {
 
-    display: grid;
-    grid-template-rows: repeat(4,min-content);
-    grid-template-columns:  repeat(3,minmax(200px,1fr));
-    gap: 2rem;
-    display: grid;
-    /*background-color: red;*/
-    
-}
+        display: grid;
+        grid-template-rows: repeat(4,min-content);
+        grid-template-columns:  repeat(3,minmax(200px,1fr));
+        gap: 2rem;
+        grid-template-areas: 
+        
+        "mainImage mainImage mainImage"
+        "about about about"
+        "work work work"
+        "contact contact contact"
+        ;
+        
+        
+    }
+
+    .hero-image { grid-area: mainImage;}
+    #aboutMe-section {grid-area: about;}
+    #aboutMe-section .AboutSmall { grid-area: aboutSmall;}
+    #work-section { grid-area: work;}
+    #Contact-section { grid-area: contact;}
+    #Contact-section .ContactSmall {grid-area: contactSmall;}
 
 
 /* section boxes css*/
@@ -102,6 +121,7 @@ section {
 
     color: rgb(221, 221, 221);
     font-size: 1.4rem;
+    display: flex;
 
 }
 
@@ -149,13 +169,11 @@ a.section-url:hover img {
   }
 
 
-#aboutMe-section { 
+#aboutMe-section  { 
     
-    grid-column: auto / span 3; 
-    display: flex;
     gap: 2rem;
-      
 }
+
 
 
 
@@ -168,10 +186,7 @@ a.section-url:hover img {
     
 }
 
-#work-section {
 
-    grid-column: auto / span 3;
-}
 
 #work-section img {
 
@@ -187,8 +202,6 @@ a.section-url:hover img {
 
 #Contact-section {
 
-    display: flex;  
-    grid-column: auto / span 3; 
     gap: 2rem;
 }
 
