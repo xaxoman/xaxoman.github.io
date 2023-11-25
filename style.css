@@ -1,11 +1,5 @@
-@media screen and (min-width: 600px) {
-    body {
-      color: rgb(204, 72, 72);
-    }
-  }
-
 @font-face {
-    font-family: 'Satoshi';
+    font-family: 'satoshi';
     src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
     font-weight: normal;
 }
@@ -181,19 +175,17 @@ a.section-url:hover img {
 
     display: flex;
     flex-wrap: wrap; /* to not let the images overflow the div contaienr */
-    justify-content: center;
+    justify-content: space-evenly;
     
     
 }
 
-
-
 #work-section img {
-
-    width: 23rem;
+    
+    width: 25rem;
     height: 18rem;
     object-fit: cover;
-    padding: 1rem;
+    padding-right: 1rem;
     
 }
 
@@ -243,3 +235,9 @@ footer {
     padding: 1.2rem;
 
 }
+
+
+/* RICORDA DI METTERE LE MEDIA QUERY SEMPRE IN FONDO */
+@media screen and (min-width: 600px) {
+    
+  }
