@@ -17,7 +17,7 @@ body {
     color: white;
     font-family: 'satoshi';
     padding: 2rem;
-    max-width: 100rem;
+    max-width: 90rem;
     margin: auto;
 }
 
@@ -88,7 +88,7 @@ body {
 
         display: grid;
         grid-template-rows: repeat(4,min-content);
-        grid-template-columns:  repeat(3,minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 2rem;
         grid-template-areas: 
         
@@ -141,8 +141,8 @@ section h3 {
 
     text-decoration: none;
     color: white;
-    display: flex; /* per centrare verticalmente la freccia */
-    align-items: center; 
+    display: block;
+    padding-top: 2rem;
     transition: 0.5s;
 }
 
@@ -153,6 +153,7 @@ section h3 {
     height: 2rem !important; /* to overwrite the #work-section img, height propriety conflict */
     filter: invert(1); /* it inverts the color of the svg arrow */
     transition: 0.4s;
+    padding-top: 0rem !important; /* to not get in conflict with the #work-section proprieties*/
     
     
 }
@@ -187,10 +188,8 @@ a.section-url:hover img {
     object-fit: cover;
     padding-right: 1rem;
     
+    
 }
-
-
-
 
 #Contact-section {
 
@@ -202,17 +201,21 @@ a.section-url:hover img {
     text-decoration: none;
     color: white;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color: rgb(251, 81, 0);
     padding: 0.8rem 6.5rem 0.8rem 5.5rem; 
     border-radius: 0.5rem;
+    font-weight: bold;
 }
+
+
+
 
 /* newsletter */
 
 input {
 
-    padding: 0.7rem;
+    padding: 0.9rem;
     padding-right: 5rem;
     background-color: rgb(43, 43, 43);
     color: rgb(221, 221, 221);
@@ -238,6 +241,67 @@ footer {
 
 
 /* RICORDA DI METTERE LE MEDIA QUERY SEMPRE IN FONDO */
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 81.875rem) { /* work-section media queries*/
+
+    #work-section img {
+    
+        width: 100%;
+        height: 18rem;
+        object-fit: cover;
+        padding-top: 1.5rem;
+        
+    }
+ 
     
   }
+
+@media screen and (max-width: 75rem) {
+
+    section {
+
+        color: rgb(221, 221, 221);
+        font-size: 1.4rem;
+        display: block;
+        
+    
+    }
+
+    section h3 {
+
+        margin-bottom: 2rem;
+    
+    }
+
+    #grid-container {
+
+        display: grid;
+        grid-template-rows: repeat(4,min-content);
+        grid-template-columns:  repeat(2,minmax(200px,1fr));
+        gap: 2rem;
+       
+        
+        
+    }
+
+    #signUp {
+
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+    }
+
+    input {
+
+        width: 100%;
+        
+    }
+    
+    form {
+    
+        margin-bottom: 2rem;
+    }
+    
+}
+
