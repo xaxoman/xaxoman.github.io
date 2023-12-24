@@ -4,12 +4,10 @@
     font-weight: normal;
 }
 
-
 * {
 
     box-sizing: border-box;
 }
-
 
 body {
 
@@ -23,165 +21,70 @@ body {
 
 #navbar {
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* to align the logo inside the flex continer */
-    font-size: 0.85rem;
-    margin-bottom: 10rem;
-    
+display: flex;
+justify-content: space-between;
+align-items: center; /* to align the logo inside the flex continer */
+font-size: 0.85rem;
+margin-bottom: 10rem;
+
 }
 
 #navbar a {
 
-    text-decoration: none;
-    color: white;
-    
-    transition: 0.4s;
+text-decoration: none;
+color: white;
 
-   
-    
+transition: 0.4s;
+
+
+
 }
 
 #navbar ul li  {
 
-    list-style-type: none;
-    float: right;
-    padding-right: 1.2rem;
+list-style-type: none;
+float: right;
+padding-right: 1.2rem;
 }
 
 #navbar a:hover {
 
-    color: gray;
-    transition: 0.4s;
+color: gray;
+transition: 0.4s;
 
-    
+
 }
 
 
 
 #navbar span {
 
-    color: rgba(255, 255, 255, .64);
-    margin-left: 1rem;
-    
+color: rgba(255, 255, 255, .64);
+margin-left: 1rem;
+
 }
 
 .hero-title {
 
-    font-size: 14rem;
-    font-weight: bolder;
+font-size: 14rem;
+font-weight: bolder;
+
 }
 
 .hero-image {
 
-    width:100%;
-    max-width:100%;
-    height: 50rem;
-    object-fit: cover; /* per non distorcere le immagini*/
-    display: block;
-    margin: auto;
-}
-
-/* GRID LAYOUT */
-
-    #grid-container {
-
-        display: grid;
-        grid-template-rows: repeat(4,min-content);
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        grid-template-areas: 
-        
-        "mainImage mainImage mainImage"
-        "about about about"
-        "work work work"
-        "contact contact contact"
-        ;
-        
-        
-    }
-
-    .hero-image { grid-area: mainImage;}
-    #aboutMe-section {grid-area: about;}
-    #aboutMe-section .AboutSmall { grid-area: aboutSmall;}
-    #work-section { grid-area: work;}
-    #Contact-section { grid-area: contact;}
-    #Contact-section .ContactSmall {grid-area: contactSmall;}
-
-
-/* section boxes css*/
-
-section {
-
-    color: rgb(221, 221, 221);
-    font-size: 1.4rem;
-    display: flex;
+width:100%;
+max-width:100%;
+height: 50rem;
+object-fit: cover; /* per non distorcere le immagini*/
+display: block;
+margin: auto;
+grid-area: mainImage;
 
 }
 
-section > div {
 
-    
-    background-color: rgb(20, 20, 20);
-    padding: 0.4rem 1.5rem;
-   
-    
-}
-
-section h3 {
-
-    color: rgba(255, 255, 255, .64);
-    font-weight: normal;
-    font-size: 1.3rem;
-    margin-bottom: 8rem;
-
-}
-
-.section-url {
-
-    text-decoration: none;
-    color: white;
-    display: block;
-    padding-top: 2rem;
-    transition: 0.5s;
-}
-
-.section-url img {
-
-    max-width: 2.2rem;
-    margin-bottom: -0.85rem;
-    height: 2rem !important; /* to overwrite the #work-section img, height propriety conflict */
-    filter: invert(1); /* it inverts the color of the svg arrow */
-    transition: 0.4s;
-    padding-top: 0rem !important; /* to not get in conflict with the #work-section proprieties*/
-    
-    
-}
-
-a.section-url:hover img {
-    margin-left: 0.5rem; 
-    transition: 0.4s;
-  }
-
-
-#aboutMe-section  { 
-    
-    gap: 2rem;
-}
-
-
-
-
-.image-container { /* IMAGES CONTAINER */
-
-    display: flex;
-    flex-wrap: wrap; /* to not let the images overflow the div contaienr */
-    justify-content: space-evenly;
-    
-    
-}
-
-#work-section img {
+.work-section img {
     
     width: 25rem;
     height: 18rem;
@@ -191,27 +94,75 @@ a.section-url:hover img {
     
 }
 
-#Contact-section {
+.section-url {
 
-    gap: 2rem;
+text-decoration: none;
+color: rgb(238, 238, 238);
+display: block;
+padding-top: 2rem;
+transition: 0.5s;
 }
+
+.section-url img {
+
+max-width: 2.2rem;
+margin-bottom: -0.85rem;
+height: 2rem !important; /* to overwrite the #work-section img, height propriety conflict */
+filter: invert(1); /* it inverts the color of the svg arrow */
+transition: 0.4s;
+padding-top: 0rem !important; /* to not get in conflict with the #work-section proprieties*/
+
+}
+
+a.section-url:hover img {
+    margin-left: 0.5rem; 
+    transition: 0.4s;
+}
+
+div h3 {
+
+    color: rgba(255, 255, 255, .64);
+    font-weight: normal;
+    font-size: 1.3rem;
+    margin-bottom: 8rem;
+}
+
+#grid-container {
+
+    display: grid;
+    gap: 2rem;
+    grid-auto-rows: min-content;
+    grid-template-columns: repeat(3,minmax(200px,1fr));
+    grid-template-rows: repeat(2,min-content);
+    grid-template-areas: 
+    
+        "mainImage mainImage mainImage"
+        "about about aboutSmall"
+        "work work work"
+        "contact contact contactSmall"
+    ;
+}
+
+.item-1 {grid-area: about;}
+.item-2 {grid-area: aboutSmall;}
+.item-3 {grid-area: contact;}
+.item-4 {grid-area: contactSmall;}
+.work-section {grid-area: work;}
+
+/* newsletter */
 
 #signUp {
 
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    background-color: rgb(251, 81, 0);
-    padding: 0.8rem 6.5rem 0.8rem 5.5rem; 
-    border-radius: 0.5rem;
-    font-weight: bold;
+text-decoration: none;
+color: white;
+text-align: center;
+font-size: 1rem;
+background-color: rgb(251, 81, 0);
+padding: 0.8rem 6.5rem 0.8rem 5.5rem; 
+border-radius: 0.5rem;
+font-weight: bold;
+display: block;
 }
-
-
-
-
-/* newsletter */
 
 input {
 
@@ -221,6 +172,7 @@ input {
     color: rgb(221, 221, 221);
     border: 0px;
     border-radius: 0.3rem;
+    width: 100%;
     
 }
 
@@ -229,79 +181,94 @@ form {
     margin-bottom: 2rem;
 }
 
-
 footer {
 
-    color: rgba(255, 255, 255, .64);
-    font-size: 0.9rem;
-    float: right;
-    padding: 1.2rem;
+color: rgba(255, 255, 255, 0.64);
+font-size: 0.9rem;
+float: right;
+padding: 1.2rem;
 
 }
 
+.sections {
 
-/* RICORDA DI METTERE LE MEDIA QUERY SEMPRE IN FONDO */
-@media screen and (max-width: 81.875rem) { /* work-section media queries*/
+    color: rgb(221, 221, 221);
+    font-size: 1.4rem;
+     background-color: rgb(20, 20, 20);
+    padding: 0.4rem 1.5rem;
+}
 
-    #work-section img {
+@media screen and (max-width: 81.875rem) {
     
+        .work-section img {
+        
         width: 100%;
         height: 18rem;
         object-fit: cover;
         padding-top: 1.5rem;
         
     }
- 
-    
-  }
+}
 
 @media screen and (max-width: 75rem) {
 
-    section {
-
-        color: rgb(221, 221, 221);
-        font-size: 1.4rem;
-        display: block;
-        
-    
-    }
-
-    section h3 {
-
-        margin-bottom: 2rem;
-    
-    }
-
     #grid-container {
 
-        display: grid;
-        grid-template-rows: repeat(4,min-content);
-        grid-template-columns:  repeat(2,minmax(200px,1fr));
-        gap: 2rem;
-       
-        
-        
+
+    grid-template-columns: repeat(2,minmax(200px,1fr));
+    grid-template-rows: repeat(2,min-content);
+    grid-template-areas: 
+
+        "mainImage mainImage mainImage"
+        "about about about"
+        "aboutSmall aboutSmall aboutSmall"
+        "work work work"
+        "contact contact contact"
+        "contactSmall contactSmall contactSmall"
+    ;
     }
 
-    #signUp {
+    div h3 {
 
-        width: 100%;
-        display: block;
-        text-align: center;
-        font-size: 1.2rem;
-        border-radius: 0.5rem;
+        margin-bottom: 4rem;
     }
 
-    input {
+    .hero-title {
 
-        width: 100%;
-        
+    font-size: 9rem;
+   
+
     }
+
+    .hero-image {
+
     
-    form {
-    
-        margin-bottom: 2rem;
+    height: 30rem;
+
     }
-    
+
 }
 
+@media screen and (max-width: 37.5rem) {
+    
+    #navbar span {
+
+     display: none;
+
+    }
+
+    #navbar:first-child {
+
+        display: block;
+        text-align: center;
+    }
+
+    #navbar ul li {
+
+       background-color: red;
+       margin-left: 1rem;
+       margin-right: auto;
+    }
+
+
+}
