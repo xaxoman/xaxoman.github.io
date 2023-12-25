@@ -143,10 +143,10 @@ div h3 {
     ;
 }
 
-.item-1 {grid-area: about;}
-.item-2 {grid-area: aboutSmall;}
-.item-3 {grid-area: contact;}
-.item-4 {grid-area: contactSmall;}
+.about-1 {grid-area: about;}
+.about-2 {grid-area: aboutSmall;}
+.contact-1 {grid-area: contact;}
+.contact-2 {grid-area: contactSmall;}
 .work-section {grid-area: work;}
 
 /* newsletter */
@@ -194,8 +194,9 @@ padding: 1.2rem;
 
     color: rgb(221, 221, 221);
     font-size: 1.4rem;
-     background-color: rgb(20, 20, 20);
-    padding: 0.4rem 1.5rem;
+    background-color: rgb(20, 20, 20);
+    padding: 32px;
+    
 }
 
 @media screen and (max-width: 81.875rem) {

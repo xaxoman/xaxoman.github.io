@@ -4,11 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script href="main.js"></script>
     <title>Dennis Xhafaj - About</title>
 </head>
 <style>
 
+    #about-grid-container {
+
+        display: grid;
+        gap: 2rem;
+        grid-template-rows: repeat(2,min-content);
+        grid-template-areas: 
+        
+        "about1 about1 globe"
+        "about3 about4 about4"
+        "about5 about6 about-image"
+        "about7 about7 about8"
+        
+        ;
+    }
+
+    .about1 {grid-area: about1;}
+    .about2 {grid-area: globe;}
+    .about3 {grid-area: about3;}
+    .about4 {grid-area: about4;}
+    .about5 {grid-area: about5;}
+    .about6 {grid-area: about6;}
+    .about7 {grid-area: about7;}
+    .about8 {grid-area: about8;}
+    .about-image {grid-area: about-image;}
+
+    .about-image img {
+
+        width: 100%;
+        height: 28rem;
+        display: block;
+        object-fit: cover;
+    }
+
+    .about4 span {
+
+        color: rgba(255, 255, 255, .64);
+    }
+
+    #globe-container {
+        
+
+    }
+
+    #cobe  {
+
+       position: absolute;
+       right: -10rem;
+       top: 35rem;
+               
+    }
+
+
+
 </style>
+<script type="module">
+    import createGlobe from 'https://cdn.skypack.dev/cobe'
+  
+    let phi = 0
+    let canvas = document.getElementById("cobe")
+  
+    const globe = createGlobe(canvas, {
+      devicePixelRatio: 2,
+      width: 800,
+      height: 800,
+      phi: 0,
+      theta: 0,
+      dark: 1,
+      diffuse: 1.2,
+      scale: 1,
+      mapSamples: 16000,
+      mapBrightness: 6,
+      baseColor: [60, 60, 60],
+      markerColor: [1, 0.5, 1],
+      glowColor: [1, 1, 1],
+      offset: [0, 0],
+      opacity: 0.8,
+      markers: [
+        { location: [37.7595, -122.4367], size: 0.03 },
+        { location: [40.7128, -74.006], size: 0.1 },
+      ],
+      onRender: (state) => {
+        // Called on every animation frame.
+        // `state` will be an empty object, return updated params.
+        state.phi = phi
+        phi += 0.01
+      },
+    })
+  </script>
 <body>
 
     <nav id="navbar">
@@ -22,59 +110,74 @@
         </ul>
     </nav>
     <strong class="hero-title">About</strong>
-    <div id="grid-container">
-        <div class="item-1 sections">
-            <h3>Welcome</h3>
-                <p>
-                    Nice to meet you! I am a freelance designer and art director currently living in Berlin. 
-                    I have solid experience from a background in UX and UI in start ups and scale ups in Europe. 
-                </p>
-                <p>
-                    I have a broad skillset – ranging from digital design to graphic design and 3d renderings and much, much more.
-                </p>
+    <div id="about-grid-container">
+        <div class="about1 sections">
+            <h3>A little about me</h3>
+            <p>
+                I'm Tommy, a product designer living in Berlin. My journey is a captivating blend of creativity and entrepreneurship. 
+                Tommy is known for his ability to create intuitive and engaging user experiences that meet business objectives.
+            </p>
+            <p>
+                In addition to his design skills, I'm also proficient in front-end development, which allows him to create prototypes 
+                and test his designs quickly.
+            </p>
         </div>
-        <div class="item-2 sections">
-            <h3>Who I Am</h3>
-                <p>
-                    I'm a designer, maker, nomad, and coffee lover obsessed with the world of digital
-                    <br/>
-                    <a class="section-url" href="">Know more <img src="img/noun-arrow-1827114.svg"/></a>
-                </p>    
-        </div>
-        <div class="work-section sections">
-            <h3 style="margin-bottom: 4rem;">Latest Work</h3>
-            <div class="image-container"> 
-                <img src="https://framerusercontent.com/images/HkloQOPycvVEvaKPKVlHn4GEkw.png?scale-down-to=2048" alt="">
-                <img src="https://framerusercontent.com/images/NCDa2CkdMRBFMH5d7LDZOdb4ug.png?scale-down-to=1024" alt="">
-                <img src="https://framerusercontent.com/images/Br4NtDqJMHrhoARrJyc4F25uNC4.png?scale-down-to=512" alt="">
+        <div class="about2 sections">
+            <h3>Where i live</h3>
+            <p>Crema, Italy</p>
+            <!--SPINNING GLOBE, repo to the original project https://github.com/shuding/cobe    -->
+            <div id="globe-container">
+              <canvas
+                id="cobe"
+                style="width: 500px; height: 500px;"
+                width="1000"
+                height="1000">
+              </canvas>
             </div>
+        </div>
+        <div class="about3 sections">
+            <h3>Expertise</h3>
+            <p>Interface Design</p>
+            <p>Industrial Products</p>
+            <p>Architecture</p>
+            <p>Photography</p>
+        </div>
+        <div class="about4 sections">
+            <h3>Experience</h3>
+            <p>Digital Designer at Vitamina <span>2014 — 2016</span></p>
+            <p>Designer System Specialist at Subvisual <span>2013 — 2014</span></p>
+            <p>Visual Designer at Garden <span>2016 — Present</span></p>
+            <a class="section-url" href="">See full CV<img src="img/noun-arrow-1827114.svg"/></a>
+        </div>
+        <div class="about5 sections">
+            <h3>Clientes</h3>
             <p>
-                Since Amazon introduced one-day delivery to the mainstream, we’ve got used to the convenience of overnight shipping. 
-                Flexing a pair of new kicks you’ve ordered last night is not a utopia, but the everyday reality of urban life.‍
-                <br/>
-                <a class="section-url" href="">Have a look <img src="img/noun-arrow-1827114.svg"/></a>
+                Channel 4, Apple, Adobe, Puma, It's Nice That, Mama Shelter, Carefree, Pleo, Monzo, Onfolk, Morrisons, and Trustpilot
+            </p>
+            <a class="section-url" href="">See my work<img src="img/noun-arrow-1827114.svg"/></a>
+        </div>
+        <div class="about6 sections">
+            <h3>What's new</h3>
+            <p>
+                My first Framer template is now available! If you're a designer looking to 
+                showcase your work to the world, Bruce will help you take your work to new heights.
+            </p>
+            <a class="section-url" href="">Take a peak<img src="img/noun-arrow-1827114.svg"/></a>
+        </div>
+        <div class="about-image">
+            <img src="https://framerusercontent.com/images/u7HDUxBM4GMZXrLCXI9Qyn4OEg.jpg?scale-down-to=2048" alt="My-Studio">
+        </div>
+        <div class="about7 sections">
+            <p>
+                “Tommy is one of the best freelance designers we’ve worked with at Kernel. He works quickly, 
+                his communication is excellent and the output is always of the highest quality. <br/>
+                We couldn’t recommend him highly enough and we hope to keep working with Bryn on many projects in the future.”
             </p>
         </div>
-        <div class="item-3 sections">
-            <h3>How can I help you</h3>
-            <p>
-                Websites, landing pages, e-commerce, dashboard, and platforms. 
-                My goal is to design web interfaces that provide an exceptional user experience, 
-                taking care of every detail of usability and performance.
-                <br/>
-                <a class="section-url" href="">Get in touch<img src="img/noun-arrow-1827114.svg"/></a>
-            </p>
-        </div>
-        <div class="item-4 sections">
-            <h3>Stay in the loop</h3>
-            <p>
-                Get design insights and articles straight to your inbox.
-                <form>
-                    <input id="newsletter" type="text" placeholder="name.surname@email.com"></input>
-                    <label for="newsletter"></label>
-                </form>
-                <a id="signUp" href="">Sign Up</a>
-            </p> 
+        <div class="about8 sections">
+            <h3>Availability</h3>
+            <p>Occasionally taking freelance opportunities, so if you are looking to work with me, or just to chat, get in touch.</p>
+            <a class="section-url" href="">Get in touch<img src="img/noun-arrow-1827114.svg"/></a>
         </div>
     </div>
     <footer>
