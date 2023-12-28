@@ -1,3 +1,11 @@
+:root {
+
+    --h3-titles: rgba(255, 255, 255, .64);
+    --section-color: rgb(20, 20, 20);
+    --orangeJustice: rgb(251, 81, 0);
+    --LighterGray: rgb(43, 43, 43);
+}
+
 @font-face {
     font-family: 'satoshi';
     src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
@@ -59,7 +67,7 @@ transition: 0.4s;
 
 #navbar span {
 
-color: rgba(255, 255, 255, .64);
+color: var(--h3-titles);
 margin-left: 1rem;
 
 }
@@ -97,7 +105,7 @@ grid-area: mainImage;
 .section-url {
 
 text-decoration: none;
-color: rgb(238, 238, 238);
+color: rgb(255, 255, 255);
 display: block;
 padding-top: 2rem;
 transition: 0.5s;
@@ -121,7 +129,7 @@ a.section-url:hover img {
 
 div h3 {
 
-    color: rgba(255, 255, 255, .64);
+    color: var(--h3-titles);
     font-weight: normal;
     font-size: 1.3rem;
     margin-bottom: 8rem;
@@ -157,7 +165,7 @@ text-decoration: none;
 color: white;
 text-align: center;
 font-size: 1rem;
-background-color: rgb(251, 81, 0);
+background-color: var(--orangeJustice);
 padding: 0.8rem 6.5rem 0.8rem 5.5rem; 
 border-radius: 0.5rem;
 font-weight: bold;
@@ -168,7 +176,7 @@ input {
 
     padding: 0.9rem;
     padding-right: 5rem;
-    background-color: rgb(43, 43, 43);
+    background-color: var(--LighterGray);
     color: rgb(221, 221, 221);
     border: 0px;
     border-radius: 0.3rem;
@@ -183,7 +191,7 @@ form {
 
 footer {
 
-color: rgba(255, 255, 255, 0.64);
+color: var(--h3-titles);
 font-size: 0.9rem;
 float: right;
 padding: 1.2rem;
@@ -194,7 +202,7 @@ padding: 1.2rem;
 
     color: rgb(221, 221, 221);
     font-size: 1.4rem;
-    background-color: rgb(20, 20, 20);
+    background-color: var(--section-color);
     padding: 32px;
     
 }
@@ -264,11 +272,17 @@ padding: 1.2rem;
         text-align: center;
     }
 
-    #navbar ul li {
+    .navbar-container {
+        
+        display: flex;
+        justify-content: center;
+    }
 
-       background-color: red;
-       margin-left: 1rem;
-       margin-right: auto;
+    .hero-title {
+
+        font-size: 6rem;
+       text-align: center;
+        display: block;
     }
 
 
