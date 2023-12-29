@@ -77,7 +77,7 @@
 
         #about-grid-container {
 
-        grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        grid-template-columns: repeat(2,minmax(200px,1fr));
         grid-template-rows: repeat(2,min-content);
         grid-template-areas: 
 
@@ -94,6 +94,20 @@
         ;
         }
 
+        .about4 span {
+
+          display: block;
+        }
+
+    }
+
+    @media screen and (max-width: 37.5rem) {
+
+        #about-grid-container {
+
+            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+
+        }
     }
 
 
