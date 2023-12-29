@@ -37,7 +37,7 @@
     .about-image img {
 
         width: 100%;
-        height: 28rem;
+        height: 100%;
         display: block;
         object-fit: cover;
     }
@@ -45,6 +45,55 @@
     .about4 span {
 
         color: var(--h3-titles);
+    }
+
+    @media screen and (max-width: 75rem) {
+
+        .about-image img {  
+
+            max-height: 25rem;
+        }
+
+        #about-grid-container {
+
+        grid-template-columns: repeat(2,minmax(200px,1fr));
+        grid-template-rows: repeat(2,min-content);
+        grid-template-areas: 
+
+        "about1 about1"
+        "globe about3"
+        "about4 about4"
+        "about5 about6"
+        "about-image about-image"
+        "about7 about7"
+        "about8 about8"
+
+        ;
+        }
+
+    }
+
+    @media screen and (max-width: 50.625rem) {
+
+        #about-grid-container {
+
+        grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        grid-template-rows: repeat(2,min-content);
+        grid-template-areas: 
+
+        "about1 about1"
+        "globe globe"
+        "about3 about3"
+        "about4 about4"
+        "about5 about5"
+        "about6 about6"
+        "about-image about-image"
+        "about7 about7"
+        "about8 about8"
+
+        ;
+        }
+
     }
 
 
@@ -55,11 +104,11 @@
     <nav id="navbar">
         <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
         
-        <ul>
+        <ul class="navbar-container">
             <li><a href="">PODCAST</a></li>
             <li><a href="">BLOG</a></li>
             <li><a href="">CONTACT</a></li>
-            <li><a style="color: rgba(255, 255, 255, .64);" href="">ABOUT</a></li>
+            <li><a style="color: var(--h3-titles);" href="">ABOUT</a></li>
         </ul>
     </nav>
     <strong class="hero-title">About</strong>

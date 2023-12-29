@@ -15,6 +15,7 @@
 * {
 
     box-sizing: border-box;
+
 }
 
 body {
@@ -25,6 +26,7 @@ body {
     padding: 2rem;
     max-width: 90rem;
     margin: auto;
+
 }
 
 #navbar {
@@ -34,6 +36,7 @@ justify-content: space-between;
 align-items: center; /* to align the logo inside the flex continer */
 font-size: 0.85rem;
 margin-bottom: 10rem;
+outline: 1px solid red;
 
 }
 
@@ -132,7 +135,7 @@ div h3 {
     color: var(--h3-titles);
     font-weight: normal;
     font-size: 1.3rem;
-    margin-bottom: 8rem;
+
 }
 
 #grid-container {
@@ -203,8 +206,16 @@ padding: 1.2rem;
     color: rgb(221, 221, 221);
     font-size: 1.4rem;
     background-color: var(--section-color);
-    padding: 32px;
+    padding: 25px;
+    width: 100%;
+    overflow: hidden;
     
+    /**/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+   
 }
 
 @media screen and (max-width: 81.875rem) {
@@ -237,10 +248,7 @@ padding: 1.2rem;
     ;
     }
 
-    div h3 {
-
-        margin-bottom: 4rem;
-    }
+   
 
     .hero-title {
 
@@ -259,6 +267,12 @@ padding: 1.2rem;
 }
 
 @media screen and (max-width: 37.5rem) {
+
+    #grid-container {
+
+        grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); /* autofill prevents the grid elements from overflowing the grid container in smaller screens*/
+
+    }
     
     #navbar span {
 
@@ -280,8 +294,8 @@ padding: 1.2rem;
 
     .hero-title {
 
-        font-size: 6rem;
-       text-align: center;
+        font-size: 5rem;
+        text-align: center;
         display: block;
     }
 
