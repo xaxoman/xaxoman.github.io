@@ -39,7 +39,33 @@
         transition: 0.5s;
         color: var(--h3-titles);
     }
+
+    #Feedback {
+
+        color: var(--h3-titles);
+        width: 100%;
+        border: 0px;
+        border-radius: 0.3rem;
+        background-color: var(--LighterGray);
+        margin-bottom: 1.5rem;
+    }
+
     
+    
+    #ContactForm  {
+
+        width: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 24px;
+    }
+
+    #ContactForm input {
+
+        padding: 1.1rem;
+        
+       
+    }
     
 </style>
 <body>
@@ -58,18 +84,22 @@
     <div id="contact-grid-container">
        <div class="contact1 sections">
         <h3>Get in touch</h3>
-        <form>
-            <input id="newsletter" type="text" placeholder="Name"></input>
-            <label for="newsletter"></label>
+        <form id="ContactForm">
+            <!-- NAME -->
+            <input id="FirstName" type="text" placeholder="Name"></input>
+            <!-- EMAIL -->
+            <input autocomplete="on" id="email" type="email" placeholder="Email"></input>
         </form>
+        <textarea name="MessageForm" id="Feedback" maxlength="2000" name="Feedback" rows="10" cols="40" >
+        </textarea>
         <a id="signUp" href="">Send</a>
        </div>
        <div class="contact2 sections">
         <h3>Follow me</h3>
-        <a href="">LinkedIn</a>
-        <a href="">YouTube</a>
-        <a href="">Github</a>
-        <a href="">Telegram</a>
+        <a target="_blank" href="https://linkedin.com/in/dennis-xhafaj-b48a2528a">LinkedIn</a>
+        <a target="_blank" href="">YouTube</a>
+        <a target="_blank" href="https://github.com/xaxoman">Github</a>
+        <a target="_blank" href="">Telegram</a>
        </div>
        <div class="contact3 sections">
         <h3>Say hello</h3>
