@@ -50,6 +50,15 @@
         margin-bottom: 1.5rem;
     }
 
+    #Feedback::placeholder {
+
+        font-family: 'Satoshi';
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    
+
     
     
     #ContactForm  {
@@ -63,8 +72,47 @@
     #ContactForm input {
 
         padding: 1.1rem;
+    
+    }
+
+    @media screen and (max-width: 75rem) {
         
-       
+        #contact-grid-container {
+
+        
+        grid-template-areas: 
+
+        "contactForm contactForm"
+        "contact2 contact3"
+        "contact4 contact5"
+
+        ;
+
+        }
+    }
+
+    @media screen and (max-width: 50.625rem) {
+        
+        #contact-grid-container {
+
+        
+        grid-template-areas: 
+
+        "contactForm contactForm"
+        "contact2 contact2"
+        "contact3 contact3"
+        "contact4 contact4"
+        "contact5 contact5"
+
+        ;
+
+        }
+
+        #ContactForm  {
+        
+        grid-auto-flow: row; /* the name and email input in the form push each other in small screens */
+        
+        }
     }
     
 </style>
@@ -90,8 +138,7 @@
             <!-- EMAIL -->
             <input autocomplete="on" id="email" type="email" placeholder="Email"></input>
         </form>
-        <textarea name="MessageForm" id="Feedback" maxlength="2000" name="Feedback" rows="10" cols="40" >
-        </textarea>
+        <textarea placeholder="Message" id="Feedback" maxlength="2000" name="Feedback" rows="10" cols="40"></textarea>
         <a id="signUp" href="">Send</a>
        </div>
        <div class="contact2 sections">
@@ -123,7 +170,7 @@
         <p>
             Get design insights and articles straight to your inbox.
             <form>
-                <input id="newsletter" type="text" placeholder="example@email.com"></input>
+                <input id="newsletter" autocomplete="on" type="email" placeholder="example@email.com"></input>
                 <label for="newsletter"></label>
             </form>
             <a id="signUp" href="">Sign Up</a>
