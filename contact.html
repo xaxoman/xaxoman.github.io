@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script href="main.js"></script>
+    <title>Dennis Xhafaj - Contact</title>
+</head>
+<style>
+    #contact-grid-container {
+
+        display: grid;
+        gap: 2rem;
+        grid-template-areas: 
+        
+        "contactForm contactForm contact2"
+        "contact3 contact4 contact5"
+
+        ;
+
+    }
+
+    .contact1 {grid-area: contactForm;} 
+    .contact2 {grid-area: contact2;}
+    .contact3 {grid-area: contact3;}
+    .contact4 {grid-area: contact4;}
+    .contact5 {grid-area: contact5;}
+
+    .contact2 a {
+
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .contact2 a:hover {
+
+        transition: 0.5s;
+        color: var(--h3-titles);
+    }
+    
+    
+</style>
+<body>
+
+    <nav id="navbar">
+        <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
+        
+        <ul class="navbar-container">
+            <li><a href="podcast.html">PODCAST</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a style="color: var(--h3-titles);" href="contact.html">CONTACT</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+    <strong class="hero-title">Contact</strong>
+    <div id="contact-grid-container">
+       <div class="contact1 sections">
+        <h3>Get in touch</h3>
+        <form>
+            <input id="newsletter" type="text" placeholder="Name"></input>
+            <label for="newsletter"></label>
+        </form>
+        <a id="signUp" href="">Send</a>
+       </div>
+       <div class="contact2 sections">
+        <h3>Follow me</h3>
+        <a href="">LinkedIn</a>
+        <a href="">YouTube</a>
+        <a href="">Github</a>
+        <a href="">Telegram</a>
+       </div>
+       <div class="contact3 sections">
+        <h3>Say hello</h3>
+        <p>
+            Want to talk about how much you love design? 
+            Want to discuss partnership opportunities? 
+            Just drop me an email.
+        </p>
+        <a class="section-url" href="">Send a message<img src="img/noun-arrow-1827114.svg"/></a>
+       </div>
+       <div class="contact4 sections">
+        <h3>Schedule a call</h3>
+        <p>
+            Do you want schedule a call to talk about your project? 
+            I'd love to meet you and get a first impression of your project.
+        </p>
+        <a class="section-url" href="">Book a call<img src="img/noun-arrow-1827114.svg"/></a>
+       </div>
+       <div class="contact5 sections">
+        <h3>Stay in the loop</h3>
+        <p>
+            Get design insights and articles straight to your inbox.
+            <form>
+                <input id="newsletter" type="text" placeholder="example@email.com"></input>
+                <label for="newsletter"></label>
+            </form>
+            <a id="signUp" href="">Sign Up</a>
+        </p> 
+       </div>
+    </div>
+    <footer>
+        <p>&copy;2023 DENNIS XHAFAJ.</p>
+    </footer>
+</body>
+</html>
