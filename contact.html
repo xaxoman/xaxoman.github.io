@@ -56,10 +56,7 @@
         padding: 1rem;
         font-size: 1.2rem;
     }
-
-    
-
-    
+        
     
     #ContactForm  {
 
@@ -73,6 +70,12 @@
 
         padding: 1.1rem;
     
+    }
+    input[type="text"]:invalid,
+    input[type="email"]:invalid,
+    #Feedback:invalid {
+           
+        border: 1px solid red;
     }
 
     @media screen and (max-width: 75rem) {
@@ -134,12 +137,12 @@
         <h3>Get in touch</h3>
         <form id="ContactForm">
             <!-- NAME -->
-            <input id="FirstName" type="text" placeholder="Name"></input>
+            <input id="FirstName" type="text" placeholder="Name" required></input>
             <!-- EMAIL -->
-            <input autocomplete="on" id="email" type="email" placeholder="Email"></input>
+            <input autocomplete="on" id="email" type="email" placeholder="Email" required></input>
         </form>
-        <textarea placeholder="Message" id="Feedback" maxlength="2000" name="Feedback" rows="10" cols="40"></textarea>
-        <a id="signUp" href="">Send</a>
+        <textarea placeholder="Message" id="Feedback" maxlength="2000" name="Feedback" rows="10" cols="40" required></textarea>
+        <input style="cursor: pointer;" id="signUp" type="submit" value="Send">
        </div>
        <div class="contact2 sections">
         <h3>Follow me</h3>
