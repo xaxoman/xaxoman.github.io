@@ -4,15 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script href="main.js"></script>
+    <script defer src="main.js"></script>
     <title>Dennis Xhafaj - Blog</title>
 </head>
 <style>
-    #blog-grid-container { /* DA CAMBIARE, E' DIFFICILE DA FARE CON AREAS */
 
-        display: grid;
+    .blog {
+
+        background-image: linear-gradient(rgb(23, 24, 25), rgb(13, 14, 14));
+        border-radius: 0.5rem;
+        display: flex;
+        max-height: 20rem;
+        overflow: hidden;
+        margin-bottom: 2.5rem;
         
+       
     }
+    
+
+    .blog span:nth-child(1) {
+
+        color: var(--orangeJustice);
+   
+    }
+
+    .blog img {
+
+        width: 60%;
+        max-height: 100%;
+        object-fit: cover;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        justify-content: center;
+        align-self: stretch;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .blog p {
+
+        color: var(--h3-titles);
+    }
+
+    .blogText {
+
+        width: 40%;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        flex: 0 auto;
+        align-self: stretch;
+        padding: 32px;
+        justify-content: space-between;
+    }
+
+    
 </style>
 <body>
 
@@ -27,21 +73,79 @@
         </ul>
     </nav>
     <strong class="hero-title">Blog</strong>
-    <div id="blog-grid-container">
-        <div class="blogCard1">
-            <h3>Name</h3><span>30/12/2023</span>
-            <img src="" alt="BlogImage">
+    <div id="blog-container">
+        <div class="blog hidden">
+            <div class="blogText">
+                <span>Category</span>
+            <h2>Title</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit minus cum sit enim facere vero, 
                 veniam provident saepe culpa soluta quas error nam vitae, rerum voluptatum perspiciatis? Ea, quo provident?
             </p>
-            <a href="">Read More</a>
+            <span>December 1, 2023</span>
+            </div>
+            <img src="https://www.ictpower.it/wp-content/uploads/2016/10/NMAP.png" alt="BlogImage">   
         </div>
-        <div class="blogCard2"></div>
-        <div class="blogCard3"></div>
-        <div class="blogCard4"></div>
-        <div class="blogCard5"></div>
-        <div class="blogCard6"></div>
+        <div class="blog hidden">
+            <div class="blogText">
+                <span>Category</span>
+            <h2>Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit minus cum sit enim facere vero, 
+                veniam provident saepe culpa soluta quas error nam vitae, rerum voluptatum perspiciatis? Ea, quo provident?
+            </p>
+            <span>December 1, 2023</span>
+            </div>
+            <img src="https://www.ictpower.it/wp-content/uploads/2016/10/NMAP.png" alt="BlogImage">   
+        </div>
+        <div class="blog hidden">
+            <div class="blogText">
+                <span>Category</span>
+            <h2>Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit minus cum sit enim facere vero, 
+                veniam provident saepe culpa soluta quas error nam vitae, rerum voluptatum perspiciatis? Ea, quo provident?
+            </p>
+            <span>December 1, 2023</span>
+            </div>
+            <img src="https://www.ictpower.it/wp-content/uploads/2016/10/NMAP.png" alt="BlogImage">   
+        </div>
+        <div class="blog hidden">
+            <div class="blogText">
+                <span>Category</span>
+            <h2>Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit minus cum sit enim facere vero, 
+                veniam provident saepe culpa soluta quas error nam vitae, rerum voluptatum perspiciatis? Ea, quo provident?
+            </p>
+            <span>December 1, 2023</span>
+            </div>
+            <img src="https://www.ictpower.it/wp-content/uploads/2016/10/NMAP.png" alt="BlogImage">   
+        </div>
+        <div class="blog hidden">
+            <div class="blogText">
+                <span>Category</span>
+            <h2>Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit minus cum sit enim facere vero, 
+                veniam provident saepe culpa soluta quas error nam vitae, rerum voluptatum perspiciatis? Ea, quo provident?
+            </p>
+            <span>December 1, 2023</span>
+            </div>
+            <img src="https://www.ictpower.it/wp-content/uploads/2016/10/NMAP.png" alt="BlogImage">   
+        </div>
+        <div class="blog hidden">
+            <div class="blogText">
+                <span>Category</span>
+            <h2>Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit minus cum sit enim facere vero, 
+                veniam provident saepe culpa soluta quas error nam vitae, rerum voluptatum perspiciatis? Ea, quo provident?
+            </p>
+            <span>December 1, 2023</span>
+            </div>
+            <img src="https://www.ictpower.it/wp-content/uploads/2016/10/NMAP.png" alt="BlogImage">   
+        </div>
     </div>
     <footer>
         <p>&copy;2023 DENNIS XHAFAJ.</p>

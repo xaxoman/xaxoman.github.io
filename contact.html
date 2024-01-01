@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script href="main.js"></script>
+    <script defer src="main.js"></script>
     <title>Dennis Xhafaj - Contact</title>
 </head>
 <style>
@@ -137,11 +137,11 @@
         <h3>Get in touch</h3>
         <form id="ContactForm">
             <!-- NAME -->
-            <input id="FirstName" type="text" placeholder="Name" required></input>
+            <input id="FirstName" minlength="3" type="text" placeholder="Name" required></input>
             <!-- EMAIL -->
             <input autocomplete="on" id="email" type="email" placeholder="Email" required></input>
         </form>
-        <textarea placeholder="Message" id="Feedback" maxlength="2000" name="Feedback" rows="10" cols="40" required></textarea>
+        <textarea placeholder="Message" id="Feedback"  maxlength="1500" name="Feedback" rows="10" cols="40" required></textarea>
         <input style="cursor: pointer;" id="signUp" type="submit" value="Send">
        </div>
        <div class="contact2 sections">
