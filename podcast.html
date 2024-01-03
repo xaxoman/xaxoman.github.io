@@ -7,7 +7,46 @@
     <script defer src="main.js"></script>
     <title>Dennis Xhafaj - Podcast</title>
 </head>
+<style>
 
+    .SubscribePod {
+
+        display: flex;
+       
+    }
+
+    .SubscribePod div {
+
+        background-color: rgba(92, 92, 92, 0.651);
+        border-radius: 0.8rem;
+        margin-right: 0.5rem;
+        padding: 0.3rem;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+    }
+
+    .SubscribePod div:hover {
+
+        background-color: rgba(134, 134, 134, 0.651);
+        transition: 0.5s;
+    }
+
+    .SubscribePod a {
+
+        text-decoration: none;
+        color: var(--Sections);
+        padding: 0.5rem;
+    
+    }
+
+    .SubscribePod img {
+
+        max-width: 100%;
+        width: 2rem;
+
+    }
+</style>
 <body>
 
     <nav id="navbar">
@@ -21,60 +60,28 @@
         </ul>
     </nav>
     <strong class="hero-title">Podcast</strong>
-    <div id="grid-container">
-        <img class="hero-image" src="https://framerusercontent.com/images/ZRn6yoJa88FV8It4Ho5NZpDmzek.jpg?scale-down-to=2048" alt="random">
-        <div class="about-1 sections">
-            <h3>Welcome</h3>
-                <p>
-                    Nice to meet you! I am a freelance designer and art director currently living in Berlin. 
-                    I have solid experience from a background in UX and UI in start ups and scale ups in Europe. 
-                </p>
-                <p>
-                    I have a broad skillset – ranging from digital design to graphic design and 3d renderings and much, much more.
-                </p>
-        </div>
-        <div class="about-2 sections">
-            <h3>Who I Am</h3>
-                <p>
-                    I'm a designer, maker, nomad, and coffee lover obsessed with the world of digital
-                    <br/>
-                    <a class="section-url" href="">Know more <img src="img/noun-arrow-1827114.svg"/></a>
-                </p>    
-        </div>
-        <div class="work-section sections">
-            <h3>Latest Work</h3>
-            <div class="image-container"> 
-                <img src="https://framerusercontent.com/images/HkloQOPycvVEvaKPKVlHn4GEkw.png?scale-down-to=2048" alt="">
-                <img src="https://framerusercontent.com/images/NCDa2CkdMRBFMH5d7LDZOdb4ug.png?scale-down-to=1024" alt="">
-                <img src="https://framerusercontent.com/images/Br4NtDqJMHrhoARrJyc4F25uNC4.png?scale-down-to=512" alt="">
+    <div id="Podcast">
+        <h2>Subscribe on your favorite platform</h2>
+        <div class="SubscribePod">
+             <div>
+                <img src="img/podcasts.svg" alt="">
+                <a href="">Apple Podcasts</a>
+             </div>
+
+             <div>
+                <img src="img/google-podcasts.svg" alt="">
+             <a href="">Google</a>
+             </div>
+
+             <div>
+                <img src="img/spotify.svg" alt="">
+             <a href="">Spotify</a>
+             </div>
+             
+            <div>
+                <img src="img/youtube.svg" alt="">
+                <a href="">YouTube</a>
             </div>
-            <p>
-                Since Amazon introduced one-day delivery to the mainstream, we’ve got used to the convenience of overnight shipping. 
-                Flexing a pair of new kicks you’ve ordered last night is not a utopia, but the everyday reality of urban life.‍
-                <br/>
-                <a class="section-url" href="">Have a look <img src="img/noun-arrow-1827114.svg"/></a>
-            </p>
-        </div>
-        <div class="contact-1 sections">
-            <h3>How can I help you</h3>
-            <p>
-                Websites, landing pages, e-commerce, dashboard, and platforms. 
-                My goal is to design web interfaces that provide an exceptional user experience, 
-                taking care of every detail of usability and performance.
-                <br/>
-                <a class="section-url" href="">Get in touch<img src="img/noun-arrow-1827114.svg"/></a>
-            </p>
-        </div>
-        <div class="contact-2 sections">
-            <h3>Stay in the loop</h3>
-            <p>
-                Get design insights and articles straight to your inbox.
-                <form>
-                    <input id="newsletter" type="text" placeholder="example@email.com"></input>
-                    <label for="newsletter"></label>
-                </form>
-                <a id="signUp" href="">Sign Up</a>
-            </p> 
         </div>
     </div>
     <footer>

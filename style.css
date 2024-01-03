@@ -4,6 +4,7 @@
     --section-color: rgb(20, 20, 20);
     --orangeJustice: rgb(251, 81, 0);
     --LighterGray: rgb(43, 43, 43);
+    --Sections:  rgb(221, 221, 221);
 }
 
 /* Fade in transitions (look at the main js)*/
@@ -228,7 +229,7 @@ padding: 1.2rem;
 
 .sections {
 
-    color: rgb(221, 221, 221);
+    color: var(--Sections);
     font-size: 1.4rem;
     background-color: var(--section-color);
     padding: 25px;
