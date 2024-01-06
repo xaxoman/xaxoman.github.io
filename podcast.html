@@ -9,11 +9,48 @@
 </head>
 <style>
 
+
+    #Podcast-container {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .spacer {
+
+        max-width: 7rem;
+         flex-basis: 7rem;
+    }
+
+    .PodCover {
+
+        max-width: 100%;
+        object-fit: cover;
+        height: auto;
+        width: 25rem;
+        
+    }
+
     .SubscribePod {
 
         display: flex;
        
     }
+
+    .PodIntroduction h1 {
+
+        font-size: 3rem;
+    }
+
+    .PodIntroduction p {
+
+        max-width: 35rem;
+        font-size: 1.1rem;
+    }
+
+   
 
     .SubscribePod div {
 
@@ -36,15 +73,20 @@
 
         text-decoration: none;
         color: var(--Sections);
-        padding: 0.5rem;
+        padding: 0.3rem; 
     
     }
 
     .SubscribePod img {
 
         max-width: 100%;
-        width: 2rem;
+        width: 1.5rem;
 
+    }
+
+    #navbar {
+
+        margin-bottom: 4rem;
     }
 </style>
 <body>
@@ -59,28 +101,39 @@
             <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
-    <strong class="hero-title">Podcast</strong>
-    <div id="Podcast">
-        <h2>Subscribe on your favorite platform</h2>
-        <div class="SubscribePod">
-             <div>
-                <img src="img/podcasts.svg" alt="">
-                <a href="">Apple Podcasts</a>
-             </div>
+    <div id="Podcast-container">
+        <!--ITEM 1-->
+        <div>
+            <img class="PodCover" src="img/PodcastCover.png" alt="">
+        </div>
+        <!-- SPACER -->
+        <div class="spacer"></div>
+         <!--ITEM 2-->
+        <div class="PodIntroduction">
+            <h1>The <span>Online Jungle</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, praesentium laudantium? Quas officia ullam assumenda. Necessitatibus totam, temporibus fugiat voluptatum, maiores nisi aut neque iste, quis eos fuga. Non, incidunt?</p>     
+            <h2>Subscribe on your favorite platform</h2>
 
-             <div>
-                <img src="img/google-podcasts.svg" alt="">
-             <a href="">Google</a>
-             </div>
+            <div class="SubscribePod">
+                <div>
+                    <img src="img/podcasts.svg" alt="Apple Podcasts">
+                    <a href="">Apple Podcasts</a>
+                </div>
 
-             <div>
-                <img src="img/spotify.svg" alt="">
-             <a href="">Spotify</a>
-             </div>
-             
-            <div>
-                <img src="img/youtube.svg" alt="">
-                <a href="">YouTube</a>
+                <div>
+                    <img src="img/google-podcasts.svg" alt="Google podcasts">
+                <a href="">Google</a>
+                </div>
+
+                <div>
+                    <img src="img/spotify.svg" alt="Spotify">
+                <a href="">Spotify</a>
+                </div>
+                
+                <div>
+                    <img src="img/youtube.svg" alt="YouTube">
+                    <a href="">YouTube</a>
+                </div>
             </div>
         </div>
     </div>
