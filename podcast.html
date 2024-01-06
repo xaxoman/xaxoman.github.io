@@ -48,9 +48,10 @@
 
         max-width: 35rem;
         font-size: 1.1rem;
+       
     }
 
-   
+
 
     .SubscribePod div {
 
@@ -87,6 +88,36 @@
     #navbar {
 
         margin-bottom: 4rem;
+    }
+
+    @media screen and (max-width: 60rem) {
+        
+        #Podcast-container {
+
+        flex-direction: column;
+        
+        }
+
+        .spacer {
+
+        max-width: 3rem;
+        flex-basis: 3rem;
+        }        
+
+    }
+
+    @media screen and (max-width: 33.438rem) {
+        
+        .SubscribePod  {
+
+            flex-wrap: wrap;
+        }
+
+        .SubscribePod div {
+
+            margin-top: 1rem;
+        }
+
     }
 </style>
 <body>
@@ -137,6 +168,9 @@
             </div>
         </div>
     </div>
+    <section class="Podcast-Episodes">
+
+    </section>
     <footer>
         <p>&copy;2023 DENNIS XHAFAJ.</p>
     </footer>

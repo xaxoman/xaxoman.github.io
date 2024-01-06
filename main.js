@@ -17,10 +17,10 @@ const observer = new IntersectionObserver((entries) => {
       
       }
       
-      else {   /* To apply the class multiple times if the condition is true */ 
+    /*  else {   // To apply the class multiple times if the condition is true 
   
               entry.target.classList.remove('show');
-      }
+      } */
     });
   });
   
