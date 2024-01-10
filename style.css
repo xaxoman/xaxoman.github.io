@@ -22,6 +22,15 @@
     opacity: 1;
 }
 
+/* Transition delay */
+
+.delay150 { transition-delay: 150ms;}
+.delay200 { transition-delay: 200ms;}
+.delay250 { transition-delay: 250ms;}
+.delay300 { transition-delay: 300ms;}
+.delay350 { transition-delay: 350ms;}
+
+
 @font-face {
     font-family: 'satoshi';
     src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
@@ -112,15 +121,7 @@ grid-area: mainImage;
 }
 
 
-.work-section img {
-    
-    width: 25rem;
-    height: 18rem;
-    object-fit: cover;
-    padding-right: 1rem;
-    
-    
-}
+
 
 .section-url {
 
@@ -166,7 +167,7 @@ div h3 {
     
         "mainImage mainImage mainImage"
         "about about aboutSmall"
-        "work work work"
+        "blog1 blog2 blog3"
         "contact contact contactSmall"
     ;
 }
@@ -175,7 +176,22 @@ div h3 {
 .about-2 {grid-area: aboutSmall;}
 .contact-1 {grid-area: contact;}
 .contact-2 {grid-area: contactSmall;}
-.work-section {grid-area: work;}
+.blog-section a:nth-of-type(1) {grid-area: blog1;}
+.blog-section a:nth-of-type(2) {grid-area: blog2;}
+.blog-section a:nth-of-type(3) {grid-area: blog3;}
+
+/* Latest Blog articles */
+
+
+.blog-section img {
+
+    max-width: 100%;
+    width: 30rem;
+    height: 100%;
+    border-radius: 0.3rem;
+}
+
+
 
 /* newsletter */
 
@@ -268,13 +284,11 @@ padding: 1.2rem;
         "mainImage mainImage mainImage"
         "about about about"
         "aboutSmall aboutSmall aboutSmall"
-        "work work work"
+        "blog blog blog"
         "contact contact contact"
         "contactSmall contactSmall contactSmall"
     ;
     }
-
-   
 
     .hero-title {
 
@@ -324,6 +338,11 @@ padding: 1.2rem;
         font-size: 5rem;
         text-align: center;
         display: block;
+    }
+
+    body {
+
+        padding: 1rem;
     }
 
 
