@@ -72,11 +72,24 @@
             <p>
                 I post about usefull material and new technologies that i find interesting to share
             </p>
-                <form>
-                    <input id="newsletter" autocomplete="on" type="email" placeholder="Enter your email"></input>
-                    <label for="newsletter"></label>
-                </form>
-                <a id="signUp" href="">Sign Up</a> 
+            <!-- CUSTOM NEWSLETTER FORM -->
+            <div id="custom-substack-embed"></div>
+            <script>
+              window.CustomSubstackWidget = {
+                substackUrl: "xhafajdennis.substack.com",
+                placeholder: "Enter your email",
+                buttonText: "Subscribe",
+                theme: "custom",
+                colors: {
+                  primary: "#FB5100",
+                  input: "#B8000000",
+                  email: "#FFFFFF",
+                  text: "#FFFFFF",
+                },
+            
+              };
+            </script>
+            <script src="https://substackapi.com/widget.js" async></script>
         </div>
     </div>
     <footer>
