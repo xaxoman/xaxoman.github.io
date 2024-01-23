@@ -1,11 +1,4 @@
-/* 
-   Spinning Globe for the about section
-   original repo: https://github.com/shuding/cobe
-*/
 
-
-
-/* GLOBE END*/ 
 
 // Website transitions on scroll using intersection observer
 
