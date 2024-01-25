@@ -17,7 +17,53 @@
      <meta property="og:image" content="https://albaniancoder.pages.dev/img/HeroImageIndex.png" />
     <title>404 error</title>
 </head>
+<style>
 
+    .message-404 strong{
+
+        font-size: 12rem;
+        text-align: center;
+        display: block;
+    }
+
+    .message-404 p {
+
+        text-align: center;
+        font-size: 1.2rem;
+        max-width: 50rem;
+        color: var(--Sections);
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    }
+
+    .message-404 a {
+
+        margin: 0 auto;
+        display: block;
+        text-decoration: none;
+        color: white;
+        width: fit-content;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        background-color: var(--orangeJustice);
+        transition: 0.5s;
+    }
+
+    .message-404 a:hover {
+
+        box-shadow: 0.05rem 0.05rem 1rem var(--orangeJustice);
+        transform: translateY(-0.5rem);
+        transition: 0.5s;
+    }
+
+    #navbar {
+
+        margin-bottom: 5rem;
+    }
+</style>
 <body>
 
     <nav id="navbar">
@@ -30,7 +76,15 @@
             <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
-    <h1>404 Error</h1>
+   <div class="message-404">
+        <strong>404 Error</strong>
+        <p>
+            It looks like you entered an invalid address, try to check if there are any typos in the url, 
+            if it's correct maybe the page was deleted or moved to another part of the website,<br/>hope you find 
+            what you're looking for!
+        </p>
+        <a href="index.html">Go back home</a>
+   </div>
     <footer>
         <p>&copy; 2023-<script>document.write(new Date().getFullYear())</script> DENNIS XHAFAJ, All Rights Reserved.</p>
     </footer>
