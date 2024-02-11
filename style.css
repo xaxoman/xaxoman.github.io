@@ -97,10 +97,31 @@ margin-left: 1rem;
 
 }
 
+/* keyframes for the greeting word animation in the home page */
+
+@keyframes changeGreeting {
+   
+    from {
+
+        opacity: 0;
+        transform: translateY(-3rem);
+        filter: blur(0.1rem);
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0rem);
+        filter: blur(0rem);
+    }
+}
+
 .hero-title {
 
 font-size: 14rem;
 font-weight: bolder;
+display: block;
+animation: changeGreeting 2s infinite;
 
 
 

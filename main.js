@@ -1,4 +1,20 @@
 
+// Greeting word animation in the home page
+
+const greetings = ["Ciao.", "Hello.", "Hola.", "Salut.","مرحبًا", "你好",]; 
+const greetingElement = document.querySelector('.hero-title');
+
+let currentIndex = 0;
+
+function changeGreeting() {
+    currentIndex = (currentIndex + 1) % greetings.length;
+    greetingElement.textContent = greetings[currentIndex];
+}
+
+// Change greeting time in seconds
+setInterval(changeGreeting, 2000);
+
+
 
 // Website transitions on scroll using intersection observer
 
