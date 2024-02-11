@@ -2,7 +2,7 @@
 // Greeting word animation in the home page
 
 const greetings = ["Ciao.", "Hello.", "Hola.", "Salut.","مرحبًا", "你好",]; 
-const greetingElement = document.querySelector('.hero-title');
+const greetingElement = document.querySelector('.movingTitle');
 
 let currentIndex = 0;
 

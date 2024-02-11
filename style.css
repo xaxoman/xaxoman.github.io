@@ -97,6 +97,8 @@ margin-left: 1rem;
 
 }
 
+
+
 /* keyframes for the greeting word animation in the home page */
 
 @keyframes changeGreeting {
@@ -116,15 +118,19 @@ margin-left: 1rem;
     }
 }
 
-.hero-title {
+.movingTitle {
 
 font-size: 14rem;
 font-weight: bolder;
 display: block;
 animation: changeGreeting 2s infinite;
 
+}
 
+.hero-title {
 
+    font-size: 14rem;
+    font-weight: bolder;
 }
 
 
