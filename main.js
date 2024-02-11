@@ -1,3 +1,29 @@
+// Contact form (using the smtp js library)
+
+/* const form = document.querySelector('form');
+
+function sendEmail() {
+
+    Email.send({
+      Host : "smtp.elasticemail.com",
+      Username : "dennisx.fjdv8@silomails.com",
+      Password : ".",
+      To : 'dennisx.fjdv8@silomails.com',
+      From : "dennisx.fjdv8@silomails.com",
+      Subject : "This is the subject",
+      Body : "And this is the body"
+  }).then(
+    message => alert(message)
+  );
+}
+
+form.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    sendEmail();
+}); */
+
 
 // Greeting word animation in the home page
 
