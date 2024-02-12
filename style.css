@@ -321,7 +321,12 @@ padding: 1.2rem;
 
     font-size: 9rem;
    
+    }
 
+    .movingTitle {
+
+        font-size: 9rem;
+       
     }
 
     .hero-image {
@@ -361,6 +366,13 @@ padding: 1.2rem;
     }
 
     .hero-title {
+
+        font-size: 5rem;
+        text-align: center;
+        display: block;
+    }
+
+    .movingTitle {
 
         font-size: 5rem;
         text-align: center;

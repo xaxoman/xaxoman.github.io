@@ -125,10 +125,9 @@
 
         }
 
-        #ContactForm  {
-        
-        grid-auto-flow: row; /* the name and email input in the form push each other in small screens */
-        
+        .grid-clear {
+
+            grid-auto-flow: row;
         }
 
         .contact2 img {
@@ -170,6 +169,8 @@
              <input autocomplete="on" id="email" name="email" type="email" placeholder="Email" required></input>
            </div>
             <textarea placeholder="Message" id="Feedback"  maxlength="1500" name="message" rows="10" cols="40" required></textarea>
+            <!-- for preventing spam -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             <button style="cursor: pointer; border: 0;" id="signUp" type="submit">Send</button>
         </form>
        
