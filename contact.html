@@ -160,19 +160,43 @@
         <h3>Get in touch</h3>
         <!-- Web3 form script-->
         <script src="https://web3forms.com/client/script.js" async defer></script>
-        <form action="https://api.web3forms.com/submit" method="POST" id="ContactForm">
+        <!-- the validatForm function checks if a certain domain is inside my blocklist, this prevents temp mails from sending messages-->
+        <form action="https://api.web3forms.com/submit" method="POST" id="ContactForm" onsubmit="return validateForm()">
+
             <input type="hidden" name="access_key" value="dcb39c5a-4bb5-4ae3-8108-449c261f52cc">
+
            <div class="grid-clear">
              <!-- NAME -->
              <input id="FirstName" minlength="3" name="name" type="text" placeholder="Name" required></input>
              <!-- EMAIL -->
              <input autocomplete="on" id="email" name="email" type="email" placeholder="Email" required></input>
            </div>
+
             <textarea placeholder="Message" id="Feedback"  maxlength="1500" name="message" rows="10" cols="40" required></textarea>
             <!-- for preventing spam -->
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             <button style="cursor: pointer; border: 0;" id="signUp" type="submit">Send</button>
+            <!-- Custom redirect for sucessful message-->
+            <input type="hidden" name="redirect" value="https://albaniancoder.pages.dev/formsubmit">
+
         </form>
+        <script>
+            function validateForm() {
+                var emailInput = document.getElementById("email").value;
+                // List of allowed domains
+                var allowedDomains = ["gmail.com", "gmail.it", "yahoo.com", "outlook.com", "hotmail.com", "icloud.com", "yandex.com", "protonmail.com", "aol.com", "live.com", "tutanota.com"]; // Add your allowed domains here
+                // Extract domain from email
+                var domain = emailInput.split("@")[1];
+                
+                // Check if the domain is in the allowed list
+                if (!allowedDomains.includes(domain)) {
+                    alert("Only certain domains are allowed for email addresses. If you think this is an error contact me at dennisx.fjdv8@silomails.com");
+                    return false; // Prevent form submission
+                }
+                
+                return true; // Allow form submission
+            }
+        </script>
        
        </div>
        <div class="contact2 sections">
