@@ -1,5 +1,4 @@
 
-
 // Website transitions on scroll using intersection observer
 
 const observer = new IntersectionObserver((entries) => {
