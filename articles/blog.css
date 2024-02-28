@@ -1,0 +1,111 @@
+#navbar {
+
+    margin-bottom: 6rem;
+}
+
+
+article {
+
+max-width: 70% !important;
+margin: 0 auto !important;
+}
+
+.main-category {
+    text-decoration: none;
+    color: var(--orangeJustice);
+    background-color: rgb(19, 19, 19);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.05rem solid rgb(187, 89, 10);
+    font-weight: bold;
+    letter-spacing: 0.09rem;
+    margin-bottom: -1rem;
+    display: block;
+    width: fit-content;
+}
+
+.main-title {
+
+    text-align: left;
+    font-size: 3rem;
+}
+
+.main-image {
+
+    width: 100%;
+    height: 35rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.main-description {
+
+    color: rgb(187, 187, 187);
+    font-size: 1.125rem;
+    text-align: justify;
+    max-width: 55rem;
+    margin-bottom: 2rem;
+}
+
+
+.newsletter-promo {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 58.75rem;
+    height: 28.125rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    margin: 0 auto;
+
+}
+
+
+.newsletter-promo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('orange-4.jpg'); /* background image for thw newsletter promo*/
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.newsletter-promo img {
+  position: absolute;
+  width: 58.75rem;
+  height: 28.125rem;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  z-index: -2;
+  
+}
+
+.newsletter-promo p {
+    color: rgb(255, 248, 237);
+    max-width: 30rem;
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.newsletter-promo h2 {
+
+   font-size: 2rem;
+}
+
+.newsletter-promo h2, p {
+
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.274);
+}
+
+
