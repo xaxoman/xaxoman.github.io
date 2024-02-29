@@ -109,3 +109,19 @@ margin: 0 auto !important;
 }
 
 
+@media screen and (max-width: 61.875rem) {
+    
+    .newsletter-promo {
+
+        width: auto !important;
+        height: 28.125rem;
+    
+    }
+
+    .newsletter-promo img {
+       
+        width: auto !important;
+        height: 28.125rem;
+        
+      }
+}
