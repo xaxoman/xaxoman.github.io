@@ -109,19 +109,55 @@ margin: 0 auto !important;
 }
 
 
-@media screen and (max-width: 61.875rem) {
+@media screen and (max-width: 61.875rem) { 
     
     .newsletter-promo {
-
         width: auto !important;
-        height: 28.125rem;
+        height: 28.125rem;  
+
+    }
+}
+
+@media screen and (max-width: 45rem) {
     
+    article {
+
+        max-width: 90% !important;
     }
 
-    .newsletter-promo img {
-       
-        width: auto !important;
-        height: 28.125rem;
-        
-      }
+    .main-title {
+
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 31.25rem) {
+
+    article {
+
+        max-width: 95% !important;
+    }
+
+    
+    .newsletter-promo p {
+
+        max-width: 20rem;
+        font-size: 0.9rem;
+    }
+    
+    .newsletter-promo h2 {
+    
+       font-size: 1.5rem;
+    }
+
+    .newsletter-promo {
+      
+        height: 22.125rem;  
+
+    }
+
+    #custom-substack-embed {
+
+        width: 17rem;
+    }
 }
