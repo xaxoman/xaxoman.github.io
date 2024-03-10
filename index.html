@@ -23,9 +23,195 @@
     </script>
     <title>Dennis Xhafaj - Home</title>
 </head>
+<style>
+  
 
+.hero-section {
+
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   justify-content: center;
+   padding: 87px 0;
+   /* text styling */
+   text-align: center;
+   font-size: 2rem;
+   animation: changeGreeting 2s ;
+}
+
+.movingTitle {
+
+   color: white;
+   animation: changeGreeting 2s infinite;
+}
+
+
+
+
+.blog-section a {
+
+   text-decoration: none;
+}
+
+
+.blog-section {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr)); /* Adjusted width */
+   grid-gap: 30px;
+   margin-bottom: 2rem;
+}
+
+.blog-section img {
+   
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 0.5rem;
+   transition: 0.5s;
+
+}
+
+.blog-section img:hover {
+   
+   filter: brightness(0.6);
+   transition: 0.5s;
+}
+
+.hero-section p {
+
+   text-align: center;
+   display: block;
+   color:  rgba(255, 255, 255, 0.6);
+   font-size: 17px;
+   max-width: 900px;
+   margin-top: -1rem;
+   margin-bottom: 2rem;
+}
+
+.blog-hover-animation h2{
+
+   color:rgb(255, 255, 255);
+   font-size: 1.3rem;
+}
+
+.blog-hover-animation p, span{
+
+   color: rgba(255, 255, 255, 0.6);
+   display: inline-block;
+   margin-right: 1rem;
+   margin-top: -0.1rem;
+}
+
+.blog-hover-animation p {
+
+   text-decoration: none;
+   background-color: transparent;
+   padding: 8px 17px;
+   border-radius: 21px;
+   border: 0.05rem solid  rgba(255, 255, 255, 0.6);
+   letter-spacing: 0.09rem;
+ ;
+   width: fit-content;
+}
+
+.general-link {
+
+   color: white;
+   text-decoration: none;
+   font-size: 1.1rem;
+   font-family:  "Inter-Bold", "Inter", "Inter Placeholder", sans-serif;
+   background-image: linear-gradient(rgb(23, 24, 25), rgb(13, 14, 14));
+   border-radius: 21px;
+   padding: 12px 21px;
+   display: block;
+   margin: 0 auto;
+   width: fit-content;
+   transition: 0.5s;   
+
+
+}
+
+.general-link:hover {
+
+   background-image: linear-gradient(rgb(248, 248, 248), rgb(187, 187, 187));
+   transition: 0.5s;
+   color: rgba(0, 0, 0, 0.623);
+   transform: scale(1.1);
+   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-promo {
+
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   width: 100%;
+   height: 28.125rem;
+   border-radius: 0.8rem;
+   overflow: hidden;
+   margin: 0;
+
+}
+
+
+.newsletter-promo::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* background image for thw newsletter promo*/
+   background-size: cover;
+   background-position: center;
+   z-index: -1;
+}
+
+.newsletter-promo img {
+ position: absolute;
+ width: 58.75rem;
+ height: 28.125rem;
+ object-fit: cover;
+ z-index: -2;
+ 
+}
+
+.newsletter-promo p {
+   color: rgb(255, 248, 237);
+   max-width: 30rem;
+   text-align: center;
+   margin-top: -1rem;
+   margin-bottom: 2rem;
+}
+
+.newsletter-promo h2 {
+
+  font-size: 2.5rem;
+}
+
+.newsletter-promo h2, p {
+
+   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.274);
+}
+
+@media screen and (min-width: 93.75rem) {
+
+   .newsletter-promo {
+
+       min-height: 60rem;
+       height: 28.125rem;
+   
+   
+   }
+}
+
+</style>
 <body>
-
+    <div class="container">
     <nav id="navbar">
         <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
         
@@ -36,95 +222,97 @@
             <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
-    <strong class="movingTitle">Ciao.</strong>
-    <script>
-        // Greeting word animation in the home page
 
-        const greetings = ["Ciao.", "Hello.", "Hola.", "Salut.","مرحبًا", "你好",]; 
-        const greetingElement = document.querySelector('.movingTitle');
-
-        let currentIndex = 0;
-
-        function changeGreeting() {
-            currentIndex = (currentIndex + 1) % greetings.length;
-            greetingElement.textContent = greetings[currentIndex];
-        }
-
-        // Change greeting time in seconds
-        setInterval(changeGreeting, 2000);
-    </script>
-    <div id="grid-container">
-        <img class="hero-image hidden delay200" src="img/HeroImageIndex.png" alt="Dennis Xhafaj hero image">
-        <div class="about-1 sections hidden delay150">
-            <h3>Welcome</h3>
-                <p>
-                    Nice to meet you! my name is Dennis, i'm a programmer and in my free time i write articles about many different topics 
-                    like self-devolopment, programming, productivity and many other things. <br/>
-                    I also have a podcast called <a style="color: white;" href="podcast.html"><b>The online jungle</b></a> where i speak with many different people in the 
-                    hope to entartain and teach you something new every episode.<br/><br/>
-                </p>
+        <div class="hero-section">
+            <h1>
+                <span class="movingTitle">Hey</span>, I’m Denis.<br>I'm a Designer & Developer.
+            </h1>
+            <p class="delay350">
+                Daniel Bennett is a versatile designer & developer based in the UK, 
+                dedicated to crafting innovative and visually appealing digital experiences.
+            </p>
+            <a class="general-link" href="">Know more</a>
+            <script>
+                // Greeting word animation in the home page
+        
+                const greetings = ["Ciao", "Hello", "Hola", "Salut","مرحبًا", "你好",]; 
+                const greetingElement = document.querySelector('.movingTitle');
+        
+                let currentIndex = 0;
+        
+                function changeGreeting() {
+                    currentIndex = (currentIndex + 1) % greetings.length;
+                    greetingElement.textContent = greetings[currentIndex];
+                }
+        
+                // Change greeting time in seconds
+                setInterval(changeGreeting, 2000);
+            </script>
         </div>
-        <div class="about-2 sections hidden delay200">
-            <h3>Who I Am</h3>
-                <p>
-                    A programmer who loves to share his knowledge, a self tought "Hacker" and privacy focused person.
-                    <br/>
-                    <a class="section-url" href="about.html"><b>Know more </b><img src="img/noun-arrow-1827114.svg" alt="arrow" /></a>
-                </p>    
-        </div>
+    
         <div class="blog-section">
-               <a href="">
-                    <div class=" hidden delay150">
-                        <img src="https://www.oliur.com/wp-content/uploads/2023/11/Blog-Post-900px-840x500.jpg" alt="blog-cover1">
-                    </div>
-               </a>
-                <a href="">
-                    <div class=" hidden delay250">
-                        <img src="https://www.oliur.com/wp-content/uploads/2023/11/Hero-Cover-Alt-4-840x500.jpg" alt="blog-cover2">
-                    </div>
-                </a>
-                <a href="">
-                    <div class=" hidden delay350">
-                        <img src="https://www.oliur.com/wp-content/uploads/2023/09/Blog-Post-900px-840x500.jpg" alt="blog-cover3">
-                    </div>
-                </a>
+            <a href="">
+                <div class=" hidden delay150">
+                    <img src="https://www.oliur.com/wp-content/uploads/2023/11/Blog-Post-900px-840x500.jpg" alt="blog-cover1">
+                </div>
+                <div class="blog-hover-animation">
+                    <h2>Why is AI devoloping so rapidly?</h2>
+                    <p>Category</p><span>September 28, 2024</span>
+                </div>
+           </a>
+            <a href="">
+                <div class=" hidden delay250">
+                    <img src="https://www.oliur.com/wp-content/uploads/2023/11/Hero-Cover-Alt-4-840x500.jpg" alt="blog-cover2">
+                </div>
+                <div class="blog-hover-animation">
+                    <h2>Title here</h2>
+                    <p>Category</p><span>September 28, 2024</span>
+                </div>
+            </a>
+            <a href="">
+                <div class=" hidden delay350">
+                    <img src="https://www.oliur.com/wp-content/uploads/2023/09/Blog-Post-900px-840x500.jpg" alt="blog-cover3">
+                </div>
+                <div class="blog-hover-animation">
+                    <h2>Title here</h2>
+                    <p>Category</p><span>September 28, 2024</span>
+                </div>
+            </a>
+            <a href="">
+                <div class=" hidden delay350">
+                    <img src="https://www.oliur.com/wp-content/uploads/2023/07/Acrylic-Paint-Post-Cover-840x500.jpg" alt="blog-cover3">
+                </div>
+                <div class="blog-hover-animation">
+                    <h2>Title here</h2>
+                    <p>Category</p><span>September 28, 2024</span>
+                </div>
+            </a>
         </div>
-        <div class="contact-1 sections hidden delay300">
-            <h3>Schedule a meeting</h3>
+      
+    </div>
+        <div class="newsletter-promo">
+            <h2>Stay Informed, Stay Secure:<br>Join Our Newsletter</h2>
             <p>
-                Here you can schedule a per sonal appointment with me.<br/>Secure your exclusive one-hour slot for a personal consultation with me! Make the most of your time and investment by discussing anything you desire.
-                <br/>
-                <a class="section-url" target="_blank" href="https://calendly.com/denisexe/talk-to-me-for-1h?month=2024-01"><b>Book a call</b><img src="img/noun-arrow-1827114.svg" alt="arrow"/></a>
+                Sign up for our newsletter and stay ahead in the ever-changing landscape of cybersecurity. 
             </p>
-        </div>
-        <div class="contact-2 sections hidden delay350">
-            <h3>Weekly Newsletter</h3>
-            <p>
-                I post about usefull material and new technologies that i find interesting to share
-            </p>
-            <!-- CUSTOM NEWSLETTER FORM -->
+        <!--Newsletter-->
             <div id="custom-substack-embed"></div>
             <script>
-              window.CustomSubstackWidget = {
-                substackUrl: "xhafajdennis.substack.com",
-                placeholder: "Enter your email",
-                buttonText: "Subscribe",
-                theme: "custom",
-                colors: {
-                  primary: "#FB5100",
-                  input: "#B8000000",
-                  email: "#FFFFFF",
-                  text: "#FFFFFF",
-                },
-            
-              };
-            </script>
+                window.CustomSubstackWidget = {
+                    substackUrl: "xhafajdennis.substack.com",
+                    placeholder: "Enter your email",
+                    buttonText: "Subscribe",
+                    theme: "custom",
+                    colors: {
+                        primary: "rgba(20, 20, 20, 1)", // semi-transparent gray for primary color
+                        input: "rgba(128, 128, 128, 0.45)", // semi-transparent gray for input color
+                        email: "#FFFFFF", // white for email text
+                        text: "#FFFFFF", // white for other text
+                    },
+                };
+                </script>
             <script src="https://substackapi.com/widget.js" async></script>
         </div>
-    </div>
-    <footer>
-        <p>&copy; 2023-<script>document.write(new Date().getFullYear())</script> DENNIS XHAFAJ, All Rights Reserved.</p>
-    </footer>
     
 </body>
 </html>

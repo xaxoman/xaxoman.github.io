@@ -49,11 +49,17 @@ body {
     background-color: black;
     color: white;
     font-family: 'satoshi';
-    padding: 2rem;
-    max-width: 90rem;
-    margin: auto;
+    margin: 0 auto;
 
 }
+
+.container {
+
+    padding: 3rem;
+    max-width: 90rem;
+    margin: 0 auto;
+ }
+ 
 
 #navbar {
 
@@ -61,7 +67,7 @@ display: flex;
 justify-content: space-between;
 align-items: center; /* to align the logo inside the flex continer */
 font-size: 0.85rem;
-margin-bottom: 10rem;
+
 
 }
 
@@ -118,20 +124,13 @@ margin-left: 1rem;
     }
 }
 
+
+
 .movingTitle {
 
-font-size: 14rem;
-font-weight: bolder;
-display: block;
-animation: changeGreeting 2s infinite;
-
-}
-
-.hero-title {
-
-    font-size: 14rem;
-    font-weight: bolder;
-}
+    color: white;
+    animation: changeGreeting 2s infinite;
+ }
 
 
 .hero-image {
@@ -182,39 +181,32 @@ div h3 {
 
 }
 
-#grid-container {
 
-    display: grid;
-    gap: 2rem;
-    grid-auto-rows: min-content;
-    grid-template-columns: repeat(3,minmax(200px,1fr));
-    grid-template-rows: repeat(2,min-content);
-    grid-template-areas: 
-    
-        "mainImage mainImage mainImage"
-        "about about aboutSmall"
-        "blog1 blog2 blog3"
-        "contact contact contactSmall"
-    ;
-}
-
-.about-1 {grid-area: about;}
-.about-2 {grid-area: aboutSmall;}
-.contact-1 {grid-area: contact;}
-.contact-2 {grid-area: contactSmall;}
-.blog-section a:nth-of-type(1) {grid-area: blog1;}
-.blog-section a:nth-of-type(2) {grid-area: blog2;}
-.blog-section a:nth-of-type(3) {grid-area: blog3;}
 
 /* Latest Blog articles */
 
 
-.blog-section img {
+.blog-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Adjusted width */
+    grid-gap: 20px;
 
-    max-width: 100%;
-    width: 30rem;
+}
+
+.blog-section img {
+    
+    width: 100%;
     height: 100%;
-    border-radius: 0.3rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+
+}
+
+.blog-section img:hover {
+    
+    filter: brightness(0.6);
+    transition: 0.5s;
 }
 
 
