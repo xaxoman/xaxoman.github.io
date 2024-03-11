@@ -26,14 +26,16 @@
             }
         }
 
-        .container {
+        .circle-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: -5rem;
+          
             
         }
+
+       
 
         .circle {
             width: 150px;
@@ -89,32 +91,48 @@
             transition: 0.5s;
         }
 
+        /* centers the whole message horizontally and vertically */    
+
+            .center-all {
+                    
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+               
+            }
+
 </style>
 <body>
-    <nav id="navbar">
-        <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
-        
-        <ul class="navbar-container">
-            <li><a href="podcast.html">PODCAST</a></li>
-            <li><a href="blog.html">BLOG</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-        </ul>
-    </nav>
-</head>
-<body>
-    <!--Orange tick-->
     <div class="container">
-        <div class="circle">
-            <i class="fas fa-check"></i>
+        <nav id="navbar">
+            <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
+            
+            <ul class="navbar-container">
+                <li><a href="podcast.html">PODCAST</a></li>
+                <li><a href="blog.html">BLOG</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>
+        </nav>
+    </head>
+    <body>
+        <!--Orange tick-->
+        <div class="center-all">
+            <div class="circle-container">
+                <div class="circle">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+           <h1>Message sent sucessfully!</h1>
+           <p>
+                Your message was sent sucessfully, thank you for providing feedback or wanting 
+                to get in touch with me, your opinion is really important.
+           </p>
+           <a class="click-back" href="contact.html">Go back</a>
         </div>
     </div>
-   <h1>Message sent sucessfully!</h1>
-   <p>
-        Your message was sent sucessfully, thank you for providing feedback or wanting 
-        to get in touch with me, your opinion is really important.
-   </p>
-   <a class="click-back" href="contact.html">Go back</a>
 </body>
 </html>
 

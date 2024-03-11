@@ -55,7 +55,7 @@ body {
 
 .container {
 
-    padding: 3rem;
+    padding: 2rem;
     max-width: 90rem;
     margin: 0 auto;
  }
@@ -103,7 +103,40 @@ margin-left: 1rem;
 
 }
 
+/* titoli principali delle altre pagine*/
+.hero-title {
 
+    font-size: 12rem;
+}
+
+/* hero section homepage */
+
+.hero-section {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 87px 0;
+    /* text styling */
+    text-align: center;
+    font-size: 2rem;
+    animation: changeGreeting 2s ;
+ }
+ 
+ 
+ .hero-section p {
+ 
+    text-align: center;
+    display: block;
+    color:  rgba(255, 255, 255, 0.6);
+    font-size: 17px;
+    max-width: 900px;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+ }
+ 
 
 /* keyframes for the greeting word animation in the home page */
 
@@ -133,21 +166,66 @@ margin-left: 1rem;
  }
 
 
-.hero-image {
+ /* newsletter homepage */
 
-width:100%;
-max-width:100%;
-height: 35rem;
-object-fit: cover; /* per non distorcere le immagini*/
-display: block;
-margin: auto;
-grid-area: mainImage;
+ .newsletter-promo {
 
-}
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 28.125rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    margin: 0;
+ 
+ }
+ 
+ 
+ .newsletter-promo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* background image for thw newsletter promo*/
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+ }
+ 
+ .newsletter-promo img {
+  position: absolute;
+  width: 58.75rem;
+  height: 28.125rem;
+  object-fit: cover;
+  z-index: -2;
+  
+ }
+ 
+ .newsletter-promo p {
+    color: rgb(255, 248, 237);
+    max-width: 30rem;
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+ }
+ 
+ .newsletter-promo h2 {
+ 
+   font-size: 2.5rem;
+ }
+ 
+ .newsletter-promo h2, p {
+ 
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.274);
+ }
 
-
-
-
+ /* freccetta bianca a forma di triangolo */
 .section-url {
 
 text-decoration: none;
@@ -160,7 +238,7 @@ transition: 0.5s;
 .section-url img {
 
 max-width: 2.2rem;
-margin-bottom: -0.85rem;
+margin-bottom: -0.85rem;    
 height: 2rem !important; /* to overwrite the #work-section img, height propriety conflict */
 filter: invert(1); /* it inverts the color of the svg arrow */
 transition: 0.4s;
@@ -182,16 +260,49 @@ div h3 {
 }
 
 
+/* link nero nella homepage (da nero a bianco)*/
+.general-link {
+
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family:  "Inter-Bold", "Inter", "Inter Placeholder", sans-serif;
+    background-image: linear-gradient(rgb(23, 24, 25), rgb(13, 14, 14));
+    border-radius: 21px;
+    padding: 12px 21px;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    transition: 0.5s;   
+ 
+ 
+ }
+ 
+ .general-link:hover {
+ 
+    background-image: linear-gradient(rgb(248, 248, 248), rgb(187, 187, 187));
+    transition: 0.5s;
+    color: rgba(0, 0, 0, 0.623);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+ }
 
 /* Latest Blog articles */
 
 
-.blog-section {
+.blog-section a {
+
+    text-decoration: none;
+ }
+ 
+ 
+ .blog-section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* Adjusted width */
-    grid-gap: 20px;
-
-}
+    grid-gap: 30px;
+    margin-bottom: 2rem;
+ }
+ 
 
 .blog-section img {
     
@@ -209,9 +320,34 @@ div h3 {
     transition: 0.5s;
 }
 
+.blog-hover-animation h2{
+
+    color:rgb(255, 255, 255);
+    font-size: 1.3rem;
+ }
+ 
+ .blog-hover-animation p, span{
+ 
+    color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: -0.1rem;
+ }
+ 
+ .blog-hover-animation p {
+ 
+    text-decoration: none;
+    background-color: transparent;
+    padding: 8px 17px;
+    border-radius: 21px;
+    border: 0.05rem solid  rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.09rem;
+    width: fit-content;
+ }
 
 
-/* newsletter */
+
+/* newsletter generale*/
 
 #signUp {
 
@@ -279,35 +415,10 @@ padding: 1.2rem;
    
 }
 
-@media screen and (max-width: 81.875rem) {
-    
-        .work-section img {
-        
-        width: 100%;
-        height: 18rem;
-        object-fit: cover;
-        padding-top: 1.5rem;
-        
-    }
-}
 
 @media screen and (max-width: 75rem) {
 
-    #grid-container {
-
-
-    grid-template-columns: repeat(2,minmax(200px,1fr));
-    grid-template-rows: repeat(2,min-content);
-    grid-template-areas: 
-
-        "mainImage mainImage mainImage"
-        "about about about"
-        "aboutSmall aboutSmall aboutSmall"
-        "blog blog blog"
-        "contact contact contact"
-        "contactSmall contactSmall contactSmall"
-    ;
-    }
+    
 
     .hero-title {
 
@@ -317,26 +428,45 @@ padding: 1.2rem;
 
     .movingTitle {
 
-        font-size: 9rem;
+        font-size: inherit;
        
-    }
-
-    .hero-image {
-
-    
-    height: 30rem;
-
     }
 
 }
 
+/* media queries mainly for the homepage*/
+
+@media screen and (min-width: 93.75rem) {
+
+    .newsletter-promo { /* rende l'imaggine della newsletter più alta sugli schermi di grandi dimensioni*/
+ 
+        min-height: 60rem;
+        height: 28.125rem;
+    
+    
+    }
+ }
+@media screen and (max-width: 52.188rem) {
+    
+    .hero-section h1 {
+
+       font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 42.813rem) {
+    
+    .blog-section {
+        
+        grid-template-columns: repeat(1, minmax(0, 1fr)); /* Adjusted width */
+       
+     }
+     
+}
+
 @media screen and (max-width: 37.5rem) {
 
-    #grid-container {
-
-        grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); /* autofill prevents the grid elements from overflowing the grid container in smaller screens*/
-
-    }
+  
     
     #navbar span {
 
@@ -359,22 +489,47 @@ padding: 1.2rem;
 
     .hero-title {
 
-        font-size: 5rem;
+        font-size: 4rem;
         text-align: center;
         display: block;
     }
 
     .movingTitle {
 
-        font-size: 5rem;
+        font-size: inherit;
         text-align: center;
-        display: block;
+
     }
 
-    body {
+    .hero-section h1 {
+
+        font-size: 2rem;
+     }
+
+     .hero-section p {
+ 
+        font-size: 16px;        
+     }
+
+    .container {
 
         padding: 1rem;
     }
 
 
+}
+
+@media screen and (max-width: 31.25rem) {
+    
+    .newsletter-promo p {
+        
+        max-width: 22rem;
+       
+     }
+     
+     .newsletter-promo h2 {
+     
+       font-size: 2rem;
+     }
+     
 }
