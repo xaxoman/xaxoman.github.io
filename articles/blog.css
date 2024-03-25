@@ -10,6 +10,19 @@ max-width: 70% !important;
 margin: 0 auto !important;
 }
 
+.main-article {
+
+    font-size: 1.125rem;
+    line-height: 1.5;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.general-paragraph {
+
+    margin-bottom: 3rem;
+}
+
 .main-category {
     text-decoration: none;
     color: var(--orangeJustice);
@@ -64,6 +77,21 @@ margin: 0 auto !important;
     overflow: hidden;
     margin: 0 auto;
 
+}
+
+.article-link a {
+
+    text-decoration-color: var(--orangeJustice); 
+    text-decoration-thickness: 0.1rem;  
+    color: white;
+    transition: 0.3s;
+    
+}
+
+.article-link a:hover {
+
+    background-color:  rgb(187, 89, 10);
+    transition: 0.5s;
 }
 
 
