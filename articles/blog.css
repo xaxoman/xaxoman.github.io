@@ -166,7 +166,13 @@ margin: 0 auto !important;
         max-width: 95% !important;
     }
 
-    
+    .main-image {
+
+        height: 15rem;
+        border-radius: 0.1rem;
+        margin-bottom: 0;
+    }
+
     .newsletter-promo p {
 
         max-width: 20rem;
