@@ -1,7 +1,3 @@
-import { init } from '@builder.io/partytown';
-
-// Initialize Partytown
-init();
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
