@@ -460,6 +460,11 @@ padding: 1.2rem;
         grid-template-columns: repeat(1, minmax(0, 1fr)); /* Adjusted width */
        
      }
+
+     .blog-section img {
+
+        height: auto;
+     }
      
 }
 
