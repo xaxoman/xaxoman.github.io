@@ -46,7 +46,22 @@
                 difference in people's lives.
             </p>
             <a class="general-link" href="https://albaniancoder.pages.dev/blog">Know more</a>
-           
+            <script>
+                // Greeting word animation in the home page
+        
+                const greetings = ["Ciao", "Hello", "Hola", "Salut","مرحبًا", "你好",]; 
+                const greetingElement = document.querySelector('.movingTitle');
+        
+                let currentIndex = 0;
+        
+                function changeGreeting() {
+                    currentIndex = (currentIndex + 1) % greetings.length;
+                    greetingElement.textContent = greetings[currentIndex];
+                }
+        
+                // Change greeting time in seconds
+                setInterval(changeGreeting, 2000);
+            </script>
         </div>
     
         <div class="blog-section">
