@@ -21,6 +21,14 @@
     
         mixpanel.init('deca8db4a505fd545a8fe5ccf1f4cf6f', {debug: true, track_pageview: true, persistence: 'localStorage'});
     </script>
+    <!-- Partytown import script -->
+    <script>
+        import {partytownsnippet} from '@builder.io/partytown/integration';
+        const snippetText = partytownsnippet();
+        const el = document.createElement('script');
+        el.innerText = snippetText;
+        document.body.appendChild(el);
+    </script>
     <title>Dennis Xhafaj - Home</title>
 </head>
 <body>
