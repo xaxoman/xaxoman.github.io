@@ -7,6 +7,13 @@
     --Sections:  rgb(221, 221, 221);
 }
 
+@font-face {
+    font-family: 'satoshi';
+    src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
+    font-weight: normal;
+    font-display: swap; /* Problemi con il controllo della visualizzazione dei caratteri di Lighthouse */
+}
+
 /* Fade in transitions (look at the main js)*/
 
 .hidden {
@@ -31,12 +38,6 @@
 .delay300 { transition-delay: 300ms;}
 .delay350 { transition-delay: 350ms;}
 
-
-@font-face {
-    font-family: 'satoshi';
-    src: url('fonts/Satoshi_Complete/OTF/Satoshi-Regular.otf');
-    font-weight: normal;
-}
 
 * {
 
@@ -454,11 +455,6 @@ padding: 1.2rem;
 }
 
 @media screen and (max-width: 42.813rem) {
-
-    .hero-section {
-
-        animation: none; /* to reduce load time on mobile devices */
-     }
     
     .blog-section {
         
