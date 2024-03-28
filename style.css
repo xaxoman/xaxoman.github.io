@@ -122,7 +122,7 @@ margin-left: 1rem;
     /* text styling */
     text-align: center;
     font-size: 2rem;
-    animation: changeGreeting 2s ;
+    animation: changeGreeting 1.5s ;
  }
  
  
@@ -454,6 +454,11 @@ padding: 1.2rem;
 }
 
 @media screen and (max-width: 42.813rem) {
+
+    .hero-section {
+
+        animation: none; /* to reduce load time on mobile devices */
+     }
     
     .blog-section {
         
