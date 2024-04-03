@@ -137,43 +137,6 @@ margin: 0 auto !important;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.274);
 }
 
-/* styles for the form itself */
-
-#custom-substack-embed input {
-    border-radius: 1rem;
-    margin-right: 0.8rem;
-    border: 1px solid black;
-    transition: 0.3s;
-}
-
-#custom-substack-embed input:focus { /* focus for clicking animations*/
-    border-color: white;
-    transition: 0.3s;
-}
-
-
-#custom-substack-embed form {
-
-display: flex;
-border: 0;
-padding: 1rem;
-}
-
-#custom-substack-embed button {
-
-border-radius: 1rem;
-transition: 0.5s;
-}
-
-#custom-substack-embed button:hover {
-
-background-image: linear-gradient(rgb(248, 248, 248), rgb(187, 187, 187));
-transition: 0.5s;
-color: rgba(0, 0, 0, 0.623);
-transform: scale(1.1);
-box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-} 
-
 
 @media screen and (max-width: 61.875rem) { 
     

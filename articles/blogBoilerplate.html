@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://albaniancoder.pages.dev/style.css" />
-    <link rel="stylesheet" type="text/css" href="../blog.css"> <!-- It's normal that the style isn't applied-->
+    <link rel="stylesheet" type="text/css" href="blog.css"> <!-- It's normal that the style isn't applied-->
     <script defer src="main.js"></script>
     <link rel="icon" type="image/x-icon" href="https://albaniancoder.pages.dev/img/favicon.svg"/>
     <!-- SEO meta tags-->
@@ -49,21 +49,22 @@
                     Sign up for our newsletter and get useful material and experiences every week directly in your mailbox.
                 </p>
             <!--Newsletter-->
-                <div id="custom-substack-embed"></div>
-                <script>
-                    window.CustomSubstackWidget = {
-                        substackUrl: "xhafajdennis.substack.com",
-                        placeholder: "Enter your email",
-                        buttonText: "Subscribe",
-                        theme: "custom",
-                        colors: {
-                            primary: "rgba(20, 20, 20, 1)", // semi-transparent gray for primary color
-                            input: "rgba(128, 128, 128, 0.15)", // semi-transparent gray for input color
-                            email: "#FFFFFF", // white for email text
-                            text: "#FFFFFF", // white for other text
-                        },
-                    };
+                <div id="custom-substack-embed">
+                    <script>
+                        window.CustomSubstackWidget = {
+                            substackUrl: "xhafajdennis.substack.com",
+                            placeholder: "Enter your email",
+                            buttonText: "Subscribe",
+                            theme: "custom",
+                            colors: {
+                                primary: "rgba(20, 20, 20, 1)", // semi-transparent gray for primary color
+                                input: "rgba(128, 128, 128, 0.15)", // semi-transparent gray for input color
+                                email: "#FFFFFF", // white for email text
+                                text: "#FFFFFF", // white for other text
+                            },
+                        };
                     </script>
+                </div>
                 <script src="https://substackapi.com/widget.js" async></script>
             </div>
         </aside>
