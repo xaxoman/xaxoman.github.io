@@ -55,6 +55,15 @@
        
     }
 
+    .rss-pod {
+
+        max-width: 100%;
+        height: auto;
+        width: 2.8rem;
+        border-radius: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
     .PodIntroduction h1 {
 
         font-size: 3rem;
@@ -118,7 +127,12 @@
 
         max-width: 3rem;
         flex-basis: 3rem;
-        }        
+        }    
+        
+        .rss-pod {
+
+            display: none;
+        }
 
     }
 
@@ -163,6 +177,10 @@
             <div class="spacer"></div>
              <!--ITEM 2-->
             <div class="PodIntroduction hidden">
+               
+                <!-- RSS FEED -->
+                <a target="_blank" href="https://anchor.fm/s/f47aa928/podcast/rss"><img class="rss-pod" src="img/rss-feed.svg" alt="rss feed"></a>
+                    
                 <h1>The Online Jungle</h1>
                 <p>
                     Welcome to “The Online Jungle” podcast, where we explore the wild world of technology, finance, and self-development.
