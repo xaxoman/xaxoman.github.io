@@ -17,3 +17,26 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 console.log('Hidden Elements:', hiddenElements);
 hiddenElements.forEach((el) => observer.observe(el))
+
+// Scroll to top button //
+
+let mybutton = document.getElementById("topbtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 300) {
+    mybutton.style.transition = "0.5s";
+    mybutton.style.bottom = "2rem";
+
+    
+  } else {
+    mybutton.style.bottom = "-5rem";
+  }
+  
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
