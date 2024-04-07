@@ -25,7 +25,7 @@ let mybutton = document.getElementById("topbtn");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 300) {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 2000) {
     mybutton.style.transition = "0.5s";
     mybutton.style.bottom = "2rem";
 

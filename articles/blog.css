@@ -1,3 +1,8 @@
+html {
+
+    scroll-behavior: smooth;
+}
+
 #navbar {
 
     margin-bottom: 6rem;
@@ -16,23 +21,24 @@ margin: 0 auto !important;
     position: fixed;
     bottom: -5rem;
     right: 2rem;
-    background-color:  rgb(37, 37, 37);
+    background-image: linear-gradient(rgb(22, 22, 22), rgb(49, 49, 49));
     padding: 0.5rem;
-    border-radius: 50%;
-    box-shadow: 0.1rem 0.1rem 0.5rem black;
+    border-radius: 1rem;
     z-index: 999;
     transition: 0.5s;
+    
   }
 
   #topbtn img{
-    max-width: 2.5rem;
-    width: 100%;
+    max-width: 100%;
+    filter:invert(1);
+    width: 2rem;
     
   }
 
   #topbtn:hover {
 
-     background-color: rgb(58, 58, 58);
+     transform: scale(0.9);
      transition: 0.5s;
   }
 
