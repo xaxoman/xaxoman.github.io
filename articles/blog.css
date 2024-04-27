@@ -85,6 +85,13 @@ margin: 0 auto !important;
     margin-bottom: 2rem;
 }
 
+.general-image {
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 .main-description {
 
     color: rgb(187, 187, 187);
@@ -111,7 +118,7 @@ margin: 0 auto !important;
 
 }
 
-.article-link a {
+.article-link  {
 
     text-decoration-color: var(--orangeJustice); 
     text-decoration-thickness: 0.1rem;  
@@ -120,7 +127,7 @@ margin: 0 auto !important;
     
 }
 
-.article-link a:hover {
+.article-link:hover {
 
     background-color:  rgb(187, 89, 10);
     transition: 0.5s;
