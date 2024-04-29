@@ -18,6 +18,18 @@
      <meta property="og:image" content="" /> <!--Article image-->
     <title>Here is how i'm using AI to generate my blog images for free</title>
 </head>
+<style>
+    ul li {
+
+        padding-bottom: 1rem;
+    }
+
+    .main-category {
+
+        color: var(--green-color-4);
+        background-color: var(--background-color-green);
+    }
+</style>
 <body>
    <div class="container">
     <nav id="navbar">
@@ -32,7 +44,21 @@
     </nav>
     <main>
         <article data-category="empty"> <!-- to fill every time-->
-            <a class="main-category" href="#" data-category="empty">#AI</a>
+                <!--Links to share the articles on social media platforms-->
+                <div class="share-article-logos">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=google.com">
+                        <img src="../Blog_Img/misc/facebook-logo-article-share.svg" alt="facebook">
+                    </a>
+                    <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL">
+                        <img src="../Blog_Img/misc/linkedin-logo-article-share.svg" alt="linkedin">
+                    </a>
+                    <a target="_blank" href="https://wa.me/?text=URL">
+                        <img src="../Blog_Img/misc/whatsapp-logo-article-share.svg" alt="whatsapp">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/intent/tweet?text=YOUR_TITLE&url=YOUR_URL">
+                        <img src="../Blog_Img/misc/twitter-logo-article-share.svg" alt="twitter">
+                    </a>
+                </div>
              <!--Scroll to top button-->
              <section id="#top"></section>
              <div id="topbtn">
@@ -40,7 +66,12 @@
              </div>
 
             <h1 class="main-title">Here is how i'm using AI to generate my blog images for free</h1>
-            <div style="color: var(--h3-titles); margin-top: -1.5rem; font-weight: bold; letter-spacing: 0.05rem;"><p>Posted on <time datetime="2024-04-26">April 24, 2024</time></p></div>
+            <div style="display: flex; color: var(--h3-titles); margin-top: -1.5rem; font-weight: bold; letter-spacing: 0.05rem;">
+                <p>Posted on <time datetime="2024-04-26">April 24, 2024 |</time>
+                    <a class="main-category" href="#" data-category="empty">Generative AI</a>
+                </p>
+            </div>
+           
             <img class="main-image" src="../Blog_Img/covers/2024_cover2.webp" alt="main image of the article">
              <div class="main-article">
                 <p class="main-description">
@@ -56,7 +87,7 @@
                     <li><a class="article-link" href="#header4">Conclusion</a></li>
                 </ol>
                 <h2 id="header1">What is Ideogram AI?</h2>
-                    <img class="general-image" style="height: 15rem;" src="../Blog_Img/article_img/article2/ideogram-logo.png" alt="">
+                    <img class="general-image" style="height: 15rem;" src="../Blog_Img/article_img/article2/ideogram-logo.webp" alt="">
                     <p>
                         Developed by former Google Brain researchers, Ideogram is an AI image generator that is leading 
                         the way in its field. It has advanced capabilities that set it apart from its competitors like 
@@ -88,7 +119,7 @@
                     </ul>
                   
                 <h2 id="header2">How can you use it</h2>
-                    <img class="general-image" src="../Blog_Img/article_img/article2/ideogram-menu.png" alt="">
+                    <img class="general-image" src="../Blog_Img/article_img/article2/ideogram-menu.webp" alt="">
                     <p>
                         To access ideogram.ai, simply visit their <a class="article-link" target="_blank" href="https://ideogram.ai/pricing">website</a> and log in using your Google or Apple ID. 
                         Once you're logged in, you'll see a menu similar to other AI models like DALL-E3, Bing  AI, 
@@ -116,7 +147,7 @@
         </article>
         <aside>
             <div class="newsletter-promo">
-                <h2>Don't waste time, stop scrolling:<br>Join Our Newsletter</h2>
+                <h2>Don't waste time, stop scrolling: Join Our Newsletter</h2>
                 <p>
                     Sign up for our newsletter and get useful material and experiences every week directly in your mailbox.
                 </p>
@@ -129,10 +160,10 @@
                             buttonText: "Subscribe",
                             theme: "custom",
                             colors: {
-                                primary: "rgba(20, 20, 20, 1)", // semi-transparent gray for primary color
-                                input: "rgba(128, 128, 128, 0.15)", // semi-transparent gray for input color
+                                primary: "rgba(255, 255, 255, 0.9)", // white for primary color
+                                input: "rgba(128, 128, 128, 0.30)", // semi-transparent gray for input color
                                 email: "#FFFFFF", // white for email text
-                                text: "#FFFFFF", // white for other text
+                                text: "rgba(0, 0, 0, 0.8)", // white for other text
                             },
                         };
                     </script>

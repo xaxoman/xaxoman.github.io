@@ -24,6 +24,11 @@
        padding-top: 1rem;
     }
 
+    .main-category {
+
+        color: var(--orange-color-2);
+        background-color: var(--background-color-orange);
+    }
        
 </style>
 
@@ -42,7 +47,21 @@
     </nav>
     <main>
         <article data-category="empty"> <!-- to fill every time-->
-            <a class="main-category" href="#" data-category="empty">#Programming</a>
+            <!--Links to share the articles on social media platforms-->
+            <div class="share-article-logos">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=google.com">
+                    <img src="../Blog_Img/misc/facebook-logo-article-share.svg" alt="facebook">
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL">
+                    <img src="../Blog_Img/misc/linkedin-logo-article-share.svg" alt="linkedin">
+                </a>
+                <a target="_blank" href="https://wa.me/?text=URL">
+                    <img src="../Blog_Img/misc/whatsapp-logo-article-share.svg" alt="whatsapp">
+                </a>
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=YOUR_TITLE&url=YOUR_URL">
+                    <img src="../Blog_Img/misc/twitter-logo-article-share.svg" alt="twitter">
+                </a>
+            </div>
              <!--Scroll to top button-->
             <section id="#top"></section>
             <div id="topbtn">
@@ -50,7 +69,11 @@
             </div>
             
             <h1 class="main-title">Which programming language should you study in 2024?</h1>
-            <div style="color: var(--h3-titles); margin-top: -1.5rem; letter-spacing: 0.05rem;"><p>Posted on <time datetime="2024-03-26">March 26, 2024</time></p></div>
+            <div style="color: var(--h3-titles); margin-top: -1.5rem; letter-spacing: 0.05rem;">
+                <p>Posted on <time datetime="2024-03-26">March 26, 2024 |</time>
+                    <a class="main-category" href="#" data-category="empty">#Programming</a>
+                </p>
+            </div>
             <img class="main-image" src="../Blog_Img/article_img/article1/main-image-2024-programming-languages.webp" alt="main image of the article">
              <div class="main-article">
                 <p class="main-description">
@@ -88,12 +111,12 @@
                 <div class="general-paragraph">
                     <h2>Where do I start learning once I pick one?</h2>
                     <p>There are a lot of places to start learning, for example:</p>
-                    <ul class="article-link">
-                        <li><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
-                        <li><a href="https://www.codecademy.com/" target="_blank">CodeAcademy</a></li>
-                        <li><a href="https://www.w3schools.com/" target="_blank">W3schools</a></li>
-                        <li><a href="https://www.theodinproject.com/" target="_blank">The Odin Project (for web development)</a></li>
-                        <li><a href="https://elements.envato.com/" target="_blank">Envato Plus</a></li>
+                    <ul>
+                        <li><a class="article-link"  href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
+                        <li><a class="article-link" href="https://www.codecademy.com/" target="_blank">CodeAcademy</a></li>
+                        <li><a class="article-link" href="https://www.w3schools.com/" target="_blank">W3schools</a></li>
+                        <li><a class="article-link" href="https://www.theodinproject.com/" target="_blank">The Odin Project (for web development)</a></li>
+                        <li><a class="article-link" href="https://elements.envato.com/" target="_blank">Envato Plus</a></li>
                     </ul>
                 </div>
 
@@ -121,7 +144,7 @@
         </article>
         <aside>
             <div class="newsletter-promo">
-                <h2>Don't waste time, stop scrolling:<br>Join Our Newsletter</h2>
+                <h2>Don't waste time, stop scrolling: Join Our Newsletter</h2>
                 <p>
                     Sign up for our newsletter and get useful material and experiences every week directly in your mailbox.
                 </p>

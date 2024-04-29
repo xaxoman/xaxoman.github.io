@@ -32,7 +32,21 @@
     </nav>
     <main>
         <article data-category="empty"> <!-- to fill every time-->
-            <a class="main-category" href="#" data-category="empty">#Category</a>
+            <!--Links to share the articles on social media platforms-->
+            <div class="share-article-logos">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=google.com">
+                    <img src="../Blog_Img/misc/facebook-logo-article-share.svg" alt="facebook">
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL">
+                    <img src="../Blog_Img/misc/linkedin-logo-article-share.svg" alt="linkedin">
+                </a>
+                <a target="_blank" href="https://wa.me/?text=URL">
+                    <img src="../Blog_Img/misc/whatsapp-logo-article-share.svg" alt="whatsapp">
+                </a>
+                <a target="_blank" href="https://twitter.com/intent/tweet?text=YOUR_TITLE&url=YOUR_URL">
+                    <img src="../Blog_Img/misc/twitter-logo-article-share.svg" alt="twitter">
+                </a>
+            </div>
              <!--Scroll to top button-->
              <section id="#top"></section>
              <div id="topbtn">
@@ -40,7 +54,11 @@
              </div>
 
             <h1 class="main-title">main title</h1>
-            <div style="color: var(--h3-titles); margin-top: -1.5rem; font-weight: bold; letter-spacing: 0.05rem;"><p>Posted on <time datetime="2022-01-01">January 1, 2022</time></p></div>
+            <div style="color: var(--h3-titles); margin-top: -1.5rem; font-weight: bold; letter-spacing: 0.05rem;">
+                <p>Posted on <time datetime="2022-01-01">January 1, 2022</time>
+                    <a class="main-category" href="#" data-category="empty">#Category</a>
+                </p>
+            </div>
             <img class="main-image" src="https://framerusercontent.com/images/ypv1v8Jtas5DyOYLew5bDiaY.jpg?scale-down-to=2048" alt="main image of the article">
              <div class="main-article">
                 <p class="main-description">
@@ -50,7 +68,7 @@
         </article>
         <aside>
             <div class="newsletter-promo">
-                <h2>Don't waste time, stop scrolling:<br>Join Our Newsletter</h2>
+                <h2>Don't waste time, stop scrolling: Join Our Newsletter</h2>
                 <p>
                     Sign up for our newsletter and get useful material and experiences every week directly in your mailbox.
                 </p>
@@ -63,10 +81,10 @@
                             buttonText: "Subscribe",
                             theme: "custom",
                             colors: {
-                                primary: "rgba(20, 20, 20, 1)", // semi-transparent gray for primary color
-                                input: "rgba(128, 128, 128, 0.15)", // semi-transparent gray for input color
+                                primary: "rgba(255, 255, 255, 0.9)", // white for primary color
+                                input: "rgba(128, 128, 128, 0.30)", // semi-transparent gray for input color
                                 email: "#FFFFFF", // white for email text
-                                text: "#FFFFFF", // white for other text
+                                text: "rgba(0, 0, 0, 0.8)", // white for other text
                             },
                         };
                     </script>
