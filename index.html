@@ -21,17 +21,46 @@
     
         mixpanel.init('deca8db4a505fd545a8fe5ccf1f4cf6f', {debug: true, track_pageview: true, persistence: 'localStorage'});
     </script>
+    <!--Site Navigation Schema Markup-->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "SiteNavigationElement",
+          "name": "Site Navigation",
+          "url": "https://albaniancoder.pages.dev",
+          "mainEntity": [
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Home",
+              "url": "https://albaniancoder.pages.dev"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Blog",
+              "url": "https://albaniancoder.pages.dev/blog"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Podcast",
+              "url": "https://albaniancoder.pages.dev/podcast"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Contact",
+              "url": "https://albaniancoder.pages.dev/contact"
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "About",
+              "url": "https://albaniancoder.pages.dev/about"
+            }
+          ]
+        }
+        </script>
+        
     <title>Dennis Xhafaj - Home</title>
 </head>
 <body>
-    <!-- Site Navigation Schema Markup -->
-    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-        <li itemprop="Home"><a itemprop="url" href="https://albaniancoder.pages.dev">Home</a></li>
-        <li itemprop="Blog"><a itemprop="url" href="https://albaniancoder.pages.dev/blog">Blog</a></li>
-        <li itemprop="Podcast"><a itemprop="url" href="https://albaniancoder.pages.dev/podcast">Podcast</a></li>
-        <li itemprop="Contact"><a itemprop="url" href="https://albaniancoder.pages.dev/contact">Contact</a></li>
-        <li itemprop="About"><a itemprop="url" href="https://albaniancoder.pages.dev/about">About</a></li>
-      </ul>
     <div class="container">
     <nav id="navbar">
         <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
