@@ -588,11 +588,13 @@ padding: 1.2rem;
     #custom-substack-embed {
 
         max-width: 22rem;
+        margin-bottom: 4rem;
+        height: 55px;
     }
 
     #custom-substack-embed button {
        
         margin-top: 1.5rem;
-     
+        
     }
 }
