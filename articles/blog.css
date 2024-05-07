@@ -272,13 +272,12 @@ margin: 0 auto !important;
        flex-direction: column;
        padding: 0;
        width: 18rem;
-       
-      
+    
     }
 
     #custom-substack-embed input {
 
-        max-height: 3rem;
+        max-height: 2.5rem;
         margin: 0;
         margin-bottom: 0.8rem;
         
