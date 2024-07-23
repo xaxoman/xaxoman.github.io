@@ -50,12 +50,15 @@
         transition: 0.4s;
     } 
 
-    .blog span:nth-child(1) {
-
-        color: var(--orangeJustice);
-        font-weight: bold;
-        letter-spacing: 0.08rem;
-   
+    .main-category {
+        text-decoration: none;
+        padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+        border-radius: 0.9rem;
+        letter-spacing: 0.05rem;
+        margin-bottom: -1rem;
+        width: fit-content;
+        text-shadow: 0.5px 0 0 currentColor; /* using text shadow instead of font-weight for better precision */
+      
     }
 
     .blog img {
@@ -77,6 +80,8 @@
     .blog p {
 
         color: var(--h3-titles);
+        margin-top: -0.8rem;
+        
     }
 
     .blogText {
@@ -135,24 +140,26 @@
             <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
             
             <ul class="navbar-container">
-                <li><a href="podcast.html">PODCAST</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
                 <li><a style="color: var(--h3-titles);" href="blog.html">BLOG</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
         </nav>
-        <strong class="hero-title">Blog</strong>
+        <strong style="padding-bottom: 1rem; display: block;" class="hero-title">Blog</strong>
         <div id="blog-container">
+           
+            <!-- 2024 ARTICLES -->
             <a href="articles/2024/ideogram-ai-blog.html">
                 <div class="blog hidden">
                     <div class="blogText">
-                        <span>AI</span>
+                        <span class="date">April 24, 2024</span>
                     <h2>Here is how i'm using AI to generate my blog images for free</h2>
                     <p> <!-- MAX CHARACHTERS 150 -->
                         Discover how the new Ideogram AI model can create images with perfect text which has always been a problem for
                         models like DALL-E2 and MidJourney. 
                     </p>
-                    <span class="date">April 24, 2024</span>
+                    <span class="main-category" style="background-color: var(--background-color-green); color: var(--green-color);">#Generative AI</span> <!-- CATEGORY -->
                     </div>
                     <img src="articles/Blog_Img/covers/2024_cover2.webp" alt="BlogImage" loading="lazy">   
                 </div>
@@ -160,18 +167,19 @@
             <a href="articles/2024/2024-programming-languages.html">
                 <div class="blog hidden">
                     <div class="blogText">
-                        <span>Programming</span>
+                        <span class="date">February 28, 2024</span>
                     <h2>Which programming language should you study in 2024?</h2>
                     <p> <!-- MAX CHARACHTERS 150 -->
                         There are a lot of programming languages and it can be tough 
                         to choose which one you should dedicate your time to.
                     </p>
-                    <span class="date">February 28, 2024</span>
+                    <span class="main-category" style="background-color: var(--background-color-orange); color: var(--orange-color);">#Programming</span> <!-- CATEGORY -->
                     </div>
                     <img src="articles/Blog_Img/covers/2024_cover1.webp" alt="BlogImage" loading="lazy">   
                 </div>
             </a>
         </div>
+       
         <footer>
             <p>&copy; 2023-<script>document.write(new Date().getFullYear())</script> DENNIS XHAFAJ, All Rights Reserved.</p>
         </footer>

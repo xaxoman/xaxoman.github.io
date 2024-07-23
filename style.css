@@ -5,6 +5,21 @@
     --orangeJustice: rgb(251, 81, 0);
     --LighterGray: rgb(43, 43, 43);
     --Sections:  rgb(221, 221, 221);
+
+    /*BLOG CATEGORIES */
+    --red-color: #ff0000; /* red */
+    --orange-color: #ffa500; /* orange */
+    --yellow-color: #ffff00; /* yellow */
+    --green-color: #00ff00; /* green */
+    --blue-color: #0000ff; /* blue */
+    --purple-color: #9500ff; /* indigo */
+
+    --background-color-red: #990000; /* darker red */
+    --background-color-orange: #582c00; /* darker orange */
+    --background-color-yellow: #999900; /* darker yellow */
+    --background-color-green: #003300; /* darker green */
+    --background-color-blue: #000099; /* darker blue */
+    --background-color-purple: #2e003e; /* darker indigo */
 }
 
 @font-face {
@@ -91,9 +106,7 @@ padding: 0.5rem;
 color: gray;
 transition: 0.4s;
 
-
 }
-
 
 
 #navbar span {
@@ -131,8 +144,8 @@ margin-left: 1rem;
     text-align: center;
     display: block;
     color:  rgba(255, 255, 255, 0.6);
-    font-size: 17px;
-    max-width: 900px;
+    font-size: 1.15rem;
+    max-width: 45rem;
     margin-top: -1rem;
     margin-bottom: 2rem;
  }
@@ -183,7 +196,7 @@ margin-left: 1rem;
    
     font-size: 1.125rem;
     transition: 0.3s;
-    margin-right: 5rem;
+    padding: 10px 12px 10px 12px !important;
 }
 
 
@@ -310,24 +323,23 @@ div h3 {
     text-decoration: none;
     font-size: 1.1rem;
     font-family:  "Inter-Bold", "Inter", "Inter Placeholder", sans-serif;
-    background-image: linear-gradient(rgb(23, 24, 25), rgb(13, 14, 14));
+    text-shadow: 0.7px 0 0  rgb(44, 44, 44);
+    background-image: linear-gradient(rgb(248, 248, 248), rgb(156, 156, 156));
+    color: rgb(44, 44, 44);
     border-radius: 21px;
     padding: 12px 21px;
-    display: block;
     margin: 0 auto;
     width: fit-content;
     transition: 0.5s;   
- 
+    
  
  }
  
  .general-link:hover {
  
-    background-image: linear-gradient(rgb(248, 248, 248), rgb(187, 187, 187));
     transition: 0.5s;
-    color: rgba(0, 0, 0, 0.623);
     transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.473);
  }
 
 /* Latest Blog articles */
@@ -585,16 +597,25 @@ padding: 1.2rem;
 
 @media screen and (max-width: 25rem) {
 
+    #custom-substack-embed form {
+
+       flex-direction: column;
+    }
+
     #custom-substack-embed {
 
-        max-width: 2rem;
-        margin-bottom: 4rem;
-        height: 55px;
+        margin-bottom: 5rem;
+       
     }
 
     #custom-substack-embed button {
        
         margin-top: 1.5rem;
-        
+    
     }
+
+   #custom-substack-embed input {
+
+    flex: 1 1 auto;
+   }
 }

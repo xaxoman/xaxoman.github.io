@@ -1,10 +1,10 @@
 :root {
---red-color-1: #ff0000; /* red */
---orange-color-2: #ffa500; /* orange */
---yellow-color-3: #ffff00; /* yellow */
---green-color-4: #00ff00; /* green */
---blue-color-5: #0000ff; /* blue */
---purple-color-6: #9500ff; /* indigo */
+--red-color: #ff0000; /* red */
+--orange-color: #ffa500; /* orange */
+--yellow-color: #ffff00; /* yellow */
+--green-color: #00ff00; /* green */
+--blue-color: #0000ff; /* blue */
+--purple-color: #9500ff; /* indigo */
 
 --background-color-red: #990000; /* darker red */
 --background-color-orange: #582c00; /* darker orange */
@@ -265,24 +265,6 @@ margin: 0 auto !important;
         height: 22.125rem;  
 
     }
-
-    #custom-substack-embed form{
-
-       display: flex;
-       flex-direction: column;
-       padding: 0;
-       width: 18rem;
-    
-    }
-
-    #custom-substack-embed input {
-
-        max-height: 2.5rem;
-        margin: 0;
-        margin-bottom: 0.8rem;
-        
-    }
-
     
 }
 
