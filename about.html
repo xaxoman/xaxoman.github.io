@@ -21,114 +21,139 @@
 </head>
 <style>
 
-    #about-grid-container {
+    
 
-        display: grid;
-        gap: 2rem;
-        grid-template-rows: repeat(2,min-content);
-        grid-template-areas: 
+    .about-container {
         
-        "about1 about1 globe"
-        "about3 about4 about4"
-        "about6 about-image about-image"
-        "about7 about7 about8"
-        
-        ;
+        display: flex;
+        max-width: 70rem;
+        margin: 0 auto;
+        padding-top: 4rem;
     }
 
-    .about1 {grid-area: about1;}
-    .about2 {grid-area: globe;}
-    .about3 {grid-area: about3;}
-    .about4 {grid-area: about4;}
-    .about5 {grid-area: about5;}
-    .about6 {grid-area: about6;}
-    .about7 {grid-area: about7;}
-    .about8 {grid-area: about8;}
-    .about-image {grid-area: about-image;}
-
-    .about2 img {
-
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
+    .about-img img {
+        border-radius: 16px;
+       height: 35rem;
+   /*    box-shadow: rgba(221, 221, 221, 0.4) -5px 5px, rgba(175, 175, 175, 0.3) -10px 10px, rgba(107, 107, 107, 0.2) -15px 15px, rgba(46, 46, 46, 0.1) -20px 20px, rgba(0, 0, 0, 0.05) -25px 25px; */
     }
 
-    .about-image img {
-
-        width: 100%;
-        height: 50%;
-        display: block;
-        object-fit: cover;
+    .about-img {
+       
+        margin-right: 5.5rem;
     }
 
-    .about4 span {
-
-        color: var(--h3-titles);
+    .about-container h2 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 1rem;
     }
 
-    @media screen and (max-width: 75rem) {
+    .about-container p {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 180%;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: bold;
+       text-align: left;
+    }
 
-        .about-image img {  
+    .contact-bar {
+        display: flex;
+        align-items: center;
+        margin-left: -1rem;
+    }   
+ 
 
-            max-height: 25rem;
-        }
+   .contact-bar a {
+    
+    transition: 0.3s;
+    text-decoration: none;
+    margin-right: 0.2rem;
+    border-radius: 50%;
+    color: transparent;
+    padding: 14px;
 
-        #about-grid-container {
-
-        grid-template-columns: repeat(2,minmax(200px,1fr));
-        grid-template-rows: repeat(2,min-content);
-        grid-template-areas: 
-
-        "about1 about1"
-        "globe about3"
-        "about4 about4"
-        "about5 about6"
-        "about-image about-image"
-        "about7 about7"
-        "about8 about8"
-
-        ;
-        }
 
     }
 
-    @media screen and (max-width: 50.625rem) {
-
-        #about-grid-container {
-
-        grid-template-columns: repeat(2,minmax(200px,1fr));
-        grid-template-rows: repeat(2,min-content);
-        grid-template-areas: 
-
-        "about1 about1"
-        "globe globe"
-        "about3 about3"
-        "about4 about4"
-        "about5 about5"
-        "about6 about6"
-        "about-image about-image"
-        "about7 about7"
-        "about8 about8"
-
-        ;
-        }
-
-        .about4 span {
-
-          display: block;
-        }
-
+    .contact-bar a:hover{
+       
+        filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 0.678));
+        transform: scale(1.2);
+        transition: 0.3s;
     }
 
-    @media screen and (max-width: 37.5rem) {
-
-        #about-grid-container {
-
-            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-
-        }
+    .contact-bar img {
+     width: 2rem;
+     height: 1.7rem;
+     filter: invert(1);
+    
+    
     }
 
+    .resume {
+        margin-top: 1rem;
+        background-color: rgb(19, 19, 19);
+        border: 1px solid rgb(43, 43, 43);
+        border-radius: 2rem;
+        width: fit-content;
+        padding: 1rem  1.5rem 1rem 1.5rem;
+        transition: 0.3s;
+    }
+
+    .resume:hover {
+        background-color: rgb(43, 43, 43);
+        transition: 0.3s;
+    }
+
+   
+    .resume a {
+       
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+
+    /* hover transition of the arrow */
+
+    .arrow-button > .arrow {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    position: relative;
+    transform: rotate(-45deg);
+    margin: 0 6px;
+    transition: all .3s ease;
+}
+
+.arrow-button > .arrow::before {
+    display: block;
+    background-color: white;
+    width: 3px;
+    transform-origin: bottom right;
+    height: 2px;
+    position: absolute;
+    opacity: 0;
+    bottom: calc(-2px / 2);
+    transform: rotate(45deg);
+    transition: all .3s ease;
+    content: "";
+    right: 0;
+}
+
+.arrow-button:hover > .arrow {
+    transform: rotate(-45deg) translate(4px, 4px);
+    border-color: text-hover-color;
+}
+
+.arrow-button:hover > .arrow::before {
+    opacity: 1;
+    width: 0.8rem;
+}
 
 
 </style>
@@ -145,26 +170,32 @@
             <li><a style="color: var(--h3-titles);" href="">ABOUT</a></li>
         </ul>
     </nav>
-    <strong class="hero-title">About</strong>
-    <div id="about-grid-container">
-        <div class="about1">
-            <h2>Introduction</h2>
-            <p style="max-width: 50rem; text-align: justify; line-height: 1.5rem; font-size: 1.1rem;">
-                Hi there! My name is Denis Xhafaj and I'm a developer from Italy. I'm currently 
-                studying computer science in Crema, which is a beautiful city in northern Italy. 
-                I love working with technology and I'm always looking for ways to make a positive 
-                impact on people's lives. Whether it's creating new solutions or using cutting-edge 
-                technologies, I'm dedicated to making a difference. 
-                My approach to work is defined by discipline, integrity, and a constant desire to learn. 
-                I believe that trust and reliability are essential in everything I do. 
-                I have a range of skills, and I love taking on new challenges. I'm experienced in web 
-                development and software engineering, and I enjoy working in dynamic environments where 
-                I can be creative and push boundaries. 
-            </p>
-          
+        <div class="about-container">
+            <div class="about-img"> <!-- left side image section-->
+                <img src="img/propic.png" alt="profile-picture">
+            </div>
+            <div style="margin-top: -1rem;"> <!-- about text section links and text /right side-->
+                <h2>About Me</h2>
+                <p>
+                    Hi there! My name is Denis Xhafaj and I'm a developer from Italy. I'm currently 
+                    studying computer science in Crema, a small city in northern Italy. 
+                    I love working with technology and I'm always looking for ways to make a positive 
+                    impact on people's lives. 
+                    My approach to work is defined by discipline, integrity, and a constant desire to learn. 
+                    I believe that trust and reliability are essential in everything I do. 
+                </p>
+                <div class="contact-bar">
+                    <a href=""><img  src="img/github.svg" alt="github"></a>
+                    <a href=""><img  src="img/linkedin.svg" alt="linkedin"></a>
+                    <a href=""><img  src="img/telegram-svg.svg" alt="telegram"></a>
+                    <a href=""><img  src="https://www.svgrepo.com/show/479446/email-14.svg" alt="email"></a>
+                </div>
+                <div class="resume">
+                    <a class="arrow-button" href="https://drive.google.com/file/d/1>">View Resume <span class="arrow"></span></a>
+                </div>
+            </div>
         </div>
-      
-    </div>
+        
     <footer>
         <p>&copy; 2023-<script>document.write(new Date().getFullYear())</script> DENNIS XHAFAJ, All Rights Reserved.</p>
     </footer>
