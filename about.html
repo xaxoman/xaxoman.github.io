@@ -33,8 +33,8 @@
 
     .about-img img {
         border-radius: 16px;
-       height: 35rem;
-   /*    box-shadow: rgba(221, 221, 221, 0.4) -5px 5px, rgba(175, 175, 175, 0.3) -10px 10px, rgba(107, 107, 107, 0.2) -15px 15px, rgba(46, 46, 46, 0.1) -20px 20px, rgba(0, 0, 0, 0.05) -25px 25px; */
+        height: 35rem;
+      
     }
 
     .about-img {
@@ -155,6 +155,75 @@
     width: 0.8rem;
 }
 
+@media screen and (max-width: 58.75rem) {
+    .about-container {
+        flex-direction: column;
+       max-width: 40rem;
+    }
+
+    .about-img {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .about-img img {
+       
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        width: 15rem;
+        height: 15rem;
+        object-fit: cover;
+        
+    }
+
+    .about-container p {
+        
+        font-size: 16px;
+    }
+    
+}
+
+@media screen and (max-width: 37.5rem) {
+    
+
+    .about-container h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .about-container p {
+       
+        text-align: justify;
+    }
+
+    .about-container {
+
+        max-width: 30rem;
+    }
+
+    .about-img img {
+       
+        margin: 0 auto;
+        display: block;
+    }
+
+    .contact-bar {
+        justify-content: center;
+    }
+
+    .resume {
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+
+
+
+   
+
+   
+
+   
+}
 
 </style>
 <body>
@@ -185,13 +254,13 @@
                     I believe that trust and reliability are essential in everything I do. 
                 </p>
                 <div class="contact-bar">
-                    <a href=""><img  src="img/github.svg" alt="github"></a>
-                    <a href=""><img  src="img/linkedin.svg" alt="linkedin"></a>
-                    <a href=""><img  src="img/telegram-svg.svg" alt="telegram"></a>
-                    <a href=""><img  src="https://www.svgrepo.com/show/479446/email-14.svg" alt="email"></a>
+                    <a target="_blank" href="https://github.com/xaxoman"><img  src="img/github.svg" alt="github"></a>
+                    <a target="_blank" href="https://linkedin.com/in/dennis-xhafaj-b48a2528a"><img  src="img/linkedin.svg" alt="linkedin"></a>
+                    <a target="_blank" href="https://t.me/+dfrlOiQmxMw1YWE0"><img  src="img/telegram-svg.svg" alt="telegram"></a>
+                    <a target="_blank" href="mailto:xhafaj.dennis@protonmail.com"><img  src="https://www.svgrepo.com/show/479446/email-14.svg" alt="email"></a>
                 </div>
                 <div class="resume">
-                    <a class="arrow-button" href="https://drive.google.com/file/d/1>">View Resume <span class="arrow"></span></a>
+                    <a target="_blank" class="arrow-button" href="CV/Italian_Resume.pdf">View Resume <span class="arrow"></span></a>
                 </div>
             </div>
         </div>
