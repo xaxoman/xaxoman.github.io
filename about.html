@@ -155,6 +155,108 @@
     width: 0.8rem;
 }
 
+/* styles for the projects */
+
+.projects-container {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card {
+
+    display: flex;
+    background-color: rgb(19, 19, 19);
+    border: 1px solid rgb(43, 43, 43);
+    max-width: 70rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    margin-top: 4rem;
+}
+
+.project-card div:first-child {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 4rem;
+}
+
+.project-card span {
+
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid rgb(43, 43, 43);
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.project-card h2 {
+    font-size: 2rem;
+}
+
+.project-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    max-width: 50rem;
+}
+
+.project-card a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; 
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    border: 1px solid transparent;
+    width: fit-content;
+    padding: 0.8rem 1.4rem 0.8rem 1.4rem;
+    margin-left: -1.5rem;
+    border-radius: 2rem;
+}
+
+.project-card a:hover {
+  
+    border: 1px solid rgb(82, 82, 82);
+    background-color: rgb(53, 53, 53);
+    transition: 0.3s;
+}
+
+.project-card a img {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin: 0;
+    margin-right: 0.5rem;
+    filter: invert(1);
+   
+}
+
+.project-card div:last-child {
+    
+    border-radius: 1.5rem;
+    overflow: hidden; /* to make the image fit the div and correctly apply border radius to img*/
+    width: 100%;
+}   
+
+.project-card img {
+    width: 39.375rem;
+    height: 100%;
+    margin-left: 2rem;
+    object-fit: cover;
+    
+  
+}
+
 @media screen and (max-width: 58.75rem) {
     .about-container {
         flex-direction: column;
@@ -180,7 +282,52 @@
         
         font-size: 16px;
     }
+
     
+}
+
+
+@media screen and (max-width: 53.125rem) {
+    
+    .project-card {
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        max-height: 50rem;
+        max-width: 40rem;
+    }
+
+    .project-card div:first-child {
+        margin-left: 0;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .project-card a {
+
+       margin: 0 auto;
+       margin-top: 1.5rem;
+       margin-bottom: 2rem;
+       border: 1px solid rgb(82, 82, 82);
+       background-color: rgb(27, 27, 27);
+    }
+
+    .project-card span {
+
+        margin: 0 auto;
+    }
+
+    .project-card p {
+
+        max-width: 30rem;
+        text-align: justify;
+        margin: 0 auto;
+    }
+
+    .project-card img {
+       margin: 0;
+       width: 100%;
+    }
 }
 
 @media screen and (max-width: 37.5rem) {
@@ -216,6 +363,37 @@
         margin-top: 1rem;
     }
 
+    .project-card {
+        max-width: 33rem;
+    }
+
+    .project-card h2 {
+
+        font-size: 1.6rem;
+    }
+
+    .project-card p {
+        font-size: 0.9rem;
+        max-width: 25rem;
+    }
+    
+    .project-card div:last-child {
+        
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 27.813rem) {
+    
+    .project-card h2 {
+
+        font-size: 1.4rem;
+    }
+
+    .project-card p {
+        font-size: 0.8rem;
+        max-width: 20.5rem;
+    }
 }
 
 </style>
@@ -257,7 +435,23 @@
                 </div>
             </div>
         </div>
-        
+        <!-- projects section -->
+        <div class="projects-container">
+            <div class="project-card">
+               <div>
+                    <span>client-website</span>
+                    <h2>Emerson Telefonia: <br>mobile telephony service provider</h2>
+                    <p>
+                        A website for a mobile telephony service provider. The website is designed to be user-friendly and easy to navigate. 
+                        It includes information about the company, the services they offer, and how to contact them.
+                    </p>
+                    <a target="_blank" href="https://www.emersontelefonia.com"><img src="img/share-icon.svg" alt="share-icon">View Website</a>
+               </div>
+               <div>
+                <img src="img/about-projects/Frame 1.png" alt="emerson-project">
+               </div>
+            </div>
+        </div>
     <footer>
         <p>&copy; 2023-<script>document.write(new Date().getFullYear())</script> DENNIS XHAFAJ, All Rights Reserved.</p>
     </footer>
