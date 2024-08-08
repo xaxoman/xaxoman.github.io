@@ -2,9 +2,10 @@
 
     --h3-titles: rgba(255, 255, 255, .64);
     --section-color: rgb(20, 20, 20);
-    --orangeJustice: rgb(251, 81, 0);
     --LighterGray: rgb(43, 43, 43);
     --Sections:  rgb(221, 221, 221);
+    --backrground-general: rgb(19, 19, 19);
+    --border-general: rgb(43, 43, 43);
 
     /*BLOG CATEGORIES */
     --red-color: #ff0000; /* red */
@@ -413,7 +414,6 @@ text-decoration: none;
 color: white;
 text-align: center;
 font-size: 1rem;
-background-color: var(--orangeJustice);
 padding: 1rem 4.5rem 1rem 4.5rem; 
 border-radius: 0.5rem;
 font-weight: bold;
@@ -454,23 +454,6 @@ font-size: 0.9rem;
 float: right;
 padding: 1.2rem;
 
-}
-
-.sections {
-
-    color: var(--Sections);
-    font-size: 1.4rem;
-    background-color: var(--section-color);
-    padding: 25px;
-    width: 100%;
-    overflow: hidden;
-    
-    /**/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-   
 }
 
 

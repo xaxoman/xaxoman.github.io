@@ -14,6 +14,8 @@
     <title>Message sent correctly</title>
 </head>
 <style>
+
+
    @keyframes slideUp {
             from {
                 opacity: 0;
@@ -40,7 +42,7 @@
         .circle {
             width: 150px;
             height: 150px;
-            background-color: var(--orangeJustice);
+            background-color: var(--green-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -76,32 +78,31 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            background-color: var(--orangeJustice);
+            background-color: var(--backrground-general);
+            border: 1px solid var(--border-general);
             width: fit-content;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
+
             border-radius: 0.3rem;
             font-size: 1.1rem;
-            transition: 0.5s;
+            transition: 0.3s;
         }
 
         .click-back:hover {
 
-            box-shadow: 0.05rem 0.05rem 1rem var(--orangeJustice);
-            transform: translateY(-0.5rem);
-            transition: 0.5s;
+            transform: scale(0.95);
+            transition: 0.3s;
         }
 
         /* centers the whole message horizontally and vertically */    
 
-            .center-all {
-                    
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                align-content: center;
-                justify-content: center;
-               
-            }
+        .center-all {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh; /* to add "simulated" height to the page in order to center the content vertically */
+}
 
 </style>
 <body>
@@ -116,8 +117,8 @@
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
         </nav>
-    </head>
-    <body>
+   
+
         <!--Orange tick-->
         <div class="center-all">
             <div class="circle-container">

@@ -16,137 +16,258 @@
     
         mixpanel.init('deca8db4a505fd545a8fe5ccf1f4cf6f', {debug: true, track_pageview: true, persistence: 'localStorage'});
     </script>
+    <!-- Cal element-click embed code begins -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "client-meeting", {origin:"https://cal.com"});
+    
+        Cal.ns["client-meeting"]("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+
+    <!-- TITOLO -->
     <title>Dennis Xhafaj - Contact</title>
 </head>
 <style>
-    #contact-grid-container {
 
-        display: grid;
-        gap: 2rem;
-        grid-template-areas: 
-        
-        "contactForm contactForm contact2"
-        "contact3 contact4 contact4"
+    .contact-container {
 
-        ;
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+
+    .contact-container h3 {
+
+       color: white;
+       font-size: 1.5rem;
+       margin: 0.2rem;
+    }
+
+    .contact-container h1 {
+
+        font-size: 4rem;
+     
+    }
+
+    .contact-container p {
+
+        font-size: 1.2rem;
+       color: var(--h3-titles);
+        max-width: 40rem;
+        margin-top: -2rem;
+    }
+
+    .contact-buttons {
+
+        display: flex;
+        margin-bottom: 2.5rem;
+       justify-items: center;
+       align-items: center;
 
     }
 
-    .contact1 {grid-area: contactForm;} 
-    .contact2 {grid-area: contact2;}
-    .contact3 {grid-area: contact3;}
-    .contact4 {grid-area: contact4;}
-    .contact5 {grid-area: contact5;}
+    .contact-buttons a {
 
-    .contact2 a {
-
-        display: flex;
         text-decoration: none;
         color: white;
+        background-color: var(--backrground-general);
+        border: 1px solid var(--border-general);
+        border-radius: 0.3rem;
+        font-weight: bold;
+        padding: 0.6rem 1.5rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        font-size: 1rem;
         transition: 0.3s;
     }
 
-    .contact2 a:hover {
+    .contact-buttons a:hover {
 
+        background-color: #4d4d4d;
         transition: 0.5s;
-        color: var(--h3-titles);
     }
 
-    .contact2 img {
+    .contact-buttons button {
 
-        max-width: 100%;
-        width: 1.9rem;
-        filter: invert(1);
-        margin-left: 0.5rem;
-    }
-
-    #Feedback {
-
-        color: var(--h3-titles);
-        width: 100%;
-        border: 0px;
-        border-radius: 0.3rem;
-        background-color: var(--LighterGray);
-        margin-bottom: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    #Feedback::placeholder {
-
-        font-family: 'Satoshi';
-        padding: 1rem;
-        font-size: 1.2rem;
-    }        
-    
-
-    #ContactForm input {
-
-        padding: 1.1rem;
+        background-color: transparent;
+        border: 1px solid var(--border-general);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0.7rem 0.8rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
         
     }
 
-    .grid-clear {
+    .contact-buttons button img {
 
-        display: grid;
-        width: 100%;
-        gap: 24px;
-        grid-auto-flow: column;
+        width: 1.2rem;
+        margin-right: 0.5rem;
+        filter: invert(0.4);
     }
 
+    input {
+
+        margin-top: 1rem;
+    }
+    
     form {
 
-        margin: 0;
+        background-color: var(--backrground-general);
+        border: 1px solid var(--border-general);
+        border-radius: 0.5rem;
+        padding: 1rem;
+
     }
 
-    @media screen and (max-width: 75rem) {
-        
-        #contact-grid-container {
+   form button {
 
-        
-        grid-template-areas: 
-
-        "contactForm contactForm"
-        "contact2 contact3"
-        "contact4 contact5"
-
-        ;
-
-        }
+        color: white;
+        background-color: #393939;
+        border: 0;
+        font-weight: bold;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        transition: 0.3s;
     }
 
-    @media screen and (max-width: 50.625rem) {
-        
-        #contact-grid-container {
+   form button:hover {
 
-        
-        grid-template-areas: 
-
-        "contactForm contactForm"
-        "contact2 contact2"
-        "contact3 contact3"
-        "contact4 contact4"
-        "contact5 contact5"
-
-        ;
-
-        }
-
-        .grid-clear {
-
-            grid-auto-flow: row;
-        }
-
-        .contact2 img {
-
-            width: 1.7rem;
-        }
-
-        .contact2 a {
-
-            margin-bottom: 0.7rem;
-        }
+        background-color: #4d4d4d;
+        transform: scale(0.991);
+        transition: 0.5s;
     }
+
+    textarea {
+
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        border: 0;
+        font-family: "Satoshi";
+        font-size: 1.1rem;
+        background-color: var(--border-general);
+        color: white;
+    }
+
+    /* textarea placeholder style */
+
+    textarea::placeholder {
+
+       font-family: "Satoshi";
+       text-decoration: none;
+       font-size: 1.1rem;
+    }
+
+    input:first-child {
+
+        margin-right: 1rem;
+    }
+
+    input:focus, textarea:focus {
+
+       
+        transition: 0.3s;
+        outline: 0;
+    }
+
+    input, textarea, button{
+
+        border-radius: 0.3rem;
+        transition: 0.3s;
+    }
+
+    @keyframes fadein {
+
+    from {bottom: -2rem; opacity: 0;}
+    to {bottom: 1rem; opacity: 1;}
+    }
+
+    .toast {
+
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        background-color: #4d4d4da2;
+        backdrop-filter: blur(5px);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        font-size: 1rem;
+        font-weight: bold;
+        z-index: 1000;
+        animation: fadein 0.5s, fadeout 1s 2.5s;
+        display: none;
+    }
+
+@media screen and (max-width: 50rem) {
     
+    form div {
+
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 37.5rem) {
+    
+    .contact-container h1 {
+
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .contact-container p {
+
+        font-size: 1rem;
+        text-align: center;
+        max-width: 25rem;
+        margin-top: -2rem !important;
+        margin-bottom: 2rem !important;
+        margin: 0 auto;
+    }
+
+    .contact-container h3 {
+
+        font-size: 1.2rem;
+       
+    }
+
+    .contact-buttons {
+
+       justify-content: center;
+    }
+
+    .contact-buttons a {
+
+        font-size: 0.9rem;
+    }
+
+    .contact-buttons button {
+
+        font-size: 0.9rem;
+    }
+
+    form button {
+
+        font-size: 0.9rem;
+    }
+
+    textarea {
+
+        font-size: 1rem;
+    }
+
+    input {
+
+        font-size: 1rem;
+    }
+
+}
+
+
 </style>
 <body>
 
@@ -161,75 +282,109 @@
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
         </nav>
-        <strong class="hero-title">Contact</strong>
-        <div id="contact-grid-container">
-           <div class="contact1 sections">
-            <h3>Get in touch</h3>
-            <!-- Web3 form script-->
-            <script src="https://web3forms.com/client/script.js" async defer></script>
-            <!-- the validatForm function checks if a certain domain is inside my blocklist, this prevents temp mails from sending messages-->
-            <form action="https://api.web3forms.com/submit" method="POST" id="ContactForm" onsubmit="return validateForm()">
-    
+       
+       
+
+        <div class="contact-container">
+            <h1>Contact</h1>
+            <p>
+                I'm always looking to collaborate on interesting projects with great people.
+                Need a supportive hand? I have two!
+            </p>
+           
+            <!-- contact buttons-->
+            <div class="contact-buttons">
+             <a data-cal-link="denisxhafaj/client-meeting"` data-cal-namespace="client-meeting" `data-cal-config='{"layout":"month_view"}'`>Schedule free call</a>
+             <button onclick="copymail()"><img src="img/copy-icon.svg">E-mail</button>
+             <script>
+                function copymail() {
+                    var copyText = "xhafaj.dennis@protonmail.com";
+                    navigator.clipboard.writeText(copyText);
+                    var x = document.getElementById("RightToast");
+                    x.style.display = "block";
+                    x.style.border = "1px solid green";
+                    setTimeout(function(){ x.style.display = "none"; }, 3000);
+                    
+                }
+             </script>
+           </div>
+            <!-- toast notification for the email copy button -->
+            <div class="toast" id="RightToast">✅ E-mail copied to clipboard</div>
+            <!-- toast notification for wrong email domain -->
+            <div class="toast" id="wrongToast">❌ Only certain domains are allowed for email addresses. If you think this is an error contact me at dennisx.fjdv8@silomails.com</div>
+      
+           <!-- CONTACT FORM-->
+           <form action="https://api.web3forms.com/submit" method="POST" onsubmit="return validateEmail()">
+                <h3>Send a message</h3>
+                <!-- Web3 form script and public key-->
+                <script src="https://web3forms.com/client/script.js" async defer></script>
                 <input type="hidden" name="access_key" value="dcb39c5a-4bb5-4ae3-8108-449c261f52cc">
-    
-               <div class="grid-clear">
-                 <!-- NAME -->
-                 <input id="FirstName" minlength="3" name="name" type="text" placeholder="Name" required></input>
-                 <!-- EMAIL -->
-                 <input autocomplete="on" id="email" name="email" type="email" placeholder="Email" required></input>
+                <!-- form fields -->
+               <div style="display: flex;">
+                    <input type="text" id="name" name="name" placeholder="Name*" required> 
+                    <input autocomplete="on" type="email" id="email" name="email" placeholder="Email*" required>
                </div>
-    
-                <textarea placeholder="Message" id="Feedback"  maxlength="1500" name="message" rows="10" cols="40" required></textarea>
-                <!-- for preventing spam -->
+                <textarea id="subject" name="message" placeholder="Message*" rows="7" required></textarea>
+                <!-- invisible capthca bot preventing spam -->
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                <button style="cursor: pointer; border: 0;" id="signUp" type="submit">Send</button>
-                <!-- Custom redirect for sucessful message-->
-                <input type="hidden" name="redirect" value="https://albaniancoder.pages.dev/formsubmit">
-    
+              <button style="cursor: pointer;" type="submit">Send Message</button>
+              <!-- Custom redirect for sucessful message-->
+              <input type="hidden" name="redirect" value="https://albaniancoder.pages.dev/formsubmit">
             </form>
-            <script>
-                function validateForm() {
-                    var emailInput = document.getElementById("email").value;
+        </div>
+
+        <!-- simple Script that checks if the domain entered is in the list-->
+        <script>
+            function validateEmail() {
+                   var emailInput = document.getElementById("email").value;
                     // List of allowed domains
-                    var allowedDomains = ["gmail.com", "gmail.it", "yahoo.com", "outlook.com", "hotmail.com", "icloud.com", "yandex.com", "protonmail.com", "aol.com", "live.com", "tutanota.com"]; // Add your allowed domains here
+                    var allowedDomains = [
+                                            'gmail.com',
+                                            'yahoo.com',
+                                            'outlook.com',
+                                            'hotmail.com',
+                                            'icloud.com',
+                                            'yandex.com',
+                                            'protonmail.com',
+                                            'mail.com',
+                                            'zoho.com',
+                                            'gmx.com',
+                                            'live.com',
+                                            'inbox.com',
+                                            'tutanota.com',
+                                            'me.com',
+                                            'msn.com',
+                                            'fastmail.com',
+                                            'yahoo.co.uk',
+                                            'hotmail.co.uk',
+                                            'yahoo.fr',
+                                            'yahoo.de',
+                                            'yahoo.co.in',
+                                            'yahoo.ca',
+                                            'rocketmail.com',
+                                            'hushmail.com',
+                                            'aim.com',
+                                            'mac.com',
+                                            'mail.ru',
+
+                                            ]; 
                     // Extract domain from email
                     var domain = emailInput.split("@")[1];
                     
                     // Check if the domain is in the allowed list
                     if (!allowedDomains.includes(domain)) {
-                        alert("Only certain domains are allowed for email addresses. If you think this is an error contact me at dennisx.fjdv8@silomails.com");
+                        
+                        var x = document.getElementById("wrongToast");
+                        x.style.display = "block";
+                        x.style.maxWidth = "30rem";
+                        x.style.border = "1px solid red";
                         return false; // Prevent form submission
                     }
                     
                     return true; // Allow form submission
                 }
-            </script>
-           
-           </div>
-           <div class="contact2 sections">
-            <h3>Follow me</h3>
-            <a target="_blank" href="https://linkedin.com/in/dennis-xhafaj-b48a2528a">LinkedIn / <img src="img/linkedin.svg" alt="dennis xhafaj linkedin"></a>
-            <a target="_blank" href="">YouTube / <img src="img/youtube-contact-white.svg" alt="dennis xhafaj youtube"></a>
-            <a target="_blank" href="https://github.com/xaxoman">Github / <img src="img/github.svg" alt="dennis xhafaj github"></a>
-            <a target="_blank" href="https://t.me/+dfrlOiQmxMw1YWE0">Telegram / <img src="img/telegram-svg.svg" alt="dennis xhafaj telegram"></a>
-           </div>
-           <div class="contact3 sections">
-            <h3>Say hello</h3>
-            <p>
-                Want to talk about anything in particular, maybe a collab or a project? 
-                Just drop me an email, i'll try to reply as fast as i can.
-            </p>
-            <a class="section-url" target="_blank" href="mailto:dennisx.fjdv8@silomails.com">Send a message<img src="img/noun-arrow-1827114.svg" alt="arrow"/></a>
-           </div>
-           <div class="contact4 sections">
-            <h3>Schedule a call</h3>
-            <p>
-                Here you can schedule a personal appointment with me.<br/>Secure your exclusive one-hour slot for a personal consultation with me! Make the most of your time and investment by discussing anything you desire.
-            </p>
-            <a class="section-url" target="_blank" href="https://calendly.com/denisexe/talk-to-me-for-1h?month=2024-01">Book a call<img src="img/noun-arrow-1827114.svg" alt="arrow"/></a>
-           </div>
-           </div>
-        </div>
+        </script>
+    
         <footer>
             <p>&copy; 2023-<script>document.write(new Date().getFullYear())</script> DENNIS XHAFAJ, All Rights Reserved.</p>
         </footer>
