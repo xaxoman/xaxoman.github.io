@@ -78,15 +78,29 @@ body {
     max-width: 90rem;
     margin: 0 auto;
  }
- 
 
+#logo {
+
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+#logo:hover {
+
+    color: white !important;
+    
+}
+ 
+ 
 #navbar {
 
 display: flex;
 justify-content: space-between;
 align-items: center; /* to align the logo inside the flex continer */
 font-size: 0.85rem;
-
+max-width: 75rem;
+margin: 0 auto;
 
 }
 
@@ -135,7 +149,7 @@ margin-left: 1rem;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    padding: 87px 0;
+    padding: 3rem 0 10rem 0;
     /* text styling */
     text-align: center;
     font-size: 2rem;
@@ -321,30 +335,110 @@ div h3 {
 
 
 /* link nero nella homepage (da nero a bianco)*/
-.general-link {
+.primary-btn, .secondary-btn {
+
+  
+    text-decoration: none;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+ }
+ 
+
+.primary-btn {
+
+   background-color: white;
+   color: var(--backrground-general) !important;
+   margin-right: 1rem;
+   transition: 0.3s;
+ 
+}
+
+.primary-btn img {
+
+    max-width: 100%;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-bottom: -0.35rem;
+    filter: invert(0.25);
+    transition: 0.3s;
+
+}
+
+.navbar-container .primary-btn { /* the navbar colored button*/
+
+    font-size: inherit;
+}
+ 
+/* shine / reflex effect when hovering button */
+
+.primary-btn:hover {
+    animation-name: shine;
+    animation-duration: 0.3s;
+  }
+  
+  @keyframes shine {
+    0% {
+      background: linear-gradient(
+       270deg,
+        hsl(260, 90%, 40%) 0%, 
+        hsl(260, 90%, 40%) 25%
+      );
+    }
+  
+    25% {
+      background: linear-gradient(
+       270deg,
+        hsl(260, 90%, 40%) 0%, 
+        hsl(260, 85%, 95%) 25%, 
+        hsl(260, 90%, 40%) 50%);
+    }
+  
+    50% {
+      background: linear-gradient(
+       270deg,
+        hsl(260, 90%, 40%) 0%, 
+        hsl(260, 85%, 95%) 50%, 
+        hsl(260, 90%, 40%) 75%); 
+    }
+  
+    75% {
+      background: linear-gradient(
+       270deg, 
+        hsl(260, 90%, 40%) 0%, 
+        hsl(260, 85%, 95%) 75%, 
+        hsl(260, 90%, 40%) 100%); 
+    }
+  
+    100% {
+      background: linear-gradient(
+        270deg,
+        hsl(260, 90%, 40%) 0%, 
+        hsl(260, 85%, 95%) 100%); 
+    }
+  }
+
+/* Move the arrow slightly to the right when the button is hovered */
+.primary-btn:hover img {
+    transform: translateX(3px);
+    filter: invert(0);
+    transition: transform 0.3s;
+}
+
+.secondary-btn {
 
     color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-family:  "Inter-Bold", "Inter", "Inter Placeholder", sans-serif;
-    text-shadow: 0.7px 0 0  rgb(44, 44, 44);
-    background-image: linear-gradient(rgb(248, 248, 248), rgb(156, 156, 156));
-    color: rgb(44, 44, 44);
-    border-radius: 21px;
-    padding: 12px 21px;
-    margin: 0 auto;
-    width: fit-content;
-    transition: 0.5s;   
-    
- 
- }
- 
- .general-link:hover {
- 
+    border: 1px solid var(--border-general);
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+
     transition: 0.5s;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.473);
- }
+    border: 1px solid gray;
+}
 
 /* Latest Blog articles */
 
@@ -408,26 +502,7 @@ div h3 {
 
 /* newsletter generale*/
 
-#signUp {
 
-text-decoration: none;
-color: white;
-text-align: center;
-font-size: 1rem;
-padding: 1rem 4.5rem 1rem 4.5rem; 
-border-radius: 0.5rem;
-font-weight: bold;
-display: block;
-width: 100%;
-transition: 0.2s;
-
-}
-
-#signUp:hover {
-
-    background-color: rgb(196, 62, 0);
-    transition: 0.3s;
-}
 
 input {
 
