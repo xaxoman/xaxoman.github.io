@@ -1,0 +1,54 @@
+{     
+   
+    "home": {
+        "hero": {
+            "mainHeading": " I’m Denis.\nI Turn ideas into impactful code.",
+            "subHeading": " I'm Denis Xhafaj, a full-stack developer and tech enthusiast. I help businesses and individuals to create a strong online presence and reach their goals."
+            
+        },
+        "descriptions": {
+            "intro": "This is the introduction section.",
+            "details": "Here are some detailed descriptions.",
+            "conclusion": "This is the conclusion section."
+        }
+    },
+   
+    "about": {
+        "headings": {
+            "mainHeading": "About Us",
+            "subHeading": "Our Story",
+            "sectionHeading": "Our Team"
+        },
+        "descriptions": {
+            "intro": "This is the about us section.",
+            "details": "Here are some details about us.",
+            "conclusion": "This is the conclusion of the about us section."
+        }
+    },
+   
+    "contact": {
+        "headings": {
+            "mainHeading": "Contact Us",
+            "subHeading": "Get in Touch",
+            "sectionHeading": "Our Location"
+        },
+        "descriptions": {
+            "intro": "This is the contact section.",
+            "details": "Here are some contact details.",
+            "conclusion": "This is the conclusion of the contact section."
+        }
+    },
+  
+    "projects": {
+        "headings": {
+            "mainHeading": "Our Projects",
+            "subHeading": "Recent Work",
+            "sectionHeading": "Project Details"
+        },
+        "descriptions": {
+            "intro": "This is the projects section.",
+            "details": "Here are some details about our projects.",
+            "conclusion": "This is the conclusion of the projects section."
+        }
+    }
+}
