@@ -104,6 +104,14 @@ margin: 0 auto;
 
 }
 
+#navbar-container {
+
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    transition: 0.3s;
+}
+
 /* navbar globe icon for translation */
 #globe{
 
@@ -164,6 +172,34 @@ transition: 0.4s;
 color: var(--h3-titles);
 margin-left: 1rem;
 
+}
+
+/* navbar animation*/
+
+
+
+
+
+
+
+/* hamburger button style */
+
+#hamburger-button  {
+
+    display: none;
+    flex-direction: column;
+    margin-top: 0.5rem;
+}
+
+
+
+.line {
+
+    height: 3px;
+    width: 32px;
+    background-color: white;
+    border-radius: 0.1rem;
+    margin-bottom: 0.5rem;
 }
 
 /* titoli principali delle altre pagine*/
@@ -405,7 +441,7 @@ div h3 {
 
 }
 
-.navbar-container .primary-btn { /* the navbar colored button*/
+#navbar-container .primary-btn { /* the navbar colored button*/
 
     font-size: inherit;
 }
@@ -486,6 +522,7 @@ padding: 1.2rem;
 
 }
 
+
 /* media queries mainly for the homepage*/
 
 @media screen and (min-width: 93.75rem) {
@@ -506,30 +543,89 @@ padding: 1.2rem;
     }
 }
 
+@media screen and (max-width: 44.688rem) {
+    
+   #navbar {
+
+     position: fixed;
+     z-index: 1000;
+     width: 100%;
+     background-color: black;
+     padding: 1rem;
+     top: 0; 
+     left: 0;
+     right: 0;
+   }
+
+   #navbar-container.show-nav {
+    display: flex !important;
+    transform: translateY(0%);
+    opacity: 1;
+    filter: blur(0rem);
+}
+
+   .container {
+
+     padding: 0;
+   }
+   
+    #hamburger-button {
+
+        display: flex;
+        margin-right: 1rem;
+    }
+
+    #navbar-container {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        position: absolute; /* to turn sticky*/
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 55vh;
+        justify-content: center;
+        margin-top: 3.5rem;
+        background-color: black;
+        /* transition */
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: 0.5s;
+        filter: blur(0.1rem);
+        
+    }
+
+    #navbar-container li {
+
+        padding-top: 1.5rem !important;
+        font-size: 1.1rem;
+    }
+
+    ul#navbar-container {
+
+        padding: 0;
+    }
+
+    #navbar-container .primary-btn { /* the navbar colored button*/
+
+     margin-right: 0;
+    }
+
+    li.translation {
+         
+     width: fit-content;
+        margin: 0 auto;
+    }
+}
+
 
 
 @media screen and (max-width: 37.5rem) {
 
   
     
-    #navbar span {
-
-     display: none;
-
-    }
-
-    #navbar:first-child {
-
-        display: block;
-        text-align: center;
-    }
-
-    .navbar-container {
-      
-        display: flex;
-        justify-content: center;
-        padding: 0;
-    }
+ 
 
     .hero-title {
 

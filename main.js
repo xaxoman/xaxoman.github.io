@@ -77,3 +77,20 @@ function updateLanguage(translations) {
 
 // Set default language
 loadTranslations('en');
+
+// Script for the responsive navbar
+function responsiveNav() {
+    const navContainer = document.getElementById("navbar-container");
+    const hamburgerButton = document.getElementById("hamburger-button");
+
+    // Ensure the initial state of the navbar is hidden
+    navContainer.classList.remove("show-nav");
+
+    hamburgerButton.addEventListener("click", () => {
+        navContainer.classList.toggle("show-nav");
+      
+    });
+}
+
+// Call the function to set up the event listener
+document.addEventListener("DOMContentLoaded", responsiveNav);

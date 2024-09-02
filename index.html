@@ -28,8 +28,12 @@
     <div class="container">
     <nav id="navbar">
         <a id="logo" href="index.html">DENNIS XHAFAJ</a>
-    
-        <ul class="navbar-container">
+
+        <div id="hamburger-button" onclick="responsiveNav()">
+            <div class="line"></div>
+            <div class="line"></div>  
+        </div>
+        <ul id="navbar-container">
             <li class="translation">    
                 <img id="globe" src="img/globe-svgrepo-com.svg" alt="translation-icon">
                 <select id="language-select">
@@ -45,6 +49,7 @@
             <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
+    
         <div class="hero-section">
             <h1>
                 <span class="movingTitle">Hey</span>,<span data-key="home.hero.mainHeading"></span>
