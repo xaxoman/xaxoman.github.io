@@ -34,12 +34,25 @@
 
     <div class="container">
         <nav id="navbar">
-            <a href="index.html">DENNIS XHAFAJ<span>CREMA, ITALY</span></a>
-            
-            <ul class="navbar-container">
-                <li><a style="color: var(--h3-titles);" href="store.html">PROJECTS</a></li>
+            <a id="logo" href="index.html">DENNIS XHAFAJ</a>
+    
+            <div id="hamburger-button" onclick="responsiveNav()">
+                <div class="line"></div>
+                <div class="line"></div>  
+            </div>
+            <ul id="navbar-container">
+                <li class="translation">    
+                    <img id="globe" src="img/globe-svgrepo-com.svg" alt="translation-icon">
+                    <select id="language-select">
+                        <option value="en">EN</option>
+                        <option value="it">IT</option>
+                    </select>
+                    
+                </li>
+                <li><a href="contact.html" class="primary-btn">CONTACT</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
                 <li><a href="blog.html">BLOG</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="pricing.html">PRICING</a></li>
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
         </nav>
