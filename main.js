@@ -80,16 +80,18 @@ loadTranslations('en');
 
 // Script for the responsive navbar
 function responsiveNav() {
-    const navContainer = document.getElementById("navbar-container");
-    const hamburgerButton = document.getElementById("hamburger-button");
+  const navContainer = document.getElementById("navbar-container");
+  const hamburgerButton = document.getElementById("hamburger-button");
 
-    // Ensure the initial state of the navbar is hidden
-    navContainer.classList.remove("show-nav");
+  // Ensure the initial state of the navbar is hidden
+  navContainer.classList.remove("show-nav");
+  // Ensure the initial state of the hamburger button is not active
+  hamburgerButton.classList.remove("button-active");
 
-    hamburgerButton.addEventListener("click", () => {
-        navContainer.classList.toggle("show-nav");
-      
-    });
+  hamburgerButton.addEventListener("click", () => {
+    navContainer.classList.toggle("show-nav");
+    hamburgerButton.classList.toggle("button-active");
+  });
 }
 
 // Call the function to set up the event listener

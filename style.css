@@ -555,6 +555,7 @@ padding: 1.2rem;
      top: 0; 
      left: 0;
      right: 0;
+    
    }
 
    #navbar-container.show-nav {
@@ -562,7 +563,31 @@ padding: 1.2rem;
     transform: translateY(0%);
     opacity: 1;
     filter: blur(0rem);
-}
+   
+    }
+
+   
+      /* Animation for the button on mobile */
+    .button-active {
+
+        transform: rotate(45deg);
+        transition: 0.5s;
+
+    }
+
+    #hamburger-button.button-active .line:nth-child(1) {
+        transform: translateY(8px) rotate(90deg);
+    }
+    
+    #hamburger-button.button-active .line:nth-child(2) {
+        transform: translateY(-4px) rotate(0deg);
+    }
+  
+
+   .line {
+
+    transition: all 0.3s ease;
+   }
 
    .container {
 
@@ -593,6 +618,7 @@ padding: 1.2rem;
         opacity: 0;
         transition: 0.5s;
         filter: blur(0.1rem);
+        
         
     }
 
