@@ -580,7 +580,7 @@ padding: 1.2rem;
     }
     
     #hamburger-button.button-active .line:nth-child(2) {
-        transform: translateY(-4px) rotate(0deg);
+        transform: translateY(-3px) rotate(0deg);
     }
   
 
