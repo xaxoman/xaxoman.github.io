@@ -619,9 +619,10 @@ padding: 1.2rem;
         opacity: 0;
         transition: 0.3s;
         filter: blur(0.2rem);
-        
+        transform: translateY(10%);
         
     }
+
 
     #navbar-container li {
 
