@@ -467,56 +467,35 @@ form {
 
 footer {
 
-    border-top: 1px solid var(--border-general);
-    max-width: 60rem;
-    margin-top: 2rem !important;
-    margin: 0 auto;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+color: var(--h3-titles);
+font-size: 1rem;
+text-align: center;
+background-color: var(--backrground-general);
+border-top: 1px solid var(--border-general);
+padding: 1rem 0;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+margin-top: 2rem;
 }
 
-footer h2 {
+footer img {
 
-    margin-bottom: 0rem;
-}
-
-footer img{
-
-
-    filter: invert(1);
     max-width: 100%;
     width: 1.5rem;
     height: 1.5rem;
-    margin-left: 0.5rem;
-    margin-bottom: -0.6rem;
+    filter: invert(1);
     transition: 0.3s;
+    margin-left: 0.5rem;
 }
 
 footer img:hover {
 
     transform: scale(1.1);
     transition: 0.3s;
-    filter: invert(1);
 }
 
-
-
-footer > div {
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-footer p {
-
-    color: var(--h3-titles);
-    font-size: 1rem;
-   max-width: 25rem;
-   margin-bottom: -0.8rem;
-}
-
-/* media queries*/
 
 @media screen and (max-width: 75rem) {
 
