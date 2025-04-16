@@ -15,16 +15,13 @@ export default function Footer() {
               <p className="text-gray-400 mb-6 text-sm">{t("footer.description")}</p>
             </ClientOnly>
             <div className="flex space-x-4">
-              <a href="https://github.com" className="social-icon" aria-label="GitHub">
+              <a target="_blank" href="https://github.com/xaxoman" className="social-icon" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com" className="social-icon" aria-label="LinkedIn">
+              <a target="_blank" href="https://linkedin.com/in/dennis-xhafaj-b48a2528a" className="social-icon" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://t.me" className="social-icon" aria-label="Telegram">
-                <Send className="w-5 h-5" />
-              </a>
-              <a href="mailto:contact@example.com" className="social-icon" aria-label="Email">
+              <a href="mailto:xhafaj.dennis@protonmail.com" className="social-icon" aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>
             </div>

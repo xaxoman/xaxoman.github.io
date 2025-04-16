@@ -98,7 +98,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       <div className="container mx-auto px-4 max-w-5xl">
         <ClientOnly>
           <h1 className="section-heading">{translations.title}</h1>
-          <p className="text-xl text-gray-400 text-center max-w-3xl mx-auto mb-16">{translations.description}</p>
+          <p className="text-xl text-gray-400 text-left max-w-3xl mb-16">{translations.description}</p>
         </ClientOnly>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
