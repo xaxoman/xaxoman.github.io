@@ -62,7 +62,9 @@ const config: Config = {
           ring: "hsl(var(--sidebar-ring))",
         },
         fontFamily: {
-          sans: ["Satoshi", "var(--font-inter)", "system-ui", "sans-serif"],
+          fontFamily: {
+            sans: "Satoshi, var(--font-inter), system-ui, sans-serif",
+          },
         },
       },
       borderRadius: {
