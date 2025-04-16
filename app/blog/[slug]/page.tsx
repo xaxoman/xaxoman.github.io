@@ -3,6 +3,16 @@ import Link from "next/link"
 import { ArrowLeft, Calendar, Clock, Facebook, Twitter, Linkedin, Copy, ChevronLeft, ChevronRight } from "lucide-react"
 import { notFound } from "next/navigation"
 
+
+type BlogPostProps = {
+  params: {
+    slug: string;
+  };
+  searchParams?: Record<string, string | string[] | undefined>;
+}
+
+
+
 // This would typically come from a CMS or database
 const blogPosts = [
   {
@@ -196,9 +206,11 @@ const blogPosts = [
   },
 ]
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
 
+export default function BlogPost({ params }: BlogPostProps) {
+  const slug = params.slug;  // No need for 'as string' since we defined it
+  const post = blogPosts.find((post) => post.slug === slug)
+  
   if (!post) {
     notFound()
   }
