@@ -199,7 +199,7 @@ const blogPosts = [
 ]
 
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost({ params }: any) {
   const slug = params.slug;
   const post = blogPosts.find((post) => post.slug === slug);
   
