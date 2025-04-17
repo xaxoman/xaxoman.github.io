@@ -121,6 +121,7 @@ const translationData = {
     "contact.form.success": "Thank you for your message! I'll get back to you soon.",
     // Add to your language translation file
     "contact.form.error": "Something went wrong. Please try again.",
+    "contact.schedule": "Schedule a meeting",
   },
   it: {
     // Navigation
@@ -227,6 +228,8 @@ const translationData = {
     "contact.form.send": "Invia Messaggio",
     "contact.form.sending": "Invio in corso...",
     "contact.form.success": "Grazie per il tuo messaggio! Ti risponderò presto.",
+    "contact.form.error": "Qualcosa è andato storto. Riprova.",
+    "contact.schedule": "Pianifica un incontro"
   },
 }
 

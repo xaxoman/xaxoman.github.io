@@ -11,26 +11,26 @@ export default function Projects() {
       id: 1,
       title: "iTrack open-source workout App",
       description:
-        "A fully responsive e-commerce platform with integrated payment processing and inventory management.",
+        "open-source workout application designed to help users track their workouts, monitor progress, and achieve fitness goals.",
       image: "/about-projects/itrack-frame.png?height=600&width=800",
-      category: "E-commerce",
+      category: "Android App",
       categoryColor: "blue",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "MongoDB"],
-      demoUrl: "#",
-      githubUrl: "#",
-      slug: "ecommerce",
+      technologies: ["TypeScript", "Tailwind CSS", "React"],
+      demoUrl: "https://i-track-open-source-workout-app.vercel.app/",
+      githubUrl: "https://github.com/xaxoman/iTrack-open-source-workout-app",
+      slug: "Android-app",
     },
     {
       id: 2,
       title: "Emerson Telefonia",
-      description: "A real-time analytics platform for businesses to track performance metrics and customer behavior.",
+      description: "Website for a mobile telephony service provider. Designed to be user-friendly and easy to navigate.",
       image: "/about-projects/project_emerson.png?height=600&width=800",
-      category: "SaaS",
+      category: "Freelance",
       categoryColor: "green",
-      technologies: ["React", "Node.js", "Express", "PostgreSQL", "Chart.js"],
-      demoUrl: "#",
+      technologies: ["HTML", "CSS", "JavaScript", "HUGO"],
+      demoUrl: "https://www.emersontelefonia.com/",
       githubUrl: "#",
-      slug: "analytics",
+      slug: "emerson-telefonia",
     },
     {
       id: 3,
@@ -66,7 +66,9 @@ export default function Projects() {
           <p className="text-xl text-gray-400 text-left max-w-3xl mb-16">{t("projects.page.description")}</p>
         </ClientOnly>
 
+        {/* INIZIO DEI PROGETTI */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/*  NON RIUTILIZZO IL COMPONENTE PER OGNI PROGETTO MA USO IL MAP PER CREARE UNA GRIGLIA */}
           {projects.map((project) => (
             <div
               key={project.id}
@@ -88,6 +90,7 @@ export default function Projects() {
 
                   <div className="flex space-x-2">
                     <a
+                      target="_blank"
                       href={project.demoUrl}
                       className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-all"
                       aria-label="Live Demo"
@@ -95,6 +98,7 @@ export default function Projects() {
                       <ExternalLink className="w-4 h-4" />
                     </a>
                     <a
+                      target="_blank"
                       href={project.githubUrl}
                       className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-all"
                       aria-label="GitHub Repository"

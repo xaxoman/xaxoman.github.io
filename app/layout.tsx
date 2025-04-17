@@ -9,7 +9,7 @@ import { LanguageProvider } from "@/contexts/language-context"
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
-  title: "Dennis Xhafaj | Full-Stack Developer",
+  title: "Dennis Xhafaj | Portfolio ",
   description: "Full-stack developer turning ideas into impactful code"
 }
 
@@ -23,6 +23,7 @@ export default function RootLayout({
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet" />
         <script defer src="https://cloud.umami.is/script.js" data-website-id="55ba1438-54fc-4978-90db-9f918791812f"></script>
+        <link rel="icon" href="/favicon.svg" />
       </head>
       <body className={`${inter.variable} bg-black text-white min-h-screen flex flex-col`}>
         <LanguageProvider>

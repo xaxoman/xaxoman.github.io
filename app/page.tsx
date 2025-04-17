@@ -143,12 +143,12 @@ export default function Home() {
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <span className="tag tag-blue mb-2">E-commerce</span>
-                <h3 className="text-xl font-bold mb-2">Modern Online Store</h3>
+                <span className="tag tag-blue mb-2">Android App</span>
+                <h3 className="text-xl font-bold mb-2">iTrack Open Source Workout App</h3>
                 <p className="text-gray-400 mb-4">
-                  A fully responsive e-commerce platform with integrated payment processing and inventory management.
+                open-source workout application designed to help users track their workouts, monitor progress, and achieve fitness goals. 
                 </p>
-                <Link href="/projects/ecommerce" className="flex items-center text-white font-medium">
+                <Link target="_blank" href="https://github.com/xaxoman/iTrack-open-source-workout-app" className="flex items-center text-white font-medium">
                   View Project <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -165,12 +165,12 @@ export default function Home() {
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <span className="tag tag-green mb-2">SaaS</span>
-                <h3 className="text-xl font-bold mb-2">Analytics Dashboard</h3>
+                <span className="tag tag-green mb-2">Freelance</span>
+                <h3 className="text-xl font-bold mb-2">Emerson Telefonia</h3>
                 <p className="text-gray-400 mb-4">
-                  A real-time analytics platform for businesses to track performance metrics and customer behavior.
+                  Website for a mobile telephony service provider. Designed to be user-friendly and easy to navigate. 
                 </p>
-                <Link href="/projects/analytics" className="flex items-center text-white font-medium">
+                <Link target="_blank" href="https://www.emersontelefonia.com" className="flex items-center text-white font-medium">
                   View Project <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>

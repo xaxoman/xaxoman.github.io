@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Mail, MapPin, Send, Calendar } from "lucide-react"
 import { t } from "@/contexts/language-context"
 import ClientOnly from "@/components/client-only"
+import CalEmbed from "./CalEmbed";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -131,14 +132,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <ClientOnly>
                   <h3 className="text-lg font-medium mb-1">{translations.schedule}</h3>
                   </ClientOnly>
-                  <a 
-                  href="https://calendly.com/your-username" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-gray-400 hover:text-white transition-colors"
-                  >
-                  Schedule an online meeting
-                  </a>
+                  <CalEmbed />
                 </div>
               </div>
 
