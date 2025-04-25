@@ -65,12 +65,8 @@ const translationData = {
     // About page
     "about.title": "About Me",
     "about.intro": "Hi there! My name is Denis Xhafaj",
-    "about.bio1":
-      "I'm a developer from Italy. I'm currently studying computer science in Crema, a small city in northern Italy. I love working with technology and I'm always looking for ways to make a positive impact on people's lives.",
-    "about.bio2":
-      "My approach to work is defined by discipline, integrity, and a constant desire to learn. I believe that trust and reliability are essential in everything I do.",
-    "about.bio3":
-      "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good book on software architecture and design patterns.",
+    "about.bio":
+     "I'm an Italian developer with a deep passion for technology and creating positive impact. I approach my work with discipline, integrity, trust, reliability, and a constant desire for learning. In my free time, I dedicate myself to the gym and delving into new themes.",
     "about.resume": "View Resume",
     "about.skills": "My Skills",
     "about.frontend": "Frontend Development",
@@ -86,14 +82,15 @@ const translationData = {
     "projects.view": "View Details",
 
     // Pricing page
+    "pricing.currency": "USD",
     "pricing.title": "Pricing",
     "pricing.description":
       "Transparent pricing options tailored to your needs. Choose the plan that works best for your project.",
     "pricing.basic.name": "Basic",
-    "pricing.basic.price": "999",
+    "pricing.basic.price": "$250",
     "pricing.basic.description": "Perfect for small businesses and personal websites",
     "pricing.professional.name": "Professional",
-    "pricing.professional.price": "1,999",
+    "pricing.professional.price": "$500",
     "pricing.professional.description": "Ideal for growing businesses and e-commerce",
     "pricing.enterprise.name": "Enterprise",
     "pricing.enterprise.price": "Custom",
@@ -173,12 +170,8 @@ const translationData = {
     // About page
     "about.title": "Chi Sono",
     "about.intro": "Ciao! Mi chiamo Denis Xhafaj",
-    "about.bio1":
-      "Sono uno sviluppatore italiano. Attualmente studio informatica a Crema, una piccola città nel nord Italia. Amo lavorare con la tecnologia e cerco sempre modi per avere un impatto positivo sulla vita delle persone.",
-    "about.bio2":
-      "Il mio approccio al lavoro è definito da disciplina, integrità e un costante desiderio di imparare. Credo che la fiducia e l'affidabilità siano essenziali in tutto ciò che faccio.",
-    "about.bio3":
-      "Quando non sto programmando, puoi trovarmi ad esplorare nuove tecnologie, contribuire a progetti open-source o leggere un buon libro su architettura software e design pattern.",
+    "about.bio":
+      "Sono uno sviluppatore italiano con una profonda passione per la tecnologia e per creare un impatto positivo. Affronto il mio lavoro con disciplina, integrità, fiducia, affidabilità e un costante desiderio di apprendere. Nel tempo libero, mi dedico alla palestra e all'approfondimento di nuovi temi.",
     "about.resume": "Vedi Curriculum",
     "about.skills": "Le Mie Competenze",
     "about.frontend": "Sviluppo Frontend",
@@ -195,14 +188,15 @@ const translationData = {
     "projects.view": "Vedi Dettagli",
 
     // Pricing page
+    "pricing.currency": "EUR",
     "pricing.title": "Prezzi",
     "pricing.description":
       "Opzioni di prezzo trasparenti adattate alle tue esigenze. Scegli il piano più adatto al tuo progetto.",
     "pricing.basic.name": "Base",
-    "pricing.basic.price": "999",
+    "pricing.basic.price": "250€",
     "pricing.basic.description": "Perfetto per piccole imprese e siti web personali",
     "pricing.professional.name": "Professionale",
-    "pricing.professional.price": "1.999",
+    "pricing.professional.price": "500€",
     "pricing.professional.description": "Ideale per aziende in crescita ed e-commerce",
     "pricing.enterprise.name": "Enterprise",
     "pricing.enterprise.price": "Personalizzato",

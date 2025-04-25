@@ -17,25 +17,23 @@ export default function About() {
         </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch mb-20">
-        <AnimateOnScroll variant="fade-right">
-          <div className="rounded-2xl overflow-hidden aspect-square flex items-center justify-center">
-            <Image
-              src="/profile-image.png"
-              alt="Denis Xhafaj"
-              width={500}
-              height={500}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-right">
+            <div className="rounded-2xl overflow-hidden aspect-square flex items-center justify-center">
+              <Image
+                src="/profile-image.png"
+                alt="Denis Xhafaj"
+                width={500}
+                height={500}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-left">
-            <div>
+            <div className="flex flex-col justify-center h-full">
               <ClientOnly>
                 <h2 className="text-3xl font-bold mb-6">{t("about.intro")}</h2>
-                <p className="text-gray-300 mb-6">{t("about.bio1")}</p>
-                <p className="text-gray-300 mb-6">{t("about.bio2")}</p>
-                <p className="text-gray-300 mb-8">{t("about.bio3")}</p>
+                <p className="text-gray-300 mb-6">{t("about.bio")}</p>
               </ClientOnly>
 
               <div className="flex space-x-4 mb-8">
@@ -51,7 +49,7 @@ export default function About() {
               </div>
 
               <ClientOnly>
-                <Link target="_blank" href="/doc/CURRICULUM_DENIS_03_2025.pdf" className="btn btn-outline inline-flex items-center">
+                <Link target="_blank" href="/doc/CURRICULUM_DENIS_03_2025.pdf" className="btn btn-outline inline-flex items-center w-fit">
                   {t("about.resume")} <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </ClientOnly>

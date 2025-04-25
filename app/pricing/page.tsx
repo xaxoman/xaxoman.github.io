@@ -84,8 +84,8 @@ export default function Pricing() {
               <ClientOnly>
                 <h2 className="text-2xl font-bold mb-2">{t(plan.name)}</h2>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold">${t(plan.price)}</span>
-                  {plan.price !== "pricing.enterprise.price" && <span className="text-gray-400 ml-1">USD</span>}
+                  <span className="text-4xl font-bold">{t(plan.price)}</span>
+                  {plan.price !== "pricing.enterprise.price" && <span className="text-gray-400 ml-1">{t("pricing.currency")}</span>}
                 </div>
                 <p className="text-gray-400 mb-6">{t(plan.description)}</p>
               </ClientOnly>
