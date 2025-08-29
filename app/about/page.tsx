@@ -106,19 +106,15 @@ export default function About() {
                 <ul className="space-y-2 text-gray-300">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                    Node.js & Express
+                    Node.js/Express, C# .NET 8.0
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                    MongoDB & MySQL
+                    SQL Server
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                     RESTful APIs
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                    Authentication & Security
                   </li>
                 </ul>
               </div>
@@ -164,19 +160,11 @@ export default function About() {
                 <ul className="space-y-2 text-gray-300">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                    Testing (Jest, Cypress)
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                     Performance Optimization
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                     SEO Best Practices
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                    Agile Methodologies
                   </li>
                 </ul>
               </div>
@@ -193,6 +181,24 @@ export default function About() {
           </AnimateOnScroll>
 
             <div className="space-y-8">
+            <AnimateOnScroll variant="fade-left">
+              <div className="p-6 border border-white/20 rounded-xl bg-gradient-to-b from-white/10 to-black/90 shadow-lg">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <h3 className="text-xl font-bold">Full-Stack Web Developer</h3>
+                <div className="flex items-center mt-2 md:mt-0">
+                <span className="text-gray-400">2025 - Present</span>
+                <span className="ml-3 px-3 py-1 bg-green-900/30 text-green-400 text-xs rounded-full">Current</span>
+                </div>
+              </div>
+              <h4 className="text-lg text-gray-300 mb-4">Atumtek</h4>
+              <p className="text-gray-400 mb-4">
+               Currently working for a software developement agency in the fintech industry, particularly focused on insurtech
+              </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+          
+           <div className="space-y-8">
             <AnimateOnScroll variant="fade-left">
               <div className="p-6 border border-white/20 rounded-xl bg-gradient-to-b from-white/10 to-black/90 shadow-lg">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
@@ -223,8 +229,6 @@ export default function About() {
               </ul>
               </div>
             </AnimateOnScroll>
-
-        
           </div>
         </div>
 
