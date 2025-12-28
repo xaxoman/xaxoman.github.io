@@ -56,6 +56,18 @@ export default function Projects() {
       githubUrl: "#",
       slug: "pizzeria-king",
     },
+    {
+      id: 5,
+      title: "ContaBite",
+      description: "An app for counting calories and tracking diet achievements using AI.",
+      image: "/about-projects/contabite.svg?height=600&width=800",
+      category: "Android App",
+      categoryColor: "blue",
+      technologies: ["React Native", "Expo", "AI"],
+      demoUrl: "#",
+      githubUrl: "https://github.com/xaxoman/ContaBite",
+      slug: "contabite",
+    }
   ]
 
   return (
