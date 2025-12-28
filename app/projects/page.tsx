@@ -60,7 +60,7 @@ export default function Projects() {
       id: 5,
       title: "ContaBite",
       description: "An app for counting calories and tracking diet achievements using AI.",
-      image: "/about-projects/contabite.svg",
+      image: "/about-projects/contabite.webp",
       category: "Android App",
       categoryColor: "blue",
       technologies: ["React Native", "Expo", "AI"],
