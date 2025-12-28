@@ -136,7 +136,7 @@ export default function Home() {
               <div className="group bg-gradient-to-b from-white/10 to-black/90 border border-white/20 rounded-xl p-4 shadow-lg">
                 <div className="overflow-hidden rounded-xl mb-4 aspect-video relative">
                   <Image
-                    src="/about-projects/itrack-frame.png?height=600&width=800"
+                    src="/about-projects/itrack-frame.png"
                     alt="Project thumbnail"
                     width={600}
                     height={400}
@@ -158,7 +158,7 @@ export default function Home() {
               <div className="group bg-gradient-to-b from-white/10 to-black/90 border border-white/20 rounded-xl p-4 shadow-lg">
                 <div className="overflow-hidden rounded-xl mb-4 aspect-video relative">
                   <Image
-                    src="/about-projects/project_emerson.png?height=600&width=800"
+                    src="/about-projects/project_emerson.png"
                     alt="Project thumbnail"
                     width={600}
                     height={400}

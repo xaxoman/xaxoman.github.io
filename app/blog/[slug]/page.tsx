@@ -131,7 +131,7 @@ const blogPosts = [
     date: "April 15, 2024",
     category: "Web Development",
     categoryColor: "blue",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/placeholder.svg",
     slug: "future-web-development",
     readTime: "10 min read",
     author: {
@@ -149,7 +149,7 @@ const blogPosts = [
     date: "April 3, 2024",
     category: "Accessibility",
     categoryColor: "purple",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/placeholder.svg",
     slug: "accessible-websites",
     readTime: "12 min read",
     author: {
@@ -167,7 +167,7 @@ const blogPosts = [
     date: "March 22, 2024",
     category: "React",
     categoryColor: "blue",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/placeholder.svg",
     slug: "react-performance",
     readTime: "9 min read",
     author: {
@@ -185,7 +185,7 @@ const blogPosts = [
     date: "March 10, 2024",
     category: "Next.js",
     categoryColor: "orange",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/placeholder.svg",
     slug: "server-components",
     readTime: "7 min read",
     author: {
