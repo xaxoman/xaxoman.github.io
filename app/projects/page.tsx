@@ -66,7 +66,7 @@ export default function Projects() {
       technologies: ["React Native", "Expo", "AI"],
       demoUrl: "#",
       githubUrl: "https://github.com/xaxoman/ContaBite",
-      slug: "contaBite",
+      slug: "contabite",
     }
   ]
 
