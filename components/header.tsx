@@ -1,102 +1,157 @@
 "use client"
 
 import Link from "next/link"
-import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import LanguageSwitcher from "./language-switcher"
-import { useLanguage, t } from "@/contexts/language-context"
+import ThemeToggle from "./theme-toggle"
+import { t } from "@/contexts/language-context"
+import ClientOnly from "@/components/client-only"
+
+const NAV = [
+  { key: "nav.home", href: "/" },
+  { key: "nav.services", href: "/services" },
+  { key: "nav.work", href: "/work" },
+  { key: "nav.about", href: "/about" },
+]
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
-  const { language } = useLanguage()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const navLinks = [
-    { name: t("nav.about"), href: "/about" },
-    { name: t("nav.pricing"), href: "/pricing" },
-    { name: t("nav.blog"), href: "/blog" },
-    { name: t("nav.projects"), href: "/projects" },
-  ]
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-4 bg-black/60 backdrop-blur-md border-b border-white/10" : "py-6 bg-transparent"
-      }`}
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        background: "var(--header-bg)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        borderBottom: "1px solid var(--line)",
+      }}
     >
-      <div className="container mx-auto px-8 md:px-12 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold">
+      <div
+        style={{
+          maxWidth: 1120,
+          margin: "0 auto",
+          padding: "0 24px",
+          height: 68,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 24,
+        }}
+      >
+        <Link href="/" style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.06em", color: "var(--fg)" }}>
           DENNIS XHAFAJ
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
+        <nav className="hidden md:flex" style={{ alignItems: "center", gap: 28 }}>
+          {NAV.map((item) => {
+            const active = pathname === item.href
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 5,
+                  fontSize: 12,
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  color: active ? "var(--fg)" : "var(--muted)",
+                }}
+              >
+                <ClientOnly>{t(item.key)}</ClientOnly>
+                <span
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: 1,
+                    background: "var(--fg)",
+                    opacity: active ? 1 : 0,
+                  }}
+                />
+              </Link>
+            )
+          })}
+          <Link
+            href="/contact"
+            style={{
+              background: "var(--btn-bg)",
+              color: "var(--btn-fg)",
+              borderRadius: 9999,
+              padding: "11px 20px",
+              fontSize: 13,
+              fontWeight: 700,
+            }}
+          >
+            <ClientOnly>{t("nav.cta")}</ClientOnly>
+          </Link>
+          <LanguageSwitcher />
+          <ThemeToggle />
+        </nav>
+
+        <div className="flex md:hidden" style={{ alignItems: "center", gap: 12 }}>
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Toggle menu"
+            style={{ background: "none", border: "none", color: "var(--fg)", cursor: "pointer", padding: 4 }}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      {mobileOpen && (
+        <div
+          className="md:hidden"
+          style={{
+            borderTop: "1px solid var(--line)",
+            background: "var(--bg)",
+            padding: "20px 24px 28px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+          }}
+        >
+          {NAV.map((item) => (
             <Link
-              key={link.name}
-              href={link.href}
-              className={`text-white hover:text-gray-300 transition-colors text-sm`}
+              key={item.href}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                fontSize: 15,
+                fontWeight: 500,
+                color: pathname === item.href ? "var(--fg)" : "var(--muted)",
+              }}
             >
-              {link.name}
+              <ClientOnly>{t(item.key)}</ClientOnly>
             </Link>
           ))}
           <Link
             href="/contact"
-            className="ml-4 bg-white text-black px-5 py-2 rounded-full hover:bg-gray-200 transition-colors text-sm"
+            onClick={() => setMobileOpen(false)}
+            style={{
+              background: "var(--btn-bg)",
+              color: "var(--btn-fg)",
+              borderRadius: 9999,
+              padding: "13px 20px",
+              fontSize: 14,
+              fontWeight: 700,
+              textAlign: "center",
+            }}
           >
-            {t("nav.contact")}
+            <ClientOnly>{t("nav.cta")}</ClientOnly>
           </Link>
-          <LanguageSwitcher />
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden z-50 relative" onClick={toggleMenu}>
-          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div
-          className={`md:hidden fixed inset-0 z-40 pt-24 ${
-            isScrolled ? "bg-black/80" : "bg-black/90"
-          } backdrop-blur-md`}
-          style={{ height: "100vh" }}
-        >
-          <nav className="flex flex-col items-center space-y-6 p-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-white text-lg hover:text-gray-300 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="bg-white text-black px-5 py-2 rounded-full w-full text-center text-lg"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t("nav.contact")}
-            </Link>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4 }}>
             <LanguageSwitcher />
-          </nav>
+          </div>
         </div>
       )}
     </header>

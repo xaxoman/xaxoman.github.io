@@ -1,68 +1,106 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
-import { Globe, Check } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage()
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
 
-  const languages = [
-    { code: "en", name: "English" },
-    { code: "it", name: "Italiano" },
-  ]
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen)
-  }
-
-  const changeLanguage = (langCode: "en" | "it") => {
-    setLanguage(langCode)
-    setIsOpen(false)
-  }
-
-  // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
+    const onDocClick = (e: MouseEvent) => {
+      if (open && ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
     }
+    document.addEventListener("click", onDocClick)
+    return () => document.removeEventListener("click", onDocClick)
+  }, [open])
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+  const pick = (lang: "en" | "it") => {
+    setLanguage(lang)
+    setOpen(false)
+  }
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div ref={ref} style={{ position: "relative" }}>
       <button
-        className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors text-sm"
-        onClick={toggleDropdown}
-        aria-expanded={isOpen}
+        onClick={() => setOpen((v) => !v)}
+        title="Language"
+        aria-expanded={open}
         aria-label="Switch language"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 7,
+          border: "1px solid var(--line2)",
+          borderRadius: 9999,
+          background: "transparent",
+          color: "var(--fg)",
+          padding: "9px 13px",
+          fontSize: 12,
+          fontWeight: 500,
+          letterSpacing: "0.1em",
+          cursor: "pointer",
+        }}
+        className="hover:bg-[var(--chip)]"
       >
-        <Globe className="w-4 h-4" />
-        <span>{language.toUpperCase()}</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M2 12h20"></path>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        {language === "it" ? "IT" : "EN"}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ color: "var(--dim)" }} aria-hidden="true">
+          <path d="m6 9 6 6 6-6"></path>
+        </svg>
       </button>
-
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-black border border-white/20 rounded-lg shadow-lg overflow-hidden z-50">
-          <div className="py-1">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                className="flex items-center justify-between w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors"
-                onClick={() => changeLanguage(lang.code as "en" | "it")}
-              >
-                <span>{lang.name}</span>
-                {language === lang.code && <Check className="w-4 h-4" />}
-              </button>
-            ))}
-          </div>
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(100% + 10px)",
+            right: 0,
+            minWidth: 180,
+            background: "var(--bg)",
+            border: "1px solid var(--line2)",
+            borderRadius: 12,
+            boxShadow: "var(--shadow)",
+            padding: 6,
+            zIndex: 60,
+          }}
+        >
+          {([
+            ["en", "English"],
+            ["it", "Italiano"],
+          ] as const).map(([code, label]) => (
+            <button
+              key={code}
+              onClick={() => pick(code)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 12,
+                width: "100%",
+                background: "transparent",
+                border: "none",
+                borderRadius: 8,
+                padding: "10px 12px",
+                color: "var(--fg)",
+                fontSize: 14,
+                cursor: "pointer",
+                textAlign: "left",
+              }}
+              className="hover:bg-[var(--chip)]"
+            >
+              {label}
+              {language === code && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              )}
+            </button>
+          ))}
         </div>
       )}
     </div>
