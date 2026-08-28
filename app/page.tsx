@@ -120,17 +120,8 @@ function ServiceRow({
         }}
         className="!grid-cols-1 md:!grid-cols-2"
       >
-        {reverse ? (
-          <>
-            {visual}
-            {text}
-          </>
-        ) : (
-          <>
-            {text}
-            {visual}
-          </>
-        )}
+        <div className={reverse ? "md:order-2" : undefined}>{text}</div>
+        <div className={reverse ? "md:order-1" : undefined}>{visual}</div>
       </div>
     </Reveal>
   )
@@ -189,12 +180,18 @@ export default function Home() {
             </div>
           </ClientOnly>
           <h1 style={{ fontSize: 56, lineHeight: 1.04, letterSpacing: "-0.03em", fontWeight: 700, margin: 0, maxWidth: 900 }}>
-            <ClientOnly>{t("home.hero.title")}</ClientOnly>{" "}
-            <span style={{ display: "inline-block", minHeight: 60, overflow: "hidden", verticalAlign: "bottom" }}>
+            <ClientOnly>{t("home.hero.title")}</ClientOnly>
+            <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }}>
               <ClientOnly>
-                <span key={wordIndex} data-word={wordPhase} style={{ display: "inline-block" }}>
-                  {t(`home.hero.word.${wordIndex}`)}
-                </span>
+                {WORDS.map((i) => (
+                  <span
+                    key={i}
+                    data-word={i === wordIndex ? wordPhase : undefined}
+                    style={{ gridArea: "1 / 1", visibility: i === wordIndex ? "visible" : "hidden" }}
+                  >
+                    {t(`home.hero.word.${i}`)}
+                  </span>
+                ))}
               </ClientOnly>
             </span>
           </h1>
@@ -205,7 +202,7 @@ export default function Home() {
           </ClientOnly>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 40 }}>
             <ClientOnly>
-              <Link href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center" }}>
+              <Link href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center", whiteSpace: "nowrap" }}>
                 {t(`home.hero.cta.${wordIndex}`)}
               </Link>
             </ClientOnly>

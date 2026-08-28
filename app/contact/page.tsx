@@ -166,7 +166,7 @@ export default function Contact() {
           )}
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 20 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <ClientOnly>
             <div style={sideCard}>
               <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 20 }}>
