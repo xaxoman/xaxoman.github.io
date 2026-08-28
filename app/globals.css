@@ -17,6 +17,7 @@
   --tag-g-fg: #4ade80; --tag-g-bg: rgba(20,83,45,0.3);
   --tag-b-fg: #60a5fa; --tag-b-bg: rgba(30,58,138,0.3);
   --s1: #7dd3fc; --s2: #c4b5fd; --s3: #fcd34d; --s4: #6ee7b7; --s-fg: #0a0a0a;
+  --beam: rgba(255,255,255,0.5); --dots-hi: rgba(255,255,255,0.8); --wash: 0.14;
 }
 :root[data-theme="light"] {
   --bg: #ffffff; --fg: #000000; --soft: #374151; --muted: #4b5563; --dim: #6b7280; --rule: #d1d5db;
@@ -33,6 +34,7 @@
   --tag-g-fg: #15803d; --tag-g-bg: rgba(74,222,128,0.2);
   --tag-b-fg: #1d4ed8; --tag-b-bg: rgba(96,165,250,0.2);
   --s1: #0284c7; --s2: #7c3aed; --s3: #b45309; --s4: #047857; --s-fg: #ffffff;
+  --beam: rgba(0,0,0,0.18); --dots-hi: rgba(0,0,0,0.42); --wash: 0.10;
 }
 
 html { background: var(--bg); }
@@ -90,6 +92,53 @@ a, button, input, textarea, select { transition: color .18s ease, background-col
 [data-cta-btn] [data-cta-arrow] { display: inline-block; transition: transform .3s cubic-bezier(.22,.61,.36,1); }
 [data-cta-btn]:hover [data-cta-arrow] { transform: translateX(5px); }
 @media (prefers-reduced-motion: reduce) { [data-cta] [data-cta-glow] { animation: none; } [data-cta]:hover, [data-cta-btn]:hover { transform: none; } }
+
+/* ---- Hero: the drafting lamp ---- */
+[data-hero-layer] { position: absolute; inset: 0; display: block; pointer-events: none; }
+[data-hero-wash] { opacity: 0; transition: opacity .9s cubic-bezier(.22,.61,.36,1); }
+[data-hero-wash][data-on="1"] { opacity: var(--wash); }
+[data-hero-grid] {
+  background-image: radial-gradient(var(--dots) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 58% 58% at 50% 36%, #000 12%, transparent 78%);
+  mask-image: radial-gradient(ellipse 58% 58% at 50% 36%, #000 12%, transparent 78%);
+}
+/* Second dot layer, revealed only in a tight radius around the pointer. The hard
+   inner stop keeps the edge crisp — an instrument, not an ambient glow. */
+[data-hero-lit] {
+  background-image: radial-gradient(var(--dots-hi) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), #000 0%, #000 45%, transparent 74%);
+  mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), #000 0%, #000 45%, transparent 74%);
+  opacity: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-hero]:hover [data-hero-lit] { opacity: 1; }
+  [data-hero-lit] { transition: opacity .45s ease; }
+}
+[data-lamp] { position: relative; display: inline-flex; }
+[data-lamp-glow] {
+  position: absolute; z-index: 0; left: 0; top: 0; width: 260px; height: 260px; margin: -130px 0 0 -130px;
+  border-radius: 50%; background: radial-gradient(closest-side, var(--beam), transparent 72%);
+  filter: blur(14px); opacity: 0; pointer-events: none;
+  transform: translate(var(--px, 50%), var(--py, 50%)) scale(.55);
+  transition: opacity .4s ease, transform .28s cubic-bezier(.22,.61,.36,1);
+}
+[data-lamp-btn] {
+  position: relative; z-index: 1;
+  transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--sc, 1));
+  transition: transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-lamp]:hover [data-lamp-glow] { opacity: 1; transform: translate(var(--px, 50%), var(--py, 50%)) scale(1); }
+  [data-lamp]:hover [data-lamp-btn] { --sc: 1.03; box-shadow: 0 0 0 1px var(--beam), 0 16px 38px -10px var(--beam); }
+}
+[data-lamp-btn]:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-wash] { transition: none; }
+  [data-lamp-glow] { display: none; }
+  [data-lamp-btn] { transform: none !important; }
+}
 @keyframes dx-word-in { 0% { opacity: 0; transform: translateY(16px) rotateX(-40deg); filter: blur(4px); } 100% { opacity: 1; transform: none; filter: blur(0); } }
 @keyframes dx-word-out { 0% { opacity: 1; transform: none; filter: blur(0); } 100% { opacity: 0; transform: translateY(-16px) rotateX(40deg); filter: blur(4px); } }
 @keyframes dx-queue { 0%, 8% { transform: translateY(0); } 25%, 33% { transform: translateY(-34px); } 50%, 58% { transform: translateY(-68px); } 75%, 83% { transform: translateY(-102px); } 100% { transform: translateY(-136px); } }

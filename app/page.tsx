@@ -143,22 +143,50 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [])
 
+  // The pointer is a lamp: it lights the dot grid it passes over, and the
+  // primary CTA blooms and drifts toward it.
+  const trackHero = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = e.currentTarget
+    const r = el.getBoundingClientRect()
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`)
+    el.style.setProperty("--my", `${e.clientY - r.top}px`)
+  }
+  const resetHero = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.style.setProperty("--mx", "-999px")
+    e.currentTarget.style.setProperty("--my", "-999px")
+  }
+  const trackLamp = (e: React.PointerEvent<HTMLSpanElement>) => {
+    const el = e.currentTarget
+    const r = el.getBoundingClientRect()
+    const x = e.clientX - r.left
+    const y = e.clientY - r.top
+    el.style.setProperty("--px", `${x}px`)
+    el.style.setProperty("--py", `${y}px`)
+    el.style.setProperty("--tx", `${(x / r.width - 0.5) * 12}px`)
+    el.style.setProperty("--ty", `${(y / r.height - 0.5) * 6}px`)
+  }
+  const resetLamp = (e: React.PointerEvent<HTMLSpanElement>) => {
+    e.currentTarget.style.setProperty("--tx", "0px")
+    e.currentTarget.style.setProperty("--ty", "0px")
+  }
+
   return (
     <>
       {/* Hero */}
-      <Reveal style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--line)" }}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "radial-gradient(var(--dots) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-            maskImage: "radial-gradient(ellipse 55% 55% at 50% 35%, #000 10%, transparent 75%)",
-            WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 35%, #000 10%, transparent 75%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "96px 24px 96px" }}>
+      <Reveal style={{ borderBottom: "1px solid var(--line)" }}>
+        <div data-hero="1" onPointerMove={trackHero} onPointerLeave={resetHero} style={{ position: "relative", overflow: "hidden" }}>
+          {WORDS.map((i) => (
+            <span
+              key={i}
+              data-hero-layer="1"
+              data-hero-wash="1"
+              data-on={i === wordIndex ? "1" : undefined}
+              style={{ background: `radial-gradient(ellipse 48% 46% at 32% 38%, var(--s${i + 1}), transparent 70%)` }}
+            />
+          ))}
+          <span data-hero-layer="1" data-hero-grid="1" />
+          <span data-hero-layer="1" data-hero-lit="1" />
+          <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "96px 24px 96px" }}>
           <ClientOnly>
             <div
               style={{
@@ -202,9 +230,12 @@ export default function Home() {
           </ClientOnly>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 40 }}>
             <ClientOnly>
-              <Link href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center", whiteSpace: "nowrap" }}>
-                {t(`home.hero.cta.${wordIndex}`)}
-              </Link>
+              <span data-lamp="1" onPointerMove={trackLamp} onPointerLeave={resetLamp}>
+                <span data-lamp-glow="1" aria-hidden="true" />
+                <Link data-lamp-btn="1" href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center", whiteSpace: "nowrap" }}>
+                  {t(`home.hero.cta.${wordIndex}`)}
+                </Link>
+              </span>
             </ClientOnly>
             <ClientOnly>
               <Link href="/work" style={{ background: "transparent", color: "var(--fg)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "15px 30px", fontSize: 15, fontWeight: 500 }}>
@@ -213,15 +244,16 @@ export default function Home() {
             </ClientOnly>
           </div>
           <ClientOnly>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 28px", marginTop: 56, fontSize: 13, color: "var(--dim)", letterSpacing: "0.04em" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 28px", marginTop: 56, fontSize: 13, letterSpacing: "0.04em" }}>
               {[0, 1, 2, 3].map((i, idx) => (
                 <span key={i} style={{ display: "flex", gap: 28 }}>
-                  <span>{t(`home.hero.audience.${i}`)}</span>
+                  <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
                   {idx < 3 && <span style={{ color: "var(--rule)" }}>/</span>}
                 </span>
               ))}
             </div>
           </ClientOnly>
+          </div>
         </div>
       </Reveal>
 
@@ -483,18 +515,6 @@ export default function Home() {
               </ClientOnly>
             </div>
           </div>
-          <ClientOnly>
-            <div style={{ marginTop: 48, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
-              <span style={{ fontSize: 13, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginRight: 8 }}>
-                {t("automation.startsWith")}
-              </span>
-              {[0, 1, 2, 3, 4].map((i) => (
-                <span key={i} data-chip="1" style={{ fontSize: 14, color: "var(--soft)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "8px 16px" }}>
-                  {t(`automation.chip.${i}`)}
-                </span>
-              ))}
-            </div>
-          </ClientOnly>
         </div>
       </Reveal>
 
@@ -595,24 +615,6 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* Proof slot */}
-      <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
-        <div style={{ border: "1px dashed var(--line2)", borderRadius: 12, padding: 40, display: "flex", gap: 32, flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
-          <ClientOnly>
-            <div style={{ maxWidth: 560 }}>
-              <div style={{ fontFamily: "ui-monospace,'SF Mono',Menlo,Consolas,monospace", fontSize: 12, letterSpacing: "0.1em", color: "var(--dim)", marginBottom: 12 }}>
-                {t("proof.label")}
-              </div>
-              <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--muted)", margin: 0 }}>{t("proof.text")}</p>
-            </div>
-          </ClientOnly>
-          <div style={{ display: "flex", gap: 16 }}>
-            <div style={{ width: 150, height: 96, border: "1px solid var(--line)", borderRadius: 12, background: "repeating-linear-gradient(135deg, var(--faint) 0 6px, transparent 6px 12px)" }} />
-            <div style={{ width: 150, height: 96, border: "1px solid var(--line)", borderRadius: 12, background: "repeating-linear-gradient(135deg, var(--faint) 0 6px, transparent 6px 12px)" }} />
-          </div>
-        </div>
-      </Reveal>
-
       {/* FAQ */}
       <Reveal style={{ borderTop: "1px solid var(--line)" }}>
         <div style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px" }}>
@@ -666,7 +668,7 @@ export default function Home() {
                 </div>
               </ClientOnly>
               <ClientOnly>
-                <Link href="/contact" data-anim="1" style={{ border: "1px solid var(--line2)", borderRadius: 14, background: "var(--bg)", boxShadow: "var(--shadow)", padding: 24, display: "grid", gap: 18, cursor: "pointer" }}>
+                <Link href="/contact" data-anim="1" style={{ border: "1px solid var(--line2)", borderRadius: 14, background: "var(--bg)", boxShadow: "var(--shadow)", padding: 24, display: "grid", gap: 18, cursor: "pointer", overflow: "hidden" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
                     <span style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500 }}>{t("homeCta.preview.label")}</span>
                     <span style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--dim)" }}>{t("homeCta.preview.step")}</span>
@@ -689,8 +691,8 @@ export default function Home() {
                   </div>
                   <div style={{ display: "grid", gap: 8 }}>
                     <span style={{ fontSize: 12, color: "var(--dim)" }}>{t("homeCta.preview.problemLabel")}</span>
-                    <div style={{ border: "1px solid var(--line)", borderRadius: 9, padding: "11px 13px", background: "var(--faint)", minHeight: 78 }}>
-                      <span style={{ display: "block", fontSize: 14, lineHeight: 1.55, color: "var(--soft)", whiteSpace: "nowrap", overflow: "hidden", animation: "dx-type 7s steps(38, end) infinite", animationDelay: ".8s" }}>
+                    <div style={{ border: "1px solid var(--line)", borderRadius: 9, padding: "11px 13px", background: "var(--faint)", minHeight: 78, overflow: "hidden" }}>
+                      <span style={{ display: "block", fontSize: 14, lineHeight: 1.55, color: "var(--soft)", whiteSpace: "nowrap", overflow: "hidden", maxWidth: "100%", animation: "dx-type 7s steps(38, end) infinite", animationDelay: ".8s" }}>
                         {t("homeCta.preview.problem")}
                       </span>
                       <span style={{ display: "inline-block", width: 1.5, height: 15, verticalAlign: -2, background: "var(--fg)", animation: "dx-caret 1s step-end infinite" }} />
