@@ -74,7 +74,7 @@ export default function Contact() {
 
   return (
     <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px 104px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1.25fr 1fr", gap: 64, alignItems: "start" }} className="!grid-cols-1 lg:!grid-cols-[1.25fr_1fr]">
+      <div style={{ display: "grid", gridTemplateColumns: "1.25fr 1fr", gap: 64, alignItems: "stretch" }} className="!grid-cols-1 lg:!grid-cols-[1.25fr_1fr]">
         <div>
           <ClientOnly>
             <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
@@ -166,7 +166,7 @@ export default function Contact() {
           )}
         </div>
 
-        <div style={{ display: "grid", gap: 20, alignContent: "start" }}>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 20 }}>
           <ClientOnly>
             <div style={sideCard}>
               <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 20 }}>
