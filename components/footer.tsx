@@ -114,6 +114,11 @@ export default function Footer() {
           <span>{t("footer.copyright").replace("{year}", new Date().getFullYear().toString())}</span>
         </ClientOnly>
         <ClientOnly>
+          <Link href="/privacy/wake-for-fajr" style={{ color: "var(--dim)", fontSize: 13 }}>
+            {t("footer.privacy.wakeForFajr")}
+          </Link>
+        </ClientOnly>
+        <ClientOnly>
           <span>{t("footer.location")}</span>
         </ClientOnly>
       </div>

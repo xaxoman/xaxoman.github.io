@@ -108,6 +108,9 @@ const translationData = {
     "tag.mobileApp": "Mobile app",
     "tag.openSource": "Open source",
 
+    "project.wakeForFajr.title": "Wake for Fajr",
+    "project.wakeForFajr.description":
+      "An Android alarm clock whose alarms follow the prayer times: set \u201CFajr \u2212 15 min\u201D once and it re-computes itself every day. Times, qibla compass and home-screen widget all work offline.",
     "project.emerson.title": "Emerson Telefonia",
     "project.emerson.description":
       "Website for a mobile telephony service provider. Designed to be user-friendly and easy to navigate.",
@@ -126,6 +129,7 @@ const translationData = {
     "project.link.visitSite": "Visit site →",
     "project.link.askMe": "Ask me about it →",
     "project.link.viewGithub": "View on GitHub →",
+    "project.link.privacy": "Privacy policy →",
 
     // Home — steps
     "steps.eyebrow": "How it works",
@@ -336,6 +340,7 @@ const translationData = {
     "footer.elsewhere": "Elsewhere",
     "footer.copyright": "© {year} Dennis Xhafaj. All rights reserved.",
     "footer.location": "Crema, Italy",
+    "footer.privacy.wakeForFajr": "Wake for Fajr — privacy",
   },
   it: {
     // Navigation
@@ -430,6 +435,9 @@ const translationData = {
     "tag.mobileApp": "App mobile",
     "tag.openSource": "Open source",
 
+    "project.wakeForFajr.title": "Wake for Fajr",
+    "project.wakeForFajr.description":
+      "Una sveglia Android che segue gli orari delle preghiere: imposti \u201CFajr \u2212 15 min\u201D una volta e si ricalcola ogni giorno. Orari, bussola qibla e widget funzionano offline.",
     "project.emerson.title": "Emerson Telefonia",
     "project.emerson.description":
       "Sito web per un operatore di telefonia mobile. Progettato per essere semplice da usare e navigare.",
@@ -448,6 +456,7 @@ const translationData = {
     "project.link.visitSite": "Visita il sito →",
     "project.link.askMe": "Chiedimi di più →",
     "project.link.viewGithub": "Vedi su GitHub →",
+    "project.link.privacy": "Informativa privacy →",
 
     // Home — steps
     "steps.eyebrow": "Come funziona",
@@ -661,6 +670,7 @@ const translationData = {
     "footer.elsewhere": "Altrove",
     "footer.copyright": "© {year} Dennis Xhafaj. Tutti i diritti riservati.",
     "footer.location": "Crema, Italia",
+    "footer.privacy.wakeForFajr": "Wake for Fajr — privacy",
   },
 }
 

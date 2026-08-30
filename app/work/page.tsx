@@ -42,7 +42,29 @@ function TagBadge({ tagKey, kind }: { tagKey: string; kind: "green" | "blue" }) 
   )
 }
 
-const PROJECTS = [
+type Project = {
+  img: string
+  tagKey: string
+  kind: "green" | "blue"
+  titleKey: string
+  descKey: string
+  tech: string[]
+  link: { href: string; labelKey: string; external: boolean }
+  /** A second, quieter link — the Play Store privacy page, for instance. */
+  secondary?: { href: string; labelKey: string; external: boolean }
+}
+
+const PROJECTS: Project[] = [
+  {
+    img: "/about-projects/wake-for-fajr.webp",
+    tagKey: "tag.mobileApp",
+    kind: "blue" as const,
+    titleKey: "project.wakeForFajr.title",
+    descKey: "project.wakeForFajr.description",
+    tech: ["React Native", "Expo", "TypeScript", "Kotlin"],
+    link: { href: "/contact", labelKey: "project.link.askMe", external: false },
+    secondary: { href: "/privacy/wake-for-fajr", labelKey: "project.link.privacy", external: false },
+  },
   {
     img: "/about-projects/project_emerson.png",
     tagKey: "tag.freelance",
@@ -125,15 +147,22 @@ export default function Work() {
                     </span>
                   ))}
                 </div>
-                {p.link.external ? (
-                  <a href={p.link.href} target="_blank" rel="noopener" style={{ fontSize: 15, fontWeight: 500 }}>
-                    {t(p.link.labelKey)}
-                  </a>
-                ) : (
-                  <Link href={p.link.href} style={{ fontSize: 15, fontWeight: 500 }}>
-                    {t(p.link.labelKey)}
-                  </Link>
-                )}
+                <div style={{ display: "flex", gap: 20, flexWrap: "wrap", alignItems: "center" }}>
+                  {p.link.external ? (
+                    <a href={p.link.href} target="_blank" rel="noopener" style={{ fontSize: 15, fontWeight: 500 }}>
+                      {t(p.link.labelKey)}
+                    </a>
+                  ) : (
+                    <Link href={p.link.href} style={{ fontSize: 15, fontWeight: 500 }}>
+                      {t(p.link.labelKey)}
+                    </Link>
+                  )}
+                  {p.secondary && (
+                    <Link href={p.secondary.href} style={{ fontSize: 15, color: "var(--muted)" }}>
+                      {t(p.secondary.labelKey)}
+                    </Link>
+                  )}
+                </div>
               </ClientOnly>
             </div>
           ))}
