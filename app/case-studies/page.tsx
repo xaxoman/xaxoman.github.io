@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { CASE_STUDIES } from "@/lib/case-studies-data"
-import { ArrowRight, CheckCircle2, Clock } from "lucide-react"
+import { ArrowRight, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Case Study & Risultati SEO per Aziende a Crema | Dennis Xhafaj",
+  title: "Case Study & Soluzioni per Aziende a Crema | Dennis Xhafaj",
   description:
-    "Approfondimenti, case study reali e guide pratiche per PMI, liberi professionisti e negozi a Crema e provincia: creazione siti web veloci, e-commerce, gestionali e Local SEO.",
+    "Approfondimenti e case study per PMI, liberi professionisti e attività a Crema: creazione siti web performanti, e-commerce, gestionali su misura e Local SEO.",
   keywords: [
     "creazione siti web crema",
     "sviluppo siti web per pmi crema e provincia",
@@ -18,48 +18,60 @@ export const metadata: Metadata = {
   ],
 }
 
+const solidBtn: React.CSSProperties = {
+  background: "var(--btn-bg)",
+  color: "var(--btn-fg)",
+  borderRadius: 9999,
+  padding: "15px 30px",
+  fontSize: 15,
+  fontWeight: 700,
+  textDecoration: "none",
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 8,
+}
+
 export default function CaseStudiesIndexPage() {
   return (
-    <main style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 24px 96px" }}>
-      {/* Header section */}
-      <div style={{ marginBottom: 48, maxWidth: 840 }}>
-        <div style={{ marginBottom: 16 }}>
-          <span
-            style={{
-              fontSize: 12,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "var(--dim)",
-            }}
-          >
-            STUDI DI CASO & APPROFONDIMENTI
-          </span>
+    <main style={{ maxWidth: 1120, margin: "0 auto", padding: "88px 24px 104px" }}>
+      {/* Hero Header */}
+      <div style={{ maxWidth: 760, marginBottom: 64 }}>
+        <div
+          style={{
+            fontSize: 12,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "var(--dim)",
+            fontWeight: 500,
+            marginBottom: 18,
+          }}
+        >
+          STUDI DI CASO & APPROFONDIMENTI
         </div>
 
         <h1
           style={{
-            fontSize: "clamp(32px, 5vw, 46px)",
-            fontWeight: 800,
-            lineHeight: 1.15,
+            fontSize: "clamp(36px, 5.5vw, 52px)",
+            lineHeight: 1.08,
             letterSpacing: "-0.03em",
+            fontWeight: 700,
             color: "var(--fg)",
-            marginBottom: 20,
+            margin: "0 0 24px",
           }}
         >
-          Progetti reali, numeri concreti e soluzioni digitali per il territorio.
+          Soluzioni concrete per aziende e professionisti.
         </h1>
 
         <p
           style={{
-            fontSize: 17,
-            lineHeight: 1.6,
+            fontSize: 18,
+            lineHeight: 1.7,
             color: "var(--muted)",
+            margin: 0,
           }}
         >
-          Ogni azienda e professionista ha sfide diverse: dal rifacimento di un sito vetrina obsoleto alla sostituzione di
-          decine di fogli Excel con un gestionale su misura. Qui trovi come affrontiamo ogni scenario a Crema e provincia
-          con codice moderno, preventivo a prezzo fisso e zero fumo negli occhi.
+          Dalla modernizzazione di siti web obsoleti allo sviluppo di software gestionali che sostituiscono fogli Excel:
+          ecco come affrontiamo ogni necessità a Crema e provincia con codice moderno e preventivo a prezzo fisso.
         </p>
       </div>
 
@@ -68,22 +80,21 @@ export default function CaseStudiesIndexPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-          gap: 24,
+          gap: 20,
         }}
       >
-        {CASE_STUDIES.map((item, idx) => (
+        {CASE_STUDIES.map((item) => (
           <article
             key={item.slug}
             style={{
               background: "var(--card)",
               border: "1px solid var(--line2)",
-              borderRadius: 14,
-              padding: 26,
+              borderRadius: 12,
+              padding: 28,
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
               boxShadow: "var(--shadow)",
-              transition: "transform 0.2s ease, border-color 0.2s ease",
             }}
           >
             <div>
@@ -114,12 +125,12 @@ export default function CaseStudiesIndexPage() {
                   style={{
                     fontSize: 12,
                     color: "var(--dim)",
-                    display: "flex",
+                    display: "inline-flex",
                     alignItems: "center",
                     gap: 5,
                   }}
                 >
-                  <Clock size={13} /> {item.readTime}
+                  <Clock size={12} /> {item.readTime}
                 </span>
               </div>
 
@@ -128,7 +139,7 @@ export default function CaseStudiesIndexPage() {
                   fontSize: 20,
                   fontWeight: 700,
                   lineHeight: 1.3,
-                  letterSpacing: "-0.01em",
+                  letterSpacing: "-0.015em",
                   marginBottom: 12,
                   color: "var(--fg)",
                 }}
@@ -145,9 +156,9 @@ export default function CaseStudiesIndexPage() {
               <p
                 style={{
                   fontSize: 14,
-                  lineHeight: 1.55,
+                  lineHeight: 1.6,
                   color: "var(--muted)",
-                  marginBottom: 24,
+                  margin: "0 0 24px",
                 }}
               >
                 {item.subtitle}
@@ -160,89 +171,59 @@ export default function CaseStudiesIndexPage() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 8,
+                  gap: 6,
                   fontSize: 14,
                   fontWeight: 600,
                   color: "var(--fg)",
                   textDecoration: "none",
                 }}
-                className="hover:opacity-80"
+                className="hover:underline"
               >
-                Leggi il case study completo <ArrowRight size={15} />
+                Leggi il case study <ArrowRight size={14} />
               </Link>
             </div>
           </article>
         ))}
       </div>
 
-      {/* Bottom CTA Box */}
+      {/* Footer Section */}
       <div
         style={{
-          marginTop: 64,
-          padding: "40px 32px",
-          background: "var(--card)",
-          border: "1px solid var(--line2)",
-          borderRadius: 16,
+          marginTop: 80,
+          borderTop: "1px solid var(--line)",
+          paddingTop: 48,
           display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: 20,
-          boxShadow: "var(--shadow)",
+          flexWrap: "wrap",
+          gap: 24,
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
         <div>
-          <span
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: "var(--dim)",
-            }}
-          >
-            PARLIAMO DEL TUO PROGETTO
-          </span>
           <h3
             style={{
-              fontSize: 26,
+              fontSize: 22,
               fontWeight: 700,
+              letterSpacing: "-0.015em",
               color: "var(--fg)",
-              marginTop: 6,
-              letterSpacing: "-0.02em",
+              margin: "0 0 6px",
             }}
           >
-            Hai una necessità simile per la tua azienda o studio a Crema?
+            Hai una sfida simile per la tua attività?
           </h3>
           <p
             style={{
               fontSize: 15,
               color: "var(--muted)",
-              marginTop: 8,
-              maxWidth: 680,
-              lineHeight: 1.6,
+              margin: 0,
             }}
           >
-            Invia una descrizione del tuo progetto in pochi campi: riceverai ambito di lavoro, data di consegna e preventivo
-            a prezzo fisso entro 24-48 ore. Senza canoni forzati e senza lunghe riunioni commerciali.
+            Invia un breve brief: ti rispondo con ambito, tempi e preventivo a prezzo fisso.
           </p>
         </div>
 
-        <Link
-          href="/contact"
-          style={{
-            background: "var(--btn-bg)",
-            color: "var(--btn-fg)",
-            borderRadius: 9999,
-            padding: "14px 28px",
-            fontSize: 14,
-            fontWeight: 700,
-            textDecoration: "none",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-          }}
-        >
-          Avvia un brief a prezzo fisso <ArrowRight size={16} />
+        <Link href="/contact" style={solidBtn}>
+          Invia un brief <ArrowRight size={16} />
         </Link>
       </div>
     </main>

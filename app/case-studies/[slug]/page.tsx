@@ -2,14 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/lib/case-studies-data"
-import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle2,
-  Clock,
-  HelpCircle,
-  TrendingUp,
-} from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -55,58 +48,58 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     notFound()
   }
 
-  // Schema.org structured data JSON-LD (Article + FAQPage + ProfessionalService)
+  // Schema.org structured data JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
         "@id": `https://albaniancoder.vercel.app/case-studies/${study.slug}#article`,
-        "headline": study.title,
-        "description": study.description,
-        "datePublished": "2026-09-01T00:00:00+02:00",
-        "dateModified": "2026-09-07T00:00:00+02:00",
-        "author": {
+        headline: study.title,
+        description: study.description,
+        datePublished: "2026-09-01T00:00:00+02:00",
+        dateModified: "2026-09-07T00:00:00+02:00",
+        author: {
           "@type": "Person",
-          "name": "Dennis Xhafaj",
-          "url": "https://albaniancoder.vercel.app",
-          "jobTitle": "Freelance Full-Stack Developer",
-          "address": {
+          name: "Dennis Xhafaj",
+          url: "https://albaniancoder.vercel.app",
+          jobTitle: "Freelance Full-Stack Developer",
+          address: {
             "@type": "PostalAddress",
-            "addressLocality": "Crema",
-            "addressRegion": "CR",
-            "addressCountry": "IT",
+            addressLocality: "Crema",
+            addressRegion: "CR",
+            addressCountry: "IT",
           },
         },
-        "publisher": {
+        publisher: {
           "@type": "Person",
-          "name": "Dennis Xhafaj",
+          name: "Dennis Xhafaj",
         },
       },
       {
         "@type": "ProfessionalService",
         "@id": "https://albaniancoder.vercel.app/#localbusiness",
-        "name": "Dennis Xhafaj - Sviluppo Web & Software a Crema",
-        "address": {
+        name: "Dennis Xhafaj - Sviluppo Web & Software a Crema",
+        address: {
           "@type": "PostalAddress",
-          "addressLocality": "Crema",
-          "addressRegion": "CR",
-          "postalCode": "26013",
-          "addressCountry": "IT",
+          addressLocality: "Crema",
+          addressRegion: "CR",
+          postalCode: "26013",
+          addressCountry: "IT",
         },
-        "areaServed": ["Crema", "Cremona", "Lodi", "Milano", "Lombardia"],
-        "priceRange": "€€",
-        "url": "https://albaniancoder.vercel.app",
+        areaServed: ["Crema", "Cremona", "Lodi", "Milano", "Lombardia"],
+        priceRange: "€€",
+        url: "https://albaniancoder.vercel.app",
       },
       {
         "@type": "FAQPage",
         "@id": `https://albaniancoder.vercel.app/case-studies/${study.slug}#faq`,
-        "mainEntity": study.faqs.map((faq) => ({
+        mainEntity: study.faqs.map((faq) => ({
           "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
+          name: faq.question,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": faq.answer,
+            text: faq.answer,
           },
         })),
       },
@@ -124,46 +117,49 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px 96px" }}>
-        {/* Breadcrumb & back button */}
-        <div style={{ marginBottom: 32, display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "var(--dim)" }}>
-          <Link href="/case-studies" style={{ color: "var(--dim)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
-            <ArrowLeft size={14} /> Tutti i Case Study
+      <article style={{ maxWidth: 740, margin: "0 auto", padding: "56px 24px 120px" }}>
+        {/* Navigation back */}
+        <div style={{ marginBottom: 40 }}>
+          <Link
+            href="/case-studies"
+            style={{
+              color: "var(--dim)",
+              fontSize: 13,
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              fontWeight: 500,
+            }}
+            className="hover:underline"
+          >
+            <ArrowLeft size={14} /> Torna a tutti i case study
           </Link>
-          <span>/</span>
-          <span style={{ color: "var(--muted)" }}>{study.category}</span>
         </div>
 
-        {/* Hero header */}
-        <header style={{ marginBottom: 40 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
-            <span
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                fontWeight: 600,
-                color: "var(--tag-b-fg)",
-                background: "var(--tag-b-bg)",
-                borderRadius: 9999,
-                padding: "5px 12px",
-              }}
-            >
-              {study.badge}
-            </span>
-            <span style={{ fontSize: 13, color: "var(--dim)", display: "inline-flex", alignItems: "center", gap: 4 }}>
-              <Clock size={13} /> {study.readTime}
-            </span>
+        {/* Editorial Header */}
+        <header style={{ marginBottom: 48 }}>
+          <div
+            style={{
+              fontSize: 12,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--dim)",
+              fontWeight: 600,
+              marginBottom: 16,
+            }}
+          >
+            {study.category} · {study.readTime} di lettura · Crema
           </div>
 
           <h1
             style={{
-              fontSize: "clamp(28px, 4.5vw, 42px)",
-              fontWeight: 800,
-              lineHeight: 1.18,
-              letterSpacing: "-0.025em",
+              fontSize: "clamp(30px, 4.5vw, 44px)",
+              fontWeight: 700,
+              lineHeight: 1.15,
+              letterSpacing: "-0.03em",
               color: "var(--fg)",
-              marginBottom: 16,
+              margin: "0 0 20px",
             }}
           >
             {study.title}
@@ -171,95 +167,113 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
           <p
             style={{
-              fontSize: 18,
-              lineHeight: 1.6,
+              fontSize: 19,
+              lineHeight: 1.65,
               color: "var(--muted)",
+              margin: 0,
             }}
           >
             {study.subtitle}
           </p>
         </header>
 
-        {/* Target Profile Card */}
-        <section
+        {/* Quiet Meta Details Strip */}
+        <div
           style={{
-            background: "var(--card)",
-            border: "1px solid var(--line2)",
-            borderRadius: 14,
-            padding: 24,
-            marginBottom: 44,
+            borderTop: "1px solid var(--line)",
+            borderBottom: "1px solid var(--line)",
+            padding: "24px 0",
+            marginBottom: 56,
             display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: 16,
+            gridTemplateColumns: "1fr 1fr",
+            gap: 28,
           }}
-          className="sm:!grid-cols-2"
+          className="!grid-cols-1 sm:!grid-cols-2"
         >
           <div>
-            <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--dim)", fontWeight: 600, marginBottom: 4 }}>
+            <div
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--dim)",
+                fontWeight: 600,
+                marginBottom: 6,
+              }}
+            >
               Azienda Target
             </div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: "var(--fg)" }}>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--fg)", lineHeight: 1.4 }}>
               {study.targetClient}
             </div>
           </div>
           <div>
-            <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--dim)", fontWeight: 600, marginBottom: 4 }}>
+            <div
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--dim)",
+                fontWeight: 600,
+                marginBottom: 6,
+              }}
+            >
               Esigenza Principale
             </div>
-            <div style={{ fontSize: 14, color: "var(--soft)", lineHeight: 1.5 }}>
+            <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>
               {study.need}
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Section 1: The Problem */}
-        <section style={{ marginBottom: 48 }}>
+        <section style={{ marginBottom: 60 }}>
           <h2
             style={{
-              fontSize: 24,
+              fontSize: 26,
               fontWeight: 700,
               letterSpacing: "-0.02em",
               color: "var(--fg)",
-              marginBottom: 16,
+              margin: "0 0 20px",
             }}
           >
             {study.problem.title}
           </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--muted)", marginBottom: 18 }}>
+
+          <p
+            style={{
+              fontSize: 17,
+              lineHeight: 1.8,
+              color: "var(--muted)",
+              marginBottom: 24,
+            }}
+          >
             {study.problem.intro}
           </p>
 
-          <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px 0", display: "flex", flexDirection: "column", gap: 12 }}>
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              margin: "0 0 32px",
+              display: "flex",
+              flexDirection: "column",
+              gap: 14,
+            }}
+          >
             {study.problem.points.map((pt, i) => (
               <li
                 key={i}
                 style={{
-                  fontSize: 15,
-                  lineHeight: 1.6,
+                  fontSize: 16,
+                  lineHeight: 1.7,
                   color: "var(--fg)",
                   display: "flex",
-                  alignItems: "flex-start",
+                  alignItems: "baseline",
                   gap: 12,
                 }}
               >
-                <span
-                  style={{
-                    color: "#ef4444",
-                    background: "rgba(239, 68, 68, 0.12)",
-                    borderRadius: "50%",
-                    width: 22,
-                    height: 22,
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    fontSize: 12,
-                    fontWeight: 700,
-                    marginTop: 2,
-                  }}
-                >
-                  ✕
-                </span>
+                <span style={{ color: "var(--dim)", fontSize: 16, userSelect: "none" }}>—</span>
                 <span>{pt}</span>
               </li>
             ))}
@@ -268,15 +282,13 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           {study.problem.quote && (
             <blockquote
               style={{
-                borderLeft: "3px solid var(--accent, #3b82f6)",
-                background: "var(--bg)",
-                padding: "16px 20px",
-                borderRadius: "0 10px 10px 0",
-                fontSize: 15,
+                borderLeft: "2px solid var(--line2)",
+                paddingLeft: 24,
+                margin: "36px 0",
                 fontStyle: "italic",
-                lineHeight: 1.65,
-                color: "var(--muted)",
-                margin: "24px 0",
+                fontSize: 18,
+                lineHeight: 1.7,
+                color: "var(--fg)",
               }}
             >
               “{study.problem.quote}”
@@ -285,175 +297,187 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         </section>
 
         {/* Section 2: The Solution */}
-        <section style={{ marginBottom: 48 }}>
+        <section style={{ marginBottom: 64 }}>
           <h2
             style={{
-              fontSize: 24,
+              fontSize: 26,
               fontWeight: 700,
               letterSpacing: "-0.02em",
               color: "var(--fg)",
-              marginBottom: 16,
+              margin: "0 0 20px",
             }}
           >
             {study.solution.title}
           </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--muted)", marginBottom: 24 }}>
+
+          <p
+            style={{
+              fontSize: 17,
+              lineHeight: 1.8,
+              color: "var(--muted)",
+              marginBottom: 36,
+            }}
+          >
             {study.solution.intro}
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
             {study.solution.steps.map((step, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: "var(--card)",
-                  border: "1px solid var(--line2)",
-                  borderRadius: 12,
-                  padding: 22,
-                }}
-              >
+              <div key={idx}>
                 <h3
                   style={{
-                    fontSize: 18,
-                    fontWeight: 700,
+                    fontSize: 19,
+                    fontWeight: 600,
+                    letterSpacing: "-0.01em",
                     color: "var(--fg)",
                     marginBottom: 10,
                   }}
                 >
                   {step.title}
                 </h3>
-                <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--muted)", marginBottom: step.bullets ? 14 : 0 }}>
+                <p
+                  style={{
+                    fontSize: 16,
+                    lineHeight: 1.8,
+                    color: "var(--muted)",
+                    margin: step.bullets ? "0 0 14px" : 0,
+                  }}
+                >
                   {step.description}
                 </p>
 
                 {step.bullets && (
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  <ul
+                    style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 8,
+                    }}
+                  >
                     {step.bullets.map((b, bi) => (
-                      <span
+                      <li
                         key={bi}
                         style={{
-                          fontSize: 12,
+                          fontSize: 15,
+                          lineHeight: 1.6,
                           color: "var(--soft)",
-                          background: "var(--chip)",
-                          borderRadius: 9999,
-                          padding: "4px 12px",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 6,
+                          display: "flex",
+                          alignItems: "baseline",
+                          gap: 10,
                         }}
                       >
-                        <CheckCircle2 size={12} style={{ color: "var(--tag-g-fg)" }} /> {b}
-                      </span>
+                        <span style={{ color: "var(--dim)", fontSize: 14 }}>•</span>
+                        <span>{b}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 )}
               </div>
             ))}
           </div>
         </section>
 
-        {/* Section 3: Before vs After Results Table */}
-        <section style={{ marginBottom: 52 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-            <TrendingUp size={20} style={{ color: "var(--tag-g-fg)" }} />
-            <h2
-              style={{
-                fontSize: 22,
-                fontWeight: 700,
-                letterSpacing: "-0.02em",
-                color: "var(--fg)",
-                margin: 0,
-              }}
-            >
-              I Risultati Misurabili (Prima vs Dopo)
-            </h2>
-          </div>
+        {/* Section 3: Measurable Results (Clean Stat Grid) */}
+        <section style={{ borderTop: "1px solid var(--line)", paddingTop: 52, marginBottom: 64 }}>
+          <h2
+            style={{
+              fontSize: 24,
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              color: "var(--fg)",
+              margin: "0 0 28px",
+            }}
+          >
+            Risultati misurabili
+          </h2>
 
           <div
             style={{
-              overflowX: "auto",
-              border: "1px solid var(--line2)",
-              borderRadius: 12,
-              background: "var(--card)",
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: 16,
             }}
+            className="!grid-cols-1 sm:!grid-cols-2"
           >
-            <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: 14 }}>
-              <thead>
-                <tr style={{ background: "var(--bg)", borderBottom: "1px solid var(--line2)" }}>
-                  <th style={{ padding: "14px 18px", color: "var(--dim)", fontWeight: 600, fontSize: 12, textTransform: "uppercase" }}>
-                    Indicatore Chiave
-                  </th>
-                  <th style={{ padding: "14px 18px", color: "#ef4444", fontWeight: 600, fontSize: 12, textTransform: "uppercase" }}>
-                    Prima dell'Intervento
-                  </th>
-                  <th style={{ padding: "14px 18px", color: "var(--tag-g-fg)", fontWeight: 600, fontSize: 12, textTransform: "uppercase" }}>
-                    Dopo con Dennis Xhafaj
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {study.results.map((res, ri) => (
-                  <tr
-                    key={ri}
-                    style={{
-                      borderBottom: ri === study.results.length - 1 ? "none" : "1px solid var(--line)",
-                    }}
-                  >
-                    <td style={{ padding: "14px 18px", fontWeight: 600, color: "var(--fg)" }}>
-                      {res.metric}
-                    </td>
-                    <td style={{ padding: "14px 18px", color: "var(--muted)" }}>
-                      {res.before}
-                    </td>
-                    <td style={{ padding: "14px 18px", fontWeight: 700, color: "var(--tag-g-fg)" }}>
-                      {res.after}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            {study.results.map((res, ri) => (
+              <div
+                key={ri}
+                style={{
+                  border: "1px solid var(--line2)",
+                  borderRadius: 12,
+                  padding: "20px 22px",
+                  background: "var(--card)",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 12,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "var(--dim)",
+                    fontWeight: 600,
+                    marginBottom: 8,
+                  }}
+                >
+                  {res.metric}
+                </div>
+                <div
+                  style={{
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: "var(--fg)",
+                    letterSpacing: "-0.01em",
+                    marginBottom: 4,
+                  }}
+                >
+                  {res.after}
+                </div>
+                <div style={{ fontSize: 13, color: "var(--muted)" }}>
+                  Prima: {res.before}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Section 4: FAQ */}
-        <section style={{ marginBottom: 56 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
-            <HelpCircle size={20} style={{ color: "var(--tag-b-fg)" }} />
-            <h2
-              style={{
-                fontSize: 22,
-                fontWeight: 700,
-                letterSpacing: "-0.02em",
-                color: "var(--fg)",
-                margin: 0,
-              }}
-            >
-              Domande Frequenti (FAQ)
-            </h2>
-          </div>
+        {/* Section 4: FAQ (Clean narrative style) */}
+        <section style={{ borderTop: "1px solid var(--line)", paddingTop: 52, marginBottom: 64 }}>
+          <h2
+            style={{
+              fontSize: 24,
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              color: "var(--fg)",
+              margin: "0 0 32px",
+            }}
+          >
+            Domande frequenti
+          </h2>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             {study.faqs.map((faq, fi) => (
-              <div
-                key={fi}
-                style={{
-                  background: "var(--card)",
-                  border: "1px solid var(--line2)",
-                  borderRadius: 12,
-                  padding: "18px 22px",
-                }}
-              >
+              <div key={fi}>
                 <h3
                   style={{
-                    fontSize: 16,
-                    fontWeight: 700,
+                    fontSize: 17,
+                    fontWeight: 600,
                     color: "var(--fg)",
-                    marginBottom: 8,
+                    marginBottom: 10,
                   }}
                 >
                   {faq.question}
                 </h3>
-                <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)", margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: 15,
+                    lineHeight: 1.75,
+                    color: "var(--muted)",
+                    margin: 0,
+                  }}
+                >
                   {faq.answer}
                 </p>
               </div>
@@ -461,51 +485,48 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Call to Action Card */}
+        {/* Section 5: Next Step / Contact */}
         <section
           style={{
-            background: "var(--card)",
-            border: "1px solid var(--line2)",
-            borderRadius: 16,
-            padding: "36px 30px",
-            boxShadow: "var(--shadow)",
-            marginBottom: 48,
+            borderTop: "1px solid var(--line)",
+            paddingTop: 52,
+            marginBottom: 64,
           }}
         >
-          <span
+          <div
             style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
+              fontSize: 12,
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
-              fontWeight: 600,
               color: "var(--dim)",
+              fontWeight: 600,
+              marginBottom: 12,
             }}
           >
-            PARLIAMO DEL TUO PROGETTO
-          </span>
-          <h2
+            PROSSIMO PASSO
+          </div>
+          <h3
             style={{
               fontSize: 24,
-              fontWeight: 800,
+              fontWeight: 700,
               letterSpacing: "-0.02em",
               color: "var(--fg)",
-              marginTop: 6,
-              marginBottom: 10,
+              margin: "0 0 12px",
             }}
           >
             Hai una sfida simile per la tua attività a Crema?
-          </h2>
+          </h3>
           <p
             style={{
-              fontSize: 15,
-              lineHeight: 1.6,
+              fontSize: 16,
+              lineHeight: 1.7,
               color: "var(--muted)",
-              marginBottom: 24,
-              maxWidth: 640,
+              marginBottom: 28,
+              maxWidth: 580,
             }}
           >
-            Invia un brief iniziale di 2 minuti. Riceverai ambito di lavoro dettagliato, tempi certi di consegna e
-            un preventivo a prezzo fisso senza impegno.
+            Puoi inviare un breve brief descrivendo le tue necessità. Rispondo entro 24-48 ore con scope, tempi e
+            preventivo a prezzo fisso — senza intermediari e senza canoni forzati.
           </p>
 
           <Link
@@ -514,7 +535,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               background: "var(--btn-bg)",
               color: "var(--btn-fg)",
               borderRadius: 9999,
-              padding: "14px 28px",
+              padding: "13px 26px",
               fontSize: 14,
               fontWeight: 700,
               textDecoration: "none",
@@ -523,19 +544,19 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               gap: 8,
             }}
           >
-            Inizia il tuo brief a prezzo fisso <ArrowRight size={16} />
+            Avvia un brief <ArrowRight size={15} />
           </Link>
         </section>
 
-        {/* Prev / Next navigation */}
+        {/* Prev / Next Pagination */}
         <nav
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: 16,
-            borderTop: "1px solid var(--line2)",
-            paddingTop: 28,
+            gap: 20,
+            borderTop: "1px solid var(--line)",
+            paddingTop: 32,
             flexWrap: "wrap",
           }}
         >
@@ -543,16 +564,16 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             <Link
               href={`/case-studies/${prevStudy.slug}`}
               style={{
-                fontSize: 13,
+                fontSize: 14,
                 color: "var(--muted)",
                 textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 8,
               }}
               className="hover:underline"
             >
-              <ArrowLeft size={14} /> {prevStudy.title.slice(0, 40)}...
+              <ArrowLeft size={15} /> {prevStudy.title.slice(0, 36)}...
             </Link>
           ) : (
             <div />
@@ -562,16 +583,16 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             <Link
               href={`/case-studies/${nextStudy.slug}`}
               style={{
-                fontSize: 13,
+                fontSize: 14,
                 color: "var(--muted)",
                 textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 8,
               }}
               className="hover:underline"
             >
-              {nextStudy.title.slice(0, 40)}... <ArrowRight size={14} />
+              {nextStudy.title.slice(0, 36)}... <ArrowRight size={15} />
             </Link>
           )}
         </nav>
