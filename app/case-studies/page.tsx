@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { CASE_STUDIES } from "@/lib/case-studies-data"
-import { ArrowRight, CheckCircle2, Clock, MapPin } from "lucide-react"
+import { ArrowRight, CheckCircle2, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Case Study & Risultati SEO per Aziende a Crema | Dennis Xhafaj",
@@ -23,7 +23,7 @@ export default function CaseStudiesIndexPage() {
     <main style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 24px 96px" }}>
       {/* Header section */}
       <div style={{ marginBottom: 48, maxWidth: 840 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+        <div style={{ marginBottom: 16 }}>
           <span
             style={{
               fontSize: 12,
@@ -34,23 +34,6 @@ export default function CaseStudiesIndexPage() {
             }}
           >
             STUDI DI CASO & APPROFONDIMENTI
-          </span>
-          <span
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              fontWeight: 500,
-              color: "var(--tag-g-fg)",
-              background: "var(--tag-g-bg)",
-              borderRadius: 9999,
-              padding: "4px 10px",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 4,
-            }}
-          >
-            <MapPin size={11} /> Crema & Territorio
           </span>
         </div>
 
@@ -164,31 +147,11 @@ export default function CaseStudiesIndexPage() {
                   fontSize: 14,
                   lineHeight: 1.55,
                   color: "var(--muted)",
-                  marginBottom: 20,
+                  marginBottom: 24,
                 }}
               >
                 {item.subtitle}
               </p>
-
-              <div
-                style={{
-                  background: "var(--bg)",
-                  border: "1px solid var(--line)",
-                  borderRadius: 10,
-                  padding: "12px 14px",
-                  marginBottom: 20,
-                }}
-              >
-                <div style={{ fontSize: 11, textTransform: "uppercase", color: "var(--dim)", fontWeight: 600, marginBottom: 4 }}>
-                  Target & Necessità
-                </div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--fg)", marginBottom: 2 }}>
-                  {item.targetClient}
-                </div>
-                <div style={{ fontSize: 12, color: "var(--soft)", lineHeight: 1.4 }}>
-                  {item.need}
-                </div>
-              </div>
             </div>
 
             <div>

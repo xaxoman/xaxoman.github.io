@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   Clock,
   HelpCircle,
-  MapPin,
   TrendingUp,
 } from "lucide-react"
 
@@ -151,23 +150,6 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               }}
             >
               {study.badge}
-            </span>
-            <span
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                fontWeight: 500,
-                color: "var(--tag-g-fg)",
-                background: "var(--tag-g-bg)",
-                borderRadius: 9999,
-                padding: "5px 12px",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 4,
-              }}
-            >
-              <MapPin size={11} /> Crema
             </span>
             <span style={{ fontSize: 13, color: "var(--dim)", display: "inline-flex", alignItems: "center", gap: 4 }}>
               <Clock size={13} /> {study.readTime}
