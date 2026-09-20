@@ -125,8 +125,8 @@ const solidBtn: React.CSSProperties = {
   color: "var(--btn-fg)",
   border: "none",
   borderRadius: 9999,
-  padding: "15px 30px",
-  fontSize: 15,
+  padding: "clamp(15px, 2.1vw, 18px) clamp(28px, 3.4vw, 34px)",
+  fontSize: "clamp(15px, 2vw, 17px)",
   fontWeight: 700,
   cursor: "pointer",
 }
@@ -495,7 +495,7 @@ export default function Home() {
                       style={{ ...solidBtn, display: "inline-flex", alignItems: "center", gap: 10, minWidth: 250, justifyContent: "center", whiteSpace: "nowrap" }}
                     >
                       {t(`home.hero.cta.${wordIndex}`)}
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M7 17 17 7"></path>
                         <path d="M8 7h9v9"></path>
                       </svg>
@@ -503,7 +503,18 @@ export default function Home() {
                   </span>
                 </ClientOnly>
                 <ClientOnly>
-                  <Link href="/work" style={{ background: "transparent", color: "var(--fg)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "15px 30px", fontSize: 15, fontWeight: 500 }}>
+                  <Link
+                    href="/work"
+                    style={{
+                      background: "transparent",
+                      color: "var(--fg)",
+                      border: "1px solid var(--line2)",
+                      borderRadius: 9999,
+                      padding: "clamp(15px, 2.1vw, 18px) clamp(28px, 3.4vw, 34px)",
+                      fontSize: "clamp(15px, 2vw, 17px)",
+                      fontWeight: 500,
+                    }}
+                  >
                     {t("home.hero.secondaryCta")}
                   </Link>
                 </ClientOnly>
