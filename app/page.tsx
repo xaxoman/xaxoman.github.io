@@ -96,7 +96,7 @@ const eyebrow: React.CSSProperties = {
   fontSize: 12,
   letterSpacing: "0.18em",
   textTransform: "uppercase",
-  color: "var(--ok)",
+  color: "var(--dim)",
   fontWeight: 500,
   marginBottom: 18,
 }
@@ -151,7 +151,7 @@ function ServiceRow({
   const text = (
     <div>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-        <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: `var(--s${Number(index)})`, fontWeight: 500 }}>
+        <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500 }}>
           {index}
         </div>
         {badgeKey && (
@@ -183,7 +183,7 @@ function ServiceRow({
         <div style={{ display: "grid", gap: 13, fontSize: 15, color: "var(--soft)" }}>
           {bulletKeys.map((k) => (
             <div key={k} data-bullet="1">
-              <span data-bullet-mark="1" style={{ color: `var(--s${Number(index)})` }}>
+              <span data-bullet-mark="1" style={{ color: "var(--ok)" }}>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M20 6 9 17l-5-5"></path>
                 </svg>
@@ -836,13 +836,22 @@ export default function Home() {
 
       {/* Reviews */}
       <Reveal style={{ padding: "96px 0" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px" }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
           <ClientOnly>
-            <div style={eyebrow}>{t("reviews.eyebrow")}</div>
-            <h2 style={{ ...h2Style, maxWidth: 780 }}>
+            <div style={{ ...eyebrow, marginBottom: 0 }}>{t("reviews.eyebrow")}</div>
+            <h2
+              style={{
+                fontSize: "clamp(30px, 4.2vw, 50px)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.025em",
+                fontWeight: 700,
+                margin: "22px auto 0",
+                maxWidth: 780,
+              }}
+            >
               {t("reviews.title")}
               <br />
-              {t("reviews.title2")}
+              <span style={{ color: "var(--muted)" }}>{t("reviews.title2")}</span>
             </h2>
           </ClientOnly>
         </div>

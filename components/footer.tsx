@@ -42,7 +42,7 @@ export default function Footer() {
               fontSize: 12,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--ok)",
+              color: "var(--dim)",
               fontWeight: 500,
               marginBottom: 18,
             }}
@@ -64,7 +64,7 @@ export default function Footer() {
               fontSize: 12,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--ok)",
+              color: "var(--dim)",
               fontWeight: 500,
               marginBottom: 18,
             }}
