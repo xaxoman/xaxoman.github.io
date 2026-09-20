@@ -3,12 +3,37 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { t } from "@/contexts/language-context"
 import ClientOnly from "@/components/client-only"
 import Reveal from "@/components/reveal"
 
 const WORDS = [0, 1, 2, 3]
+
+// PLACEHOLDER TESTIMONIALS — the people and companies below are invented,
+// and so are the numbers in their metrics. Swap each entry for a real
+// client quote (with their permission) before treating this section as
+// anything a visitor should rely on. The copy lives in the translation
+// files under `review.<id>.*`.
+const REVIEWS = [
+  { id: "bonometti", initials: "MB" },
+  { id: "reboldi", initials: "AR" },
+  { id: "terzi", initials: "GT" },
+  { id: "vimercati", initials: "PV" },
+  { id: "grassi", initials: "EG" },
+  { id: "cattaneo", initials: "DC" },
+] as const
+
+function Stars() {
+  return (
+    <span style={{ display: "flex", gap: 3 }} aria-hidden="true">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} width="15" height="15" viewBox="0 0 24 24" fill="var(--s3)" stroke="none">
+          <path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9z"></path>
+        </svg>
+      ))}
+    </span>
+  )
+}
 
 const eyebrow: React.CSSProperties = {
   fontSize: 12,
@@ -127,6 +152,107 @@ function ServiceRow({
   )
 }
 
+// The empty half of the hero, put to work: a mock of the brief form the
+// primary CTA leads to. The "what you need" line follows the rotating
+// headline word, so the two animations read as one.
+function BriefCard({ wordIndex }: { wordIndex: number }) {
+  const accent = `var(--s${wordIndex + 1})`
+
+  const label: React.CSSProperties = {
+    fontSize: 11,
+    letterSpacing: "0.16em",
+    textTransform: "uppercase",
+    color: "var(--dim)",
+    fontWeight: 500,
+    marginBottom: 10,
+  }
+
+  const value: React.CSSProperties = {
+    display: "inline-flex",
+    alignItems: "center",
+    border: "1px solid var(--line2)",
+    borderRadius: 9999,
+    padding: "8px 16px",
+    fontSize: 14,
+    color: "var(--fg)",
+    background: "var(--faint)",
+  }
+
+  return (
+    <ClientOnly>
+      <div
+        data-lift="1"
+        style={{
+          border: "1px solid var(--line2)",
+          borderRadius: 16,
+          background: "var(--card)",
+          boxShadow: "var(--shadow)",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 7,
+            padding: "14px 20px",
+            borderBottom: "1px solid var(--line)",
+            background: "var(--faint)",
+          }}
+        >
+          {[0, 1, 2].map((i) => (
+            <span key={i} style={{ width: 8, height: 8, borderRadius: 9999, background: "var(--rule)", display: "block" }} />
+          ))}
+          <span style={{ marginLeft: 8, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500 }}>
+            {t("hero.card.title")}
+          </span>
+        </div>
+
+        <div style={{ padding: "24px 22px 22px", display: "grid", gap: 22 }}>
+          <div>
+            <div style={label}>{t("hero.card.need")}</div>
+            <span style={{ ...value, borderColor: accent, color: accent }}>{t(`contact.form.need.${wordIndex}`)}</span>
+          </div>
+          <div>
+            <div style={label}>{t("hero.card.timeline")}</div>
+            <span style={value}>{t("contact.form.timeline.1")}</span>
+          </div>
+          <div>
+            <div style={label}>{t("hero.card.problem")}</div>
+            <div style={{ display: "grid", gap: 9 }} aria-hidden="true">
+              {["100%", "92%", "68%"].map((w, i) => (
+                <span key={w} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <span style={{ height: 8, width: w, borderRadius: 4, background: "var(--line2)", display: "block" }} />
+                  {i === 2 && (
+                    <span style={{ height: 14, width: 2, background: "var(--fg)", display: "block", animation: "dx-line 1.1s ease-in-out infinite" }} />
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 12,
+            padding: "16px 22px",
+            borderTop: "1px solid var(--line)",
+            background: "var(--faint)",
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flex: "none", marginTop: 2 }} aria-hidden="true">
+            <path d="M9 14 4 9l5-5"></path>
+            <path d="M4 9h9a7 7 0 0 1 7 7v4"></path>
+          </svg>
+          <span style={{ fontSize: 13, lineHeight: 1.55, color: "var(--soft)" }}>{t("hero.card.reply")}</span>
+        </div>
+      </div>
+    </ClientOnly>
+  )
+}
+
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0)
   const [wordPhase, setWordPhase] = useState<"in" | "out">("in")
@@ -187,72 +313,82 @@ export default function Home() {
           <span data-hero-layer="1" data-hero-grid="1" />
           <span data-hero-layer="1" data-hero-lit="1" />
           <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "96px 24px 96px" }}>
-          <ClientOnly>
             <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                border: "1px solid var(--line2)",
-                borderRadius: 9999,
-                padding: "7px 16px",
-                fontSize: 12,
-                fontWeight: 500,
-                letterSpacing: "0.12em",
-                color: "var(--soft)",
-                marginBottom: 36,
-              }}
+              style={{ display: "grid", gap: 56, alignItems: "center" }}
+              className="!grid-cols-1 lg:!grid-cols-[1.12fr_0.88fr]"
             >
-              <span style={{ width: 6, height: 6, borderRadius: 9999, background: "var(--ok)", display: "block" }} />
-              {t("home.badge")}
-            </div>
-          </ClientOnly>
-          <h1 style={{ fontSize: 56, lineHeight: 1.04, letterSpacing: "-0.03em", fontWeight: 700, margin: 0, maxWidth: 900 }}>
-            <ClientOnly>{t("home.hero.title")}</ClientOnly>
-            <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }}>
-              <ClientOnly>
-                {WORDS.map((i) => (
-                  <span
-                    key={i}
-                    data-word={i === wordIndex ? wordPhase : undefined}
-                    style={{ gridArea: "1 / 1", visibility: i === wordIndex ? "visible" : "hidden" }}
+              <div style={{ minWidth: 0 }}>
+                <ClientOnly>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 10,
+                      border: "1px solid var(--line2)",
+                      borderRadius: 9999,
+                      padding: "7px 16px",
+                      fontSize: 12,
+                      fontWeight: 500,
+                      letterSpacing: "0.12em",
+                      color: "var(--soft)",
+                      marginBottom: 32,
+                    }}
                   >
-                    {t(`home.hero.word.${i}`)}
+                    <span style={{ width: 6, height: 6, borderRadius: 9999, background: "var(--ok)", display: "block" }} />
+                    {t("home.badge")}
+                  </div>
+                </ClientOnly>
+                <h1 style={{ fontSize: "clamp(38px, 4.6vw, 56px)", lineHeight: 1.04, letterSpacing: "-0.03em", fontWeight: 700, margin: 0 }}>
+                  <ClientOnly>{t("home.hero.title")}</ClientOnly>
+                  <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }}>
+                    <ClientOnly>
+                      {WORDS.map((i) => (
+                        <span
+                          key={i}
+                          data-word={i === wordIndex ? wordPhase : undefined}
+                          style={{ gridArea: "1 / 1", visibility: i === wordIndex ? "visible" : "hidden" }}
+                        >
+                          {t(`home.hero.word.${i}`)}
+                        </span>
+                      ))}
+                    </ClientOnly>
+                  </span>
+                </h1>
+                <ClientOnly>
+                  <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--muted)", maxWidth: 560, margin: "26px 0 0" }}>
+                    {t("home.hero.description")}
+                  </p>
+                </ClientOnly>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36 }}>
+                  <ClientOnly>
+                    <span data-lamp="1" onPointerMove={trackLamp} onPointerLeave={resetLamp}>
+                      <span data-lamp-glow="1" aria-hidden="true" />
+                      <Link data-lamp-btn="1" href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center", whiteSpace: "nowrap" }}>
+                        {t(`home.hero.cta.${wordIndex}`)}
+                      </Link>
+                    </span>
+                  </ClientOnly>
+                  <ClientOnly>
+                    <Link href="/work" style={{ background: "transparent", color: "var(--fg)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "15px 30px", fontSize: 15, fontWeight: 500 }}>
+                      {t("home.hero.secondaryCta")}
+                    </Link>
+                  </ClientOnly>
+                </div>
+              </div>
+              <div style={{ minWidth: 0 }}>
+                <BriefCard wordIndex={wordIndex} />
+              </div>
+            </div>
+            <ClientOnly>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 28px", marginTop: 64, fontSize: 13, letterSpacing: "0.04em" }}>
+                {[0, 1, 2, 3].map((i, idx) => (
+                  <span key={i} style={{ display: "flex", gap: 28 }}>
+                    <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
+                    {idx < 3 && <span style={{ color: "var(--rule)" }}>/</span>}
                   </span>
                 ))}
-              </ClientOnly>
-            </span>
-          </h1>
-          <ClientOnly>
-            <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--muted)", maxWidth: 620, margin: "28px 0 0" }}>
-              {t("home.hero.description")}
-            </p>
-          </ClientOnly>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 40 }}>
-            <ClientOnly>
-              <span data-lamp="1" onPointerMove={trackLamp} onPointerLeave={resetLamp}>
-                <span data-lamp-glow="1" aria-hidden="true" />
-                <Link data-lamp-btn="1" href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center", whiteSpace: "nowrap" }}>
-                  {t(`home.hero.cta.${wordIndex}`)}
-                </Link>
-              </span>
+              </div>
             </ClientOnly>
-            <ClientOnly>
-              <Link href="/work" style={{ background: "transparent", color: "var(--fg)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "15px 30px", fontSize: 15, fontWeight: 500 }}>
-                {t("home.hero.secondaryCta")}
-              </Link>
-            </ClientOnly>
-          </div>
-          <ClientOnly>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 28px", marginTop: 56, fontSize: 13, letterSpacing: "0.04em" }}>
-              {[0, 1, 2, 3].map((i, idx) => (
-                <span key={i} style={{ display: "flex", gap: 28 }}>
-                  <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
-                  {idx < 3 && <span style={{ color: "var(--rule)" }}>/</span>}
-                </span>
-              ))}
-            </div>
-          </ClientOnly>
           </div>
         </div>
       </Reveal>
@@ -518,35 +654,116 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* Selected work */}
+      {/* Reviews */}
       <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px" }}>
         <ClientOnly>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 32, flexWrap: "wrap", marginBottom: 48 }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 32, flexWrap: "wrap", marginBottom: 40 }}>
             <div>
-              <div style={eyebrow}>{t("home.work.eyebrow")}</div>
-              <h2 style={h2Style}>{t("home.work.title")}</h2>
+              <div style={eyebrow}>{t("reviews.eyebrow")}</div>
+              <h2 style={{ ...h2Style, maxWidth: 560 }}>{t("reviews.title")}</h2>
+              <p style={{ fontSize: 17, lineHeight: 1.6, color: "var(--muted)", margin: "18px 0 0", maxWidth: 520 }}>
+                {t("reviews.description")}
+              </p>
             </div>
-            <Link href="/work" style={ghostBtn}>
-              {t("home.work.allWork")}
+            <Link href="/contact" style={ghostBtn}>
+              {t("reviews.cta")}
             </Link>
           </div>
         </ClientOnly>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="!grid-cols-1 md:!grid-cols-3">
-          {[
-            { img: "/about-projects/project_emerson.png", tagKey: "tag.freelance", titleKey: "project.emerson.title", descKey: "project.emerson.description" },
-            { img: "/about-projects/contabite.webp", tagKey: "tag.mobileApp", titleKey: "project.contabite.title", descKey: "project.contabite.description" },
-            { img: "/about-projects/pizzeria-king.png", tagKey: "tag.freelance", titleKey: "project.pizzeriaKing.title", descKey: "project.pizzeriaKing.description" },
-          ].map((p) => (
-            <div key={p.titleKey} data-lift="1" style={{ border: "1px solid var(--line2)", borderRadius: 12, background: "var(--card)", boxShadow: "var(--shadow)", padding: 20 }}>
-              <div style={{ borderRadius: 12, overflow: "hidden", aspectRatio: "4/3", marginBottom: 20, background: "var(--faint)", position: "relative" }}>
-                <Image src={p.img} alt={p.titleKey} fill style={{ objectFit: "cover" }} />
+
+        <ClientOnly>
+          <div
+            style={{
+              display: "grid",
+              gap: 1,
+              background: "var(--line)",
+              border: "1px solid var(--line)",
+              borderRadius: 14,
+              overflow: "hidden",
+              marginBottom: 40,
+            }}
+            className="!grid-cols-2 md:!grid-cols-4"
+          >
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} style={{ background: "var(--bg)", padding: "26px 22px" }}>
+                <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: "-0.02em", color: `var(--s${i + 1})` }}>
+                  {t(`reviews.stat.${i}.value`)}
+                </div>
+                <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--muted)", marginTop: 8 }}>
+                  {t(`reviews.stat.${i}.label`)}
+                </div>
               </div>
+            ))}
+          </div>
+        </ClientOnly>
+
+        <div style={{ display: "grid", gap: 20 }} className="!grid-cols-1 md:!grid-cols-2 lg:!grid-cols-3">
+          {REVIEWS.map((r, i) => (
+            <div
+              key={r.id}
+              data-lift="1"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                border: "1px solid var(--line2)",
+                borderRadius: 12,
+                background: "var(--card)",
+                boxShadow: "var(--shadow)",
+                padding: 24,
+              }}
+            >
               <ClientOnly>
-                <span style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 500, color: p.tagKey === "tag.freelance" ? "var(--tag-g-fg)" : "var(--tag-b-fg)", background: p.tagKey === "tag.freelance" ? "var(--tag-g-bg)" : "var(--tag-b-bg)", borderRadius: 9999, padding: "5px 12px" }}>
-                  {t(p.tagKey)}
-                </span>
-                <h3 style={{ fontSize: 18, fontWeight: 700, margin: "16px 0 8px" }}>{t(p.titleKey)}</h3>
-                <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)", margin: 0 }}>{t(p.descKey)}</p>
+                <Stars />
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--soft)", margin: "18px 0 0", flex: 1 }}>
+                  {t(`review.${r.id}.quote`)}
+                </p>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignSelf: "flex-start",
+                    alignItems: "center",
+                    gap: 8,
+                    marginTop: 20,
+                    borderRadius: 9999,
+                    padding: "6px 13px",
+                    fontSize: 12,
+                    fontWeight: 500,
+                    letterSpacing: "0.02em",
+                    color: `var(--s${(i % 4) + 1})`,
+                    background: "var(--faint)",
+                    border: "1px solid var(--line)",
+                  }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M3 17l6-6 4 4 7-7"></path>
+                    <path d="M14 7h6v6"></path>
+                  </svg>
+                  {t(`review.${r.id}.metric`)}
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 22, paddingTop: 20, borderTop: "1px solid var(--line)" }}>
+                  <span
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: 38,
+                      height: 38,
+                      flex: "none",
+                      borderRadius: 9999,
+                      border: "1px solid var(--line2)",
+                      background: "var(--faint)",
+                      fontSize: 13,
+                      fontWeight: 700,
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {r.initials}
+                  </span>
+                  <span style={{ minWidth: 0 }}>
+                    <span style={{ display: "block", fontSize: 15, fontWeight: 700 }}>{t(`review.${r.id}.name`)}</span>
+                    <span style={{ display: "block", fontSize: 13, color: "var(--muted)", marginTop: 2 }}>{t(`review.${r.id}.role`)}</span>
+                  </span>
+                </div>
               </ClientOnly>
             </div>
           ))}

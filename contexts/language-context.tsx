@@ -44,6 +44,13 @@ const translationData = {
     "home.hero.audience.2": "Agencies subcontracting dev work",
     "home.hero.audience.3": "Teams automating with AI",
 
+    // Home — hero brief card
+    "hero.card.title": "New brief",
+    "hero.card.need": "What you need",
+    "hero.card.timeline": "Timeline",
+    "hero.card.problem": "The problem",
+    "hero.card.reply": "Back to you with scope, timeline and a fixed quote — usually within one working day.",
+
     // Home — four things
     "home.build.eyebrow": "What I build",
     "home.build.title": "Four things, done properly.",
@@ -100,10 +107,58 @@ const translationData = {
     "automation.chip.3": "Content production",
     "automation.chip.4": "Weekly reporting",
 
-    // Home — selected work
-    "home.work.eyebrow": "Selected work",
-    "home.work.title": "Shipped, not mocked up.",
-    "home.work.allWork": "All work →",
+    // Home — reviews
+    // NOTE: placeholder testimonials. The people, companies and figures
+    // below are invented — replace them with real, permitted quotes.
+    "reviews.eyebrow": "Client reviews",
+    "reviews.title": "Don't take my word for it.",
+    "reviews.description": "Six recent projects, described by the people who paid for them.",
+    "reviews.cta": "Start a brief →",
+
+    "reviews.stat.0.value": "4.9/5",
+    "reviews.stat.0.label": "Average rating across delivered projects",
+    "reviews.stat.1.value": "27",
+    "reviews.stat.1.label": "Projects delivered since 2021",
+    "reviews.stat.2.value": "< 1 day",
+    "reviews.stat.2.label": "Average reply to a new brief",
+    "reviews.stat.3.value": "9 / 10",
+    "reviews.stat.3.label": "Clients who came back with a second project",
+
+    "review.bonometti.name": "Marta Bonometti",
+    "review.bonometti.role": "Owner, Ferramenta Bonometti — Crema",
+    "review.bonometti.quote":
+      "We had 2,300 items sitting in a management system and customers still phoned to ask whether something was in stock. Dennis put the catalogue online in six weeks and wired it to the warehouse. Orders arrive already paid for now, and the phone rings a lot less.",
+    "review.bonometti.metric": "+34% online orders in 4 months",
+
+    "review.reboldi.name": "Andrea Reboldi",
+    "review.reboldi.role": "Co-founder, Nordovest Lab — Milan",
+    "review.reboldi.quote":
+      "I needed something investors could click on, not another deck. We agreed the scope on a Tuesday and had a working MVP — sign-up, payments, dashboard — five weeks later. He talked me out of two features I had asked for, and he was right about both.",
+    "review.reboldi.metric": "MVP live in 5 weeks",
+
+    "review.terzi.name": "Giulia Terzi",
+    "review.terzi.role": "Account director, Studio Ventuno — Bergamo",
+    "review.terzi.quote":
+      "We hand him the development we can't absorb in-house. Fixed price up front, an answer the same day, and I have never once had to chase him for a status update. That last part is rarer than it should be.",
+    "review.terzi.metric": "11 projects together",
+
+    "review.vimercati.name": "Paolo Vimercati",
+    "review.vimercati.role": "Partner, Vimercati & Associati — Cremona",
+    "review.vimercati.quote":
+      "Our old site was built in 2016 and nobody in the office could change a comma of it. Our secretary now updates the news page herself. We get four or five serious enquiries a month through it; that used to be a year's worth.",
+    "review.vimercati.metric": "5× qualified enquiries",
+
+    "review.grassi.name": "Elena Grassi",
+    "review.grassi.role": "Operations manager, Cascina Verdelli — Lodi",
+    "review.grassi.quote":
+      "Every order came in by email and somebody retyped it into the system — about three hours out of someone's day. Now it arrives, gets read and gets filed on its own. We only see the ones that don't fit the pattern.",
+    "review.grassi.metric": "~14 hours a week back",
+
+    "review.cattaneo.name": "Davide Cattaneo",
+    "review.cattaneo.role": "Owner, Cattaneo Arredamenti — Brescia",
+    "review.cattaneo.quote":
+      "He moved us off a platform that was quietly costing us a fortune in monthly fees, and we didn't lose a single search position doing it. He also explained each step in language I could follow, which nobody before him had bothered to do.",
+    "review.cattaneo.metric": "−61% platform costs",
 
     "tag.freelance": "Freelance",
     "tag.mobileApp": "Mobile app",
@@ -372,6 +427,13 @@ const translationData = {
     "home.hero.audience.2": "Agenzie che esternalizzano sviluppo",
     "home.hero.audience.3": "Team che automatizzano con l'AI",
 
+    // Home — hero brief card
+    "hero.card.title": "Nuovo brief",
+    "hero.card.need": "Di cosa hai bisogno",
+    "hero.card.timeline": "Tempistiche",
+    "hero.card.problem": "Il problema",
+    "hero.card.reply": "Ti rispondo con perimetro, tempistiche e un prezzo fisso — di solito entro un giorno lavorativo.",
+
     // Home — four things
     "home.build.eyebrow": "Cosa realizzo",
     "home.build.title": "Quattro cose, fatte bene.",
@@ -428,10 +490,58 @@ const translationData = {
     "automation.chip.3": "Produzione di contenuti",
     "automation.chip.4": "Reportistica settimanale",
 
-    // Home — selected work
-    "home.work.eyebrow": "Lavori selezionati",
-    "home.work.title": "Consegnati, non solo mostrati.",
-    "home.work.allWork": "Tutti i lavori →",
+    // Home — recensioni
+    // NOTA: testimonianze segnaposto. Persone, aziende e numeri qui sotto
+    // sono inventati — sostituiscili con citazioni reali e autorizzate.
+    "reviews.eyebrow": "Recensioni dei clienti",
+    "reviews.title": "Non fidarti solo della mia parola.",
+    "reviews.description": "Sei progetti recenti, raccontati da chi li ha pagati.",
+    "reviews.cta": "Invia un brief →",
+
+    "reviews.stat.0.value": "4,9/5",
+    "reviews.stat.0.label": "Valutazione media sui progetti consegnati",
+    "reviews.stat.1.value": "27",
+    "reviews.stat.1.label": "Progetti consegnati dal 2021",
+    "reviews.stat.2.value": "< 1 giorno",
+    "reviews.stat.2.label": "Risposta media a un nuovo brief",
+    "reviews.stat.3.value": "9 / 10",
+    "reviews.stat.3.label": "Clienti tornati con un secondo progetto",
+
+    "review.bonometti.name": "Marta Bonometti",
+    "review.bonometti.role": "Titolare, Ferramenta Bonometti — Crema",
+    "review.bonometti.quote":
+      "Avevamo 2.300 articoli fermi nel gestionale e i clienti telefonavano comunque per sapere se un pezzo c'era. Dennis ha portato il catalogo online in sei settimane e l'ha collegato al magazzino. Adesso gli ordini arrivano già pagati, e il telefono suona molto meno.",
+    "review.bonometti.metric": "+34% ordini online in 4 mesi",
+
+    "review.reboldi.name": "Andrea Reboldi",
+    "review.reboldi.role": "Co-fondatore, Nordovest Lab — Milano",
+    "review.reboldi.quote":
+      "Mi serviva qualcosa su cui gli investitori potessero cliccare, non l'ennesima presentazione. Abbiamo definito il perimetro un martedì e cinque settimane dopo avevamo un MVP funzionante: registrazione, pagamenti, dashboard. Mi ha sconsigliato due funzionalità che avevo chiesto, e su entrambe aveva ragione.",
+    "review.reboldi.metric": "MVP online in 5 settimane",
+
+    "review.terzi.name": "Giulia Terzi",
+    "review.terzi.role": "Account director, Studio Ventuno — Bergamo",
+    "review.terzi.quote":
+      "Gli passiamo lo sviluppo che internamente non riusciamo ad assorbire. Prezzo fisso concordato prima, risposta in giornata, e non ho mai dovuto rincorrerlo per sapere a che punto siamo. L'ultimo punto è più raro di quanto dovrebbe.",
+    "review.terzi.metric": "11 progetti insieme",
+
+    "review.vimercati.name": "Paolo Vimercati",
+    "review.vimercati.role": "Socio, Vimercati & Associati — Cremona",
+    "review.vimercati.quote":
+      "Il vecchio sito era del 2016 e in studio nessuno riusciva a cambiarci una virgola. Adesso la nostra segretaria aggiorna da sola la pagina delle novità. Dal sito arrivano quattro o cinque richieste serie al mese: prima era il totale di un anno.",
+    "review.vimercati.metric": "5× richieste qualificate",
+
+    "review.grassi.name": "Elena Grassi",
+    "review.grassi.role": "Responsabile operations, Cascina Verdelli — Lodi",
+    "review.grassi.quote":
+      "Ogni ordine arrivava via email e qualcuno lo ribatteva a mano nel gestionale: circa tre ore della giornata di una persona. Adesso arriva, viene letto e archiviato da solo. Vediamo solo quelli che non rientrano nello schema.",
+    "review.grassi.metric": "~14 ore a settimana recuperate",
+
+    "review.cattaneo.name": "Davide Cattaneo",
+    "review.cattaneo.role": "Titolare, Cattaneo Arredamenti — Brescia",
+    "review.cattaneo.quote":
+      "Ci ha spostati da una piattaforma che in silenzio ci costava una fortuna di canoni mensili, senza perdere una sola posizione su Google. E mi ha spiegato ogni passaggio con parole che potevo seguire, cosa che prima di lui non aveva fatto nessuno.",
+    "review.cattaneo.metric": "−61% costi di piattaforma",
 
     "tag.freelance": "Freelance",
     "tag.mobileApp": "App mobile",
