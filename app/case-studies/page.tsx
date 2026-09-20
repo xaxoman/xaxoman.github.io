@@ -41,7 +41,7 @@ export default function CaseStudiesIndexPage() {
             fontSize: 12,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--ok)",
+            color: "var(--dim)",
             fontWeight: 500,
             marginBottom: 18,
           }}
