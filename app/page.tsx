@@ -197,7 +197,6 @@ function ServiceRow({
           gridTemplateColumns: reverse ? "1.05fr 1fr" : "1fr 1.05fr",
           gap: 56,
           alignItems: "center",
-          borderTop: "1px solid var(--line)",
           paddingTop: 56,
         }}
         className="!grid-cols-1 md:!grid-cols-2"
@@ -452,27 +451,6 @@ export default function Home() {
           <span data-hero-layer="1" data-hero-lit="1" />
           <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "104px 24px 72px" }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <ClientOnly>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 10,
-                    border: "1px solid var(--line2)",
-                    borderRadius: 9999,
-                    padding: "7px 16px",
-                    fontSize: 12,
-                    fontWeight: 500,
-                    letterSpacing: "0.12em",
-                    color: "var(--soft)",
-                    marginBottom: 34,
-                  }}
-                >
-                  <span style={{ width: 6, height: 6, borderRadius: 9999, background: "var(--ok)", display: "block" }} />
-                  {t("home.badge")}
-                </div>
-              </ClientOnly>
-
               <h1
                 style={{
                   fontSize: "clamp(38px, 5.6vw, 68px)",
@@ -532,7 +510,10 @@ export default function Home() {
               </div>
 
               <ClientOnly>
-                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px 24px", marginTop: 40, fontSize: 13, letterSpacing: "0.04em" }}>
+                <div
+                  className="!hidden md:!flex"
+                  style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px 24px", marginTop: 40, fontSize: 13, letterSpacing: "0.04em" }}
+                >
                   {[0, 1, 2, 3].map((i, idx) => (
                     <span key={i} style={{ display: "flex", gap: 24 }}>
                       <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
@@ -888,41 +869,6 @@ export default function Home() {
         </div>
 
         <ReviewCarousel />
-
-        <ClientOnly>
-          <div
-            style={{
-              maxWidth: 1120,
-              margin: "0 auto",
-              padding: "0 24px",
-              display: "grid",
-              gap: 1,
-            }}
-          >
-            <div
-              style={{
-                display: "grid",
-                gap: 1,
-                background: "var(--line)",
-                border: "1px solid var(--line)",
-                borderRadius: 14,
-                overflow: "hidden",
-              }}
-              className="!grid-cols-2 md:!grid-cols-4"
-            >
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} style={{ background: "var(--bg)", padding: "24px 22px", textAlign: "center" }}>
-                  <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: `var(--s${i + 1})` }}>
-                    {t(`reviews.stat.${i}.value`)}
-                  </div>
-                  <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--muted)", marginTop: 8 }}>
-                    {t(`reviews.stat.${i}.label`)}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </ClientOnly>
       </Reveal>
 
       {/* Four steps */}
