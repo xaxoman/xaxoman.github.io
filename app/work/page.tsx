@@ -117,7 +117,7 @@ export default function Work() {
     <>
       <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px 56px" }}>
         <ClientOnly>
-          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
             {t("work.hero.eyebrow")}
           </div>
           <h1 style={{ fontSize: 56, lineHeight: 1.06, letterSpacing: "-0.03em", fontWeight: 700, margin: 0, maxWidth: 700 }}>

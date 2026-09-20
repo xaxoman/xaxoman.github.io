@@ -111,12 +111,9 @@ const translationData = {
     // below are invented — replace them with real, permitted quotes.
     "reviews.eyebrow": "Client reviews",
     "reviews.title": "Don't take my word for it.",
-    "reviews.badge": "Testimonials",
     "reviews.title2": "27 businesses already have.",
     "reviews.prev": "Previous review",
     "reviews.next": "Next review",
-    "reviews.description": "Six recent projects, described by the people who paid for them.",
-    "reviews.cta": "Start a brief →",
 
     "review.bonometti.name": "Marta Bonometti",
     "review.bonometti.role": "Owner, Ferramenta Bonometti — Crema",
@@ -476,12 +473,9 @@ const translationData = {
     // sono inventati — sostituiscili con citazioni reali e autorizzate.
     "reviews.eyebrow": "Recensioni dei clienti",
     "reviews.title": "Non fidarti solo della mia parola.",
-    "reviews.badge": "Testimonianze",
     "reviews.title2": "27 aziende l'hanno già fatto.",
     "reviews.prev": "Recensione precedente",
     "reviews.next": "Recensione successiva",
-    "reviews.description": "Sei progetti recenti, raccontati da chi li ha pagati.",
-    "reviews.cta": "Invia un brief →",
 
     "review.bonometti.name": "Marta Bonometti",
     "review.bonometti.role": "Titolare, Ferramenta Bonometti — Crema",
