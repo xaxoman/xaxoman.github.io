@@ -23,6 +23,64 @@ const REVIEWS = [
   { id: "cattaneo", initials: "DC" },
 ] as const
 
+const HERO_SERVICES = [
+  { id: "websites" },
+  { id: "ecommerce" },
+  { id: "apps" },
+  { id: "automation" },
+] as const
+
+function ServiceIcon({ id }: { id: (typeof HERO_SERVICES)[number]["id"] }) {
+  const common = {
+    width: 20,
+    height: 20,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  }
+  if (id === "websites")
+    return (
+      <svg {...common}>
+        <rect x="2.5" y="4" width="19" height="13" rx="2"></rect>
+        <path d="M2.5 8.5h19"></path>
+        <path d="M8 21h8"></path>
+        <path d="M12 17v4"></path>
+      </svg>
+    )
+  if (id === "ecommerce")
+    return (
+      <svg {...common}>
+        <path d="M4 7h16l-1.2 11.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8z"></path>
+        <path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"></path>
+      </svg>
+    )
+  if (id === "apps")
+    return (
+      <svg {...common}>
+        <rect x="2.5" y="3.5" width="14" height="13" rx="2"></rect>
+        <path d="M2.5 7.5h14"></path>
+        <rect x="14.5" y="10" width="7" height="10.5" rx="1.8"></rect>
+      </svg>
+    )
+  return (
+    <svg {...common}>
+      <path d="M12 3v3"></path>
+      <path d="M12 18v3"></path>
+      <path d="M3 12h3"></path>
+      <path d="M18 12h3"></path>
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="m5.6 5.6 2.1 2.1"></path>
+      <path d="m16.3 16.3 2.1 2.1"></path>
+      <path d="m18.4 5.6-2.1 2.1"></path>
+      <path d="m7.7 16.3-2.1 2.1"></path>
+    </svg>
+  )
+}
+
 function Stars() {
   return (
     <span style={{ display: "flex", gap: 3 }} aria-hidden="true">
@@ -152,104 +210,196 @@ function ServiceRow({
   )
 }
 
-// The empty half of the hero, put to work: a mock of the brief form the
-// primary CTA leads to. The "what you need" line follows the rotating
-// headline word, so the two animations read as one.
-function BriefCard({ wordIndex }: { wordIndex: number }) {
-  const accent = `var(--s${wordIndex + 1})`
+// Testimonial slider: one card in focus, its neighbours peeking in at
+// reduced scale and opacity. Clicking a neighbour brings it forward.
+function ReviewCarousel() {
+  // The strip is the review list three times over, and the window sits on
+  // the middle copy. Stepping past either end of that copy lands on an
+  // identical card in a neighbouring one, and the transition-end handler
+  // silently shifts back to the middle — so the slider loops with a
+  // neighbour always peeking in on both sides.
+  const n = REVIEWS.length
+  const items = [...REVIEWS, ...REVIEWS, ...REVIEWS]
+  const [pos, setPos] = useState<number>(n)
+  const [animate, setAnimate] = useState(true)
 
-  const label: React.CSSProperties = {
-    fontSize: 11,
-    letterSpacing: "0.16em",
-    textTransform: "uppercase",
-    color: "var(--dim)",
-    fontWeight: 500,
-    marginBottom: 10,
+  const go = (dir: -1 | 1) => {
+    setAnimate(true)
+    setPos((i) => i + dir)
   }
 
-  const value: React.CSSProperties = {
-    display: "inline-flex",
+  const normalise = (e: React.TransitionEvent<HTMLDivElement>) => {
+    if (e.target !== e.currentTarget || e.propertyName !== "transform") return
+    if (pos < n) {
+      setAnimate(false)
+      setPos(pos + n)
+    } else if (pos >= 2 * n) {
+      setAnimate(false)
+      setPos(pos - n)
+    }
+  }
+
+  const arrow: React.CSSProperties = {
+    display: "flex",
     alignItems: "center",
-    border: "1px solid var(--line2)",
+    justifyContent: "center",
+    width: 44,
+    height: 44,
     borderRadius: 9999,
-    padding: "8px 16px",
-    fontSize: 14,
+    border: "1px solid var(--line2)",
+    background: "transparent",
     color: "var(--fg)",
-    background: "var(--faint)",
+    cursor: "pointer",
+    padding: 0,
   }
 
   return (
-    <ClientOnly>
-      <div
-        data-lift="1"
-        style={{
-          border: "1px solid var(--line2)",
-          borderRadius: 16,
-          background: "var(--card)",
-          boxShadow: "var(--shadow)",
-          overflow: "hidden",
-        }}
-      >
+    <div
+      style={{ "--card": "clamp(260px, 74vw, 460px)", "--gap": "24px" } as React.CSSProperties}
+      aria-roledescription="carousel"
+    >
+      <div style={{ overflow: "hidden", padding: "48px 0 8px" }}>
         <div
           style={{
+            position: "relative",
+            left: "50%",
             display: "flex",
-            alignItems: "center",
-            gap: 7,
-            padding: "14px 20px",
-            borderBottom: "1px solid var(--line)",
-            background: "var(--faint)",
+            gap: "var(--gap)",
+            width: "max-content",
+            transform: `translateX(calc(-0.5 * var(--card) - ${pos} * (var(--card) + var(--gap))))`,
+            transition: animate ? "transform .55s cubic-bezier(.22,.61,.36,1)" : "none",
           }}
+          onTransitionEnd={normalise}
         >
-          {[0, 1, 2].map((i) => (
-            <span key={i} style={{ width: 8, height: 8, borderRadius: 9999, background: "var(--rule)", display: "block" }} />
-          ))}
-          <span style={{ marginLeft: 8, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500 }}>
-            {t("hero.card.title")}
-          </span>
-        </div>
-
-        <div style={{ padding: "24px 22px 22px", display: "grid", gap: 22 }}>
-          <div>
-            <div style={label}>{t("hero.card.need")}</div>
-            <span style={{ ...value, borderColor: accent, color: accent }}>{t(`contact.form.need.${wordIndex}`)}</span>
-          </div>
-          <div>
-            <div style={label}>{t("hero.card.timeline")}</div>
-            <span style={value}>{t("contact.form.timeline.1")}</span>
-          </div>
-          <div>
-            <div style={label}>{t("hero.card.problem")}</div>
-            <div style={{ display: "grid", gap: 9 }} aria-hidden="true">
-              {["100%", "92%", "68%"].map((w, i) => (
-                <span key={w} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ height: 8, width: w, borderRadius: 4, background: "var(--line2)", display: "block" }} />
-                  {i === 2 && (
-                    <span style={{ height: 14, width: 2, background: "var(--fg)", display: "block", animation: "dx-line 1.1s ease-in-out infinite" }} />
-                  )}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            gap: 12,
-            padding: "16px 22px",
-            borderTop: "1px solid var(--line)",
-            background: "var(--faint)",
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flex: "none", marginTop: 2 }} aria-hidden="true">
-            <path d="M9 14 4 9l5-5"></path>
-            <path d="M4 9h9a7 7 0 0 1 7 7v4"></path>
-          </svg>
-          <span style={{ fontSize: 13, lineHeight: 1.55, color: "var(--soft)" }}>{t("hero.card.reply")}</span>
+          {items.map((r, i) => {
+            const on = i === pos
+            return (
+              <div
+                key={`${r.id}-${i}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-hidden={i < n || i >= 2 * n ? true : undefined}
+                aria-label={`${(i % n) + 1} / ${n}`}
+                onClick={() => {
+                  if (on) return
+                  setAnimate(true)
+                  setPos(i)
+                }}
+                style={{
+                  width: "var(--card)",
+                  flex: "none",
+                  boxSizing: "border-box",
+                  border: `1px solid ${on ? "var(--focus)" : "var(--line2)"}`,
+                  borderRadius: 16,
+                  background: on ? "var(--card-hi)" : "var(--card)",
+                  boxShadow: on ? "var(--shadow)" : "none",
+                  padding: 28,
+                  cursor: on ? "default" : "pointer",
+                  opacity: on ? 1 : 0.45,
+                  transform: on ? "none" : "scale(0.94)",
+                  transition: "opacity .45s ease, transform .45s cubic-bezier(.22,.61,.36,1), border-color .45s ease, background .45s ease",
+                }}
+              >
+                <ClientOnly>
+                  <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--soft)", margin: 0 }}>
+                    {t(`review.${r.id}.quote`)}
+                  </p>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      marginTop: 22,
+                      borderRadius: 9999,
+                      padding: "6px 13px",
+                      fontSize: 12,
+                      fontWeight: 500,
+                      color: `var(--s${(i % 4) + 1})`,
+                      background: "var(--faint)",
+                      border: "1px solid var(--line)",
+                    }}
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M3 17l6-6 4 4 7-7"></path>
+                      <path d="M14 7h6v6"></path>
+                    </svg>
+                    {t(`review.${r.id}.metric`)}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 16,
+                      flexWrap: "wrap",
+                      marginTop: 24,
+                      paddingTop: 22,
+                      borderTop: "1px solid var(--line)",
+                    }}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
+                      <span
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: 42,
+                          height: 42,
+                          flex: "none",
+                          borderRadius: 9999,
+                          border: "1px solid var(--line2)",
+                          background: "var(--faint)",
+                          fontSize: 14,
+                          fontWeight: 700,
+                        }}
+                      >
+                        {r.initials}
+                      </span>
+                      <span style={{ minWidth: 0, textAlign: "left" }}>
+                        <span style={{ display: "block", fontSize: 15, fontWeight: 700 }}>{t(`review.${r.id}.name`)}</span>
+                        <span style={{ display: "block", fontSize: 13, color: "var(--muted)", marginTop: 2 }}>
+                          {t(`review.${r.id}.role`)}
+                        </span>
+                      </span>
+                    </span>
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 4,
+                        borderRadius: 9999,
+                        padding: "7px 12px",
+                        background: "var(--chip)",
+                      }}
+                    >
+                      <Stars />
+                    </span>
+                  </div>
+                </ClientOnly>
+              </div>
+            )
+          })}
         </div>
       </div>
-    </ClientOnly>
+
+      <ClientOnly>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 14, margin: "40px 0 56px" }}>
+          <button type="button" onClick={() => go(-1)} style={arrow} aria-label={t("reviews.prev")} className="hover:bg-[var(--chip)]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m14 6-6 6 6 6"></path>
+            </svg>
+          </button>
+          <span style={{ fontSize: 13, color: "var(--dim)", minWidth: 54, letterSpacing: "0.06em" }}>
+            {(((pos % n) + n) % n) + 1} / {n}
+          </span>
+          <button type="button" onClick={() => go(1)} style={arrow} aria-label={t("reviews.next")} className="hover:bg-[var(--chip)]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m10 6 6 6-6 6"></path>
+            </svg>
+          </button>
+        </div>
+      </ClientOnly>
+    </div>
   )
 }
 
@@ -312,83 +462,144 @@ export default function Home() {
           ))}
           <span data-hero-layer="1" data-hero-grid="1" />
           <span data-hero-layer="1" data-hero-lit="1" />
-          <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "96px 24px 96px" }}>
-            <div
-              style={{ display: "grid", gap: 56, alignItems: "center" }}
-              className="!grid-cols-1 lg:!grid-cols-[1.12fr_0.88fr]"
-            >
-              <div style={{ minWidth: 0 }}>
+          <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "104px 24px 72px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <ClientOnly>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 10,
+                    border: "1px solid var(--line2)",
+                    borderRadius: 9999,
+                    padding: "7px 16px",
+                    fontSize: 12,
+                    fontWeight: 500,
+                    letterSpacing: "0.12em",
+                    color: "var(--soft)",
+                    marginBottom: 34,
+                  }}
+                >
+                  <span style={{ width: 6, height: 6, borderRadius: 9999, background: "var(--ok)", display: "block" }} />
+                  {t("home.badge")}
+                </div>
+              </ClientOnly>
+
+              <h1
+                style={{
+                  fontSize: "clamp(38px, 5.6vw, 68px)",
+                  lineHeight: 1.06,
+                  letterSpacing: "-0.03em",
+                  fontWeight: 700,
+                  margin: 0,
+                  maxWidth: 940,
+                }}
+              >
                 <ClientOnly>
-                  <div
+                  <span style={{ color: "var(--muted)" }}>{t("home.hero.title")}</span>
+                </ClientOnly>
+                <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }}>
+                  <ClientOnly>
+                    {WORDS.map((i) => (
+                      <span
+                        key={i}
+                        data-word={i === wordIndex ? wordPhase : undefined}
+                        style={{ gridArea: "1 / 1", visibility: i === wordIndex ? "visible" : "hidden" }}
+                      >
+                        {t(`home.hero.word.${i}`)}
+                      </span>
+                    ))}
+                  </ClientOnly>
+                </span>
+              </h1>
+
+              <ClientOnly>
+                <p style={{ fontSize: 17, lineHeight: 1.65, color: "var(--muted)", maxWidth: 620, margin: "28px 0 0" }}>
+                  {t("home.hero.description")}
+                </p>
+              </ClientOnly>
+
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, marginTop: 38 }}>
+                <ClientOnly>
+                  <span data-lamp="1" onPointerMove={trackLamp} onPointerLeave={resetLamp}>
+                    <span data-lamp-glow="1" aria-hidden="true" />
+                    <Link
+                      data-lamp-btn="1"
+                      href="/contact"
+                      style={{ ...solidBtn, display: "inline-flex", alignItems: "center", gap: 10, minWidth: 250, justifyContent: "center", whiteSpace: "nowrap" }}
+                    >
+                      {t(`home.hero.cta.${wordIndex}`)}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M7 17 17 7"></path>
+                        <path d="M8 7h9v9"></path>
+                      </svg>
+                    </Link>
+                  </span>
+                </ClientOnly>
+                <ClientOnly>
+                  <Link href="/work" style={{ background: "transparent", color: "var(--fg)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "15px 30px", fontSize: 15, fontWeight: 500 }}>
+                    {t("home.hero.secondaryCta")}
+                  </Link>
+                </ClientOnly>
+              </div>
+
+              <ClientOnly>
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px 24px", marginTop: 40, fontSize: 13, letterSpacing: "0.04em" }}>
+                  {[0, 1, 2, 3].map((i, idx) => (
+                    <span key={i} style={{ display: "flex", gap: 24 }}>
+                      <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
+                      {idx < 3 && (
+                        <span className="hidden sm:inline" style={{ color: "var(--rule)" }}>
+                          /
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </ClientOnly>
+            </div>
+
+            <div style={{ display: "grid", gap: 20, marginTop: 72 }} className="!grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
+              {HERO_SERVICES.map((svc, i) => (
+                <Link
+                  key={svc.id}
+                  href="/services"
+                  data-lift="1"
+                  style={{
+                    display: "block",
+                    border: "1px solid var(--line2)",
+                    borderRadius: 14,
+                    background: "var(--card)",
+                    boxShadow: "var(--shadow)",
+                    padding: "26px 24px 28px",
+                  }}
+                >
+                  <span
                     style={{
-                      display: "inline-flex",
+                      display: "flex",
                       alignItems: "center",
-                      gap: 10,
-                      border: "1px solid var(--line2)",
+                      justifyContent: "center",
+                      width: 44,
+                      height: 44,
                       borderRadius: 9999,
-                      padding: "7px 16px",
-                      fontSize: 12,
-                      fontWeight: 500,
-                      letterSpacing: "0.12em",
-                      color: "var(--soft)",
-                      marginBottom: 32,
+                      background: "var(--chip)",
+                      color: `var(--s${i + 1})`,
+                      marginBottom: 26,
                     }}
                   >
-                    <span style={{ width: 6, height: 6, borderRadius: 9999, background: "var(--ok)", display: "block" }} />
-                    {t("home.badge")}
-                  </div>
-                </ClientOnly>
-                <h1 style={{ fontSize: "clamp(38px, 4.6vw, 56px)", lineHeight: 1.04, letterSpacing: "-0.03em", fontWeight: 700, margin: 0 }}>
-                  <ClientOnly>{t("home.hero.title")}</ClientOnly>
-                  <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }}>
-                    <ClientOnly>
-                      {WORDS.map((i) => (
-                        <span
-                          key={i}
-                          data-word={i === wordIndex ? wordPhase : undefined}
-                          style={{ gridArea: "1 / 1", visibility: i === wordIndex ? "visible" : "hidden" }}
-                        >
-                          {t(`home.hero.word.${i}`)}
-                        </span>
-                      ))}
-                    </ClientOnly>
+                    <ServiceIcon id={svc.id} />
                   </span>
-                </h1>
-                <ClientOnly>
-                  <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--muted)", maxWidth: 560, margin: "26px 0 0" }}>
-                    {t("home.hero.description")}
-                  </p>
-                </ClientOnly>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36 }}>
                   <ClientOnly>
-                    <span data-lamp="1" onPointerMove={trackLamp} onPointerLeave={resetLamp}>
-                      <span data-lamp-glow="1" aria-hidden="true" />
-                      <Link data-lamp-btn="1" href="/contact" style={{ ...solidBtn, minWidth: 250, textAlign: "center", whiteSpace: "nowrap" }}>
-                        {t(`home.hero.cta.${wordIndex}`)}
-                      </Link>
-                    </span>
+                    <h2 style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.01em", margin: "0 0 10px" }}>
+                      {t(`service.${svc.id}.title`)}
+                    </h2>
+                    <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)", margin: 0 }}>
+                      {t(`service.${svc.id}.short`)}
+                    </p>
                   </ClientOnly>
-                  <ClientOnly>
-                    <Link href="/work" style={{ background: "transparent", color: "var(--fg)", border: "1px solid var(--line2)", borderRadius: 9999, padding: "15px 30px", fontSize: 15, fontWeight: 500 }}>
-                      {t("home.hero.secondaryCta")}
-                    </Link>
-                  </ClientOnly>
-                </div>
-              </div>
-              <div style={{ minWidth: 0 }}>
-                <BriefCard wordIndex={wordIndex} />
-              </div>
+                </Link>
+              ))}
             </div>
-            <ClientOnly>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 28px", marginTop: 64, fontSize: 13, letterSpacing: "0.04em" }}>
-                {[0, 1, 2, 3].map((i, idx) => (
-                  <span key={i} style={{ display: "flex", gap: 28 }}>
-                    <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
-                    {idx < 3 && <span style={{ color: "var(--rule)" }}>/</span>}
-                  </span>
-                ))}
-              </div>
-            </ClientOnly>
           </div>
         </div>
       </Reveal>
@@ -655,119 +866,75 @@ export default function Home() {
       </Reveal>
 
       {/* Reviews */}
-      <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px" }}>
-        <ClientOnly>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 32, flexWrap: "wrap", marginBottom: 40 }}>
-            <div>
-              <div style={eyebrow}>{t("reviews.eyebrow")}</div>
-              <h2 style={{ ...h2Style, maxWidth: 560 }}>{t("reviews.title")}</h2>
-              <p style={{ fontSize: 17, lineHeight: 1.6, color: "var(--muted)", margin: "18px 0 0", maxWidth: 520 }}>
-                {t("reviews.description")}
-              </p>
-            </div>
-            <Link href="/contact" style={ghostBtn}>
-              {t("reviews.cta")}
-            </Link>
-          </div>
-        </ClientOnly>
+      <Reveal style={{ padding: "96px 0" }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+          <ClientOnly>
+            <span
+              style={{
+                display: "inline-block",
+                border: "1px solid var(--line2)",
+                borderRadius: 9999,
+                padding: "8px 20px",
+                fontSize: 13,
+                color: "var(--soft)",
+                background: "var(--faint)",
+              }}
+            >
+              {t("reviews.badge")}
+            </span>
+            <h2
+              style={{
+                fontSize: "clamp(30px, 4.2vw, 50px)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.025em",
+                fontWeight: 700,
+                margin: "26px auto 0",
+                maxWidth: 780,
+              }}
+            >
+              {t("reviews.title")}
+              <br />
+              <span style={{ color: "var(--muted)" }}>{t("reviews.title2")}</span>
+            </h2>
+          </ClientOnly>
+        </div>
+
+        <ReviewCarousel />
 
         <ClientOnly>
           <div
             style={{
+              maxWidth: 1120,
+              margin: "0 auto",
+              padding: "0 24px",
               display: "grid",
               gap: 1,
-              background: "var(--line)",
-              border: "1px solid var(--line)",
-              borderRadius: 14,
-              overflow: "hidden",
-              marginBottom: 40,
             }}
-            className="!grid-cols-2 md:!grid-cols-4"
           >
-            {[0, 1, 2, 3].map((i) => (
-              <div key={i} style={{ background: "var(--bg)", padding: "26px 22px" }}>
-                <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: "-0.02em", color: `var(--s${i + 1})` }}>
-                  {t(`reviews.stat.${i}.value`)}
+            <div
+              style={{
+                display: "grid",
+                gap: 1,
+                background: "var(--line)",
+                border: "1px solid var(--line)",
+                borderRadius: 14,
+                overflow: "hidden",
+              }}
+              className="!grid-cols-2 md:!grid-cols-4"
+            >
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} style={{ background: "var(--bg)", padding: "24px 22px", textAlign: "center" }}>
+                  <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: `var(--s${i + 1})` }}>
+                    {t(`reviews.stat.${i}.value`)}
+                  </div>
+                  <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--muted)", marginTop: 8 }}>
+                    {t(`reviews.stat.${i}.label`)}
+                  </div>
                 </div>
-                <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--muted)", marginTop: 8 }}>
-                  {t(`reviews.stat.${i}.label`)}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </ClientOnly>
-
-        <div style={{ display: "grid", gap: 20 }} className="!grid-cols-1 md:!grid-cols-2 lg:!grid-cols-3">
-          {REVIEWS.map((r, i) => (
-            <div
-              key={r.id}
-              data-lift="1"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                border: "1px solid var(--line2)",
-                borderRadius: 12,
-                background: "var(--card)",
-                boxShadow: "var(--shadow)",
-                padding: 24,
-              }}
-            >
-              <ClientOnly>
-                <Stars />
-                <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--soft)", margin: "18px 0 0", flex: 1 }}>
-                  {t(`review.${r.id}.quote`)}
-                </p>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignSelf: "flex-start",
-                    alignItems: "center",
-                    gap: 8,
-                    marginTop: 20,
-                    borderRadius: 9999,
-                    padding: "6px 13px",
-                    fontSize: 12,
-                    fontWeight: 500,
-                    letterSpacing: "0.02em",
-                    color: `var(--s${(i % 4) + 1})`,
-                    background: "var(--faint)",
-                    border: "1px solid var(--line)",
-                  }}
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M3 17l6-6 4 4 7-7"></path>
-                    <path d="M14 7h6v6"></path>
-                  </svg>
-                  {t(`review.${r.id}.metric`)}
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 22, paddingTop: 20, borderTop: "1px solid var(--line)" }}>
-                  <span
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: 38,
-                      height: 38,
-                      flex: "none",
-                      borderRadius: 9999,
-                      border: "1px solid var(--line2)",
-                      background: "var(--faint)",
-                      fontSize: 13,
-                      fontWeight: 700,
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    {r.initials}
-                  </span>
-                  <span style={{ minWidth: 0 }}>
-                    <span style={{ display: "block", fontSize: 15, fontWeight: 700 }}>{t(`review.${r.id}.name`)}</span>
-                    <span style={{ display: "block", fontSize: 13, color: "var(--muted)", marginTop: 2 }}>{t(`review.${r.id}.role`)}</span>
-                  </span>
-                </div>
-              </ClientOnly>
-            </div>
-          ))}
-        </div>
       </Reveal>
 
       {/* Four steps */}

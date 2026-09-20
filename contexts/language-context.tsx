@@ -63,6 +63,7 @@ const translationData = {
     "service.websites.bullet.0": "Design and build from scratch",
     "service.websites.bullet.1": "SEO fundamentals and analytics",
     "service.websites.bullet.2": "Content editing you control",
+    "service.websites.short": "Marketing sites that load fast and rank.",
 
     "service.ecommerce.index": "02",
     "service.ecommerce.title": "E-commerce",
@@ -71,6 +72,7 @@ const translationData = {
     "service.ecommerce.bullet.0": "Payments, shipping and tax setup",
     "service.ecommerce.bullet.1": "Product and inventory structure",
     "service.ecommerce.bullet.2": "Migration from an existing store",
+    "service.ecommerce.short": "Stores built around the checkout, not a theme demo.",
 
     "service.apps.index": "03",
     "service.apps.title": "Web & mobile apps",
@@ -79,6 +81,7 @@ const translationData = {
     "service.apps.bullet.0": "React, Next.js, React Native",
     "service.apps.bullet.1": "Auth, database and API work",
     "service.apps.bullet.2": "Android and iOS builds",
+    "service.apps.short": "An MVP users can try, or the internal tool you keep rebuilding.",
 
     "service.automation.index": "04",
     "service.automation.badge": "New",
@@ -88,6 +91,7 @@ const translationData = {
     "service.automation.bullet.0": "Agentic multi-step workflows",
     "service.automation.bullet.1": "Content and code generation at scale",
     "service.automation.bullet.2": "n8n, Make and Zapier integrations",
+    "service.automation.short": "Workflows that take the repetitive work off your team.",
 
     // Home — AI automation band
     "automation.eyebrow": "New service",
@@ -112,6 +116,10 @@ const translationData = {
     // below are invented — replace them with real, permitted quotes.
     "reviews.eyebrow": "Client reviews",
     "reviews.title": "Don't take my word for it.",
+    "reviews.badge": "Testimonials",
+    "reviews.title2": "27 businesses already have.",
+    "reviews.prev": "Previous review",
+    "reviews.next": "Next review",
     "reviews.description": "Six recent projects, described by the people who paid for them.",
     "reviews.cta": "Start a brief →",
 
@@ -446,6 +454,7 @@ const translationData = {
     "service.websites.bullet.0": "Design e sviluppo da zero",
     "service.websites.bullet.1": "Fondamentali SEO e analytics",
     "service.websites.bullet.2": "Modifica dei contenuti sotto il tuo controllo",
+    "service.websites.short": "Siti che caricano veloci e si posizionano.",
 
     "service.ecommerce.index": "02",
     "service.ecommerce.title": "E-commerce",
@@ -454,6 +463,7 @@ const translationData = {
     "service.ecommerce.bullet.0": "Configurazione pagamenti, spedizioni e tasse",
     "service.ecommerce.bullet.1": "Struttura prodotti e inventario",
     "service.ecommerce.bullet.2": "Migrazione da un negozio esistente",
+    "service.ecommerce.short": "Negozi costruiti attorno al checkout, non alla demo di un tema.",
 
     "service.apps.index": "03",
     "service.apps.title": "App web e mobile",
@@ -462,6 +472,7 @@ const translationData = {
     "service.apps.bullet.0": "React, Next.js, React Native",
     "service.apps.bullet.1": "Autenticazione, database e API",
     "service.apps.bullet.2": "Build Android e iOS",
+    "service.apps.short": "Un MVP che gli utenti possono provare, o lo strumento interno che continui a rifare.",
 
     "service.automation.index": "04",
     "service.automation.badge": "Nuovo",
@@ -471,6 +482,7 @@ const translationData = {
     "service.automation.bullet.0": "Flussi agentici multi-step",
     "service.automation.bullet.1": "Generazione di contenuti e codice su larga scala",
     "service.automation.bullet.2": "Integrazioni con n8n, Make e Zapier",
+    "service.automation.short": "Flussi che tolgono al team il lavoro ripetitivo.",
 
     // Home — AI automation band
     "automation.eyebrow": "Nuovo servizio",
@@ -495,6 +507,10 @@ const translationData = {
     // sono inventati — sostituiscili con citazioni reali e autorizzate.
     "reviews.eyebrow": "Recensioni dei clienti",
     "reviews.title": "Non fidarti solo della mia parola.",
+    "reviews.badge": "Testimonianze",
+    "reviews.title2": "27 aziende l'hanno già fatto.",
+    "reviews.prev": "Recensione precedente",
+    "reviews.next": "Recensione successiva",
     "reviews.description": "Sei progetti recenti, raccontati da chi li ha pagati.",
     "reviews.cta": "Invia un brief →",
 
