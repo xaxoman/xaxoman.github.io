@@ -11,7 +11,7 @@ type LanguageContextType = {
   translations: Record<string, string>
 }
 
-const defaultLanguage: Language = "en"
+const defaultLanguage: Language = "it"
 
 // Define translations directly in the file
 const translationData = {
@@ -700,6 +700,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   useEffect(() => {
     setTranslations(translationData[language])
     localStorage.setItem("language", language)
+    document.documentElement.lang = language
   }, [language])
 
   return <LanguageContext.Provider value={{ language, setLanguage, translations }}>{children}</LanguageContext.Provider>

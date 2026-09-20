@@ -2,24 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root, :root[data-theme="dark"] {
-  --bg: #000000; --fg: #ffffff; --soft: #d1d5db; --muted: #9ca3af; --dim: #6b7280; --rule: #374151;
-  --line: rgba(255,255,255,0.1); --line2: rgba(255,255,255,0.2); --focus: rgba(255,255,255,0.6);
-  --faint: rgba(255,255,255,0.05); --chip: rgba(255,255,255,0.1); --dots: rgba(255,255,255,0.22);
-  --card: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.9));
-  --card-hi: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-  --band: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(0,0,0,0));
-  --shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
-  --header-bg: rgba(0,0,0,0.72);
-  --btn-bg: #ffffff; --btn-fg: #000000; --btn-hover: #e5e7eb;
-  --ok: #4ade80;
-  --tag-p-fg: #c084fc; --tag-p-bg: rgba(88,28,135,0.3);
-  --tag-g-fg: #4ade80; --tag-g-bg: rgba(20,83,45,0.3);
-  --tag-b-fg: #60a5fa; --tag-b-bg: rgba(30,58,138,0.3);
-  --s1: #7dd3fc; --s2: #c4b5fd; --s3: #fcd34d; --s4: #6ee7b7; --s-fg: #0a0a0a;
-  --beam: rgba(255,255,255,0.5); --dots-hi: rgba(255,255,255,0.8); --wash: 0.14;
-}
-:root[data-theme="light"] {
+:root, :root[data-theme="light"] {
+  color-scheme: light;
   --bg: #ffffff; --fg: #000000; --soft: #374151; --muted: #4b5563; --dim: #6b7280; --rule: #d1d5db;
   --line: rgba(0,0,0,0.1); --line2: rgba(0,0,0,0.16); --focus: rgba(0,0,0,0.5);
   --faint: rgba(0,0,0,0.04); --chip: rgba(0,0,0,0.06); --dots: rgba(0,0,0,0.16);
@@ -35,6 +19,24 @@
   --tag-b-fg: #1d4ed8; --tag-b-bg: rgba(96,165,250,0.2);
   --s1: #0284c7; --s2: #7c3aed; --s3: #b45309; --s4: #047857; --s-fg: #ffffff;
   --beam: rgba(0,0,0,0.18); --dots-hi: rgba(0,0,0,0.42); --wash: 0.10;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000000; --fg: #ffffff; --soft: #d1d5db; --muted: #9ca3af; --dim: #6b7280; --rule: #374151;
+  --line: rgba(255,255,255,0.1); --line2: rgba(255,255,255,0.2); --focus: rgba(255,255,255,0.6);
+  --faint: rgba(255,255,255,0.05); --chip: rgba(255,255,255,0.1); --dots: rgba(255,255,255,0.22);
+  --card: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.9));
+  --card-hi: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  --band: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(0,0,0,0));
+  --shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  --header-bg: rgba(0,0,0,0.72);
+  --btn-bg: #ffffff; --btn-fg: #000000; --btn-hover: #e5e7eb;
+  --ok: #4ade80;
+  --tag-p-fg: #c084fc; --tag-p-bg: rgba(88,28,135,0.3);
+  --tag-g-fg: #4ade80; --tag-g-bg: rgba(20,83,45,0.3);
+  --tag-b-fg: #60a5fa; --tag-b-bg: rgba(30,58,138,0.3);
+  --s1: #7dd3fc; --s2: #c4b5fd; --s3: #fcd34d; --s4: #6ee7b7; --s-fg: #0a0a0a;
+  --beam: rgba(255,255,255,0.5); --dots-hi: rgba(255,255,255,0.8); --wash: 0.14;
 }
 
 html { background: var(--bg); }
