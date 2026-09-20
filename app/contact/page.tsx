@@ -77,7 +77,7 @@ export default function Contact() {
       <div style={{ display: "grid", gridTemplateColumns: "1.25fr 1fr", gap: 64, alignItems: "stretch" }} className="!grid-cols-1 lg:!grid-cols-[1.25fr_1fr]">
         <div>
           <ClientOnly>
-            <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+            <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
               {t("contact.eyebrow")}
             </div>
             <h1 style={{ fontSize: 48, lineHeight: 1.06, letterSpacing: "-0.03em", fontWeight: 700, margin: "0 0 20px" }}>
@@ -169,7 +169,7 @@ export default function Contact() {
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <ClientOnly>
             <div style={sideCard}>
-              <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 20 }}>
+              <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 20 }}>
                 {t("contact.next.eyebrow")}
               </div>
               <div style={{ display: "grid", gap: 18 }}>
@@ -182,7 +182,7 @@ export default function Contact() {
               </div>
             </div>
             <div style={sideCard}>
-              <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+              <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
                 {t("contact.direct.eyebrow")}
               </div>
               <div style={{ display: "grid", gap: 14, fontSize: 15 }}>

@@ -38,7 +38,7 @@ export default function Policy() {
             fontSize: 12,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "var(--dim)",
+            color: "var(--ok)",
             fontWeight: 500,
             marginBottom: 18,
           }}

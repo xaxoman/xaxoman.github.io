@@ -34,7 +34,7 @@ export default function About() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 64, alignItems: "start" }} className="!grid-cols-1 md:!grid-cols-[1fr_380px]">
           <ClientOnly>
             <div>
-              <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+              <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
                 {t("about.eyebrow")}
               </div>
               <h1 style={{ fontSize: 52, lineHeight: 1.06, letterSpacing: "-0.03em", fontWeight: 700, margin: "0 0 28px" }}>
@@ -87,7 +87,7 @@ export default function About() {
       <Reveal style={{ borderTop: "1px solid var(--line)" }}>
         <div style={{ maxWidth: 1120, margin: "0 auto", padding: "88px 24px" }}>
           <ClientOnly>
-            <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+            <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
               {t("rules.eyebrow")}
             </div>
             <h2 style={{ fontSize: 40, lineHeight: 1.08, letterSpacing: "-0.02em", fontWeight: 700, margin: "0 0 48px", maxWidth: 620 }}>
@@ -112,7 +112,7 @@ export default function About() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 56, alignItems: "start" }} className="!grid-cols-1 md:!grid-cols-[1fr_1.4fr]">
             <ClientOnly>
               <div>
-                <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+                <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
                   {t("stack.eyebrow")}
                 </div>
                 <h2 style={{ fontSize: 36, lineHeight: 1.1, letterSpacing: "-0.02em", fontWeight: 700, margin: 0 }}>{t("stack.title")}</h2>

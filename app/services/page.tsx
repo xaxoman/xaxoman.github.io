@@ -52,7 +52,7 @@ function ServiceBlock({
       <ClientOnly>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-            <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500 }}>
+            <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500 }}>
               {t(eyebrowKey)}
             </div>
             {badgeKey && (
@@ -87,7 +87,7 @@ export default function Services() {
     <>
       <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px 64px" }}>
         <ClientOnly>
-          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
             {t("services.hero.eyebrow")}
           </div>
           <h1 style={{ fontSize: 56, lineHeight: 1.06, letterSpacing: "-0.03em", fontWeight: 700, margin: 0, maxWidth: 760 }}>
@@ -147,7 +147,7 @@ export default function Services() {
           <ClientOnly>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "start" }} className="!grid-cols-1 md:!grid-cols-2">
               <div>
-                <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500, marginBottom: 18 }}>
+                <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--ok)", fontWeight: 500, marginBottom: 18 }}>
                   {t("services.engagement.eyebrow")}
                 </div>
                 <h2 style={{ fontSize: 36, lineHeight: 1.1, letterSpacing: "-0.02em", fontWeight: 700, margin: "0 0 18px" }}>

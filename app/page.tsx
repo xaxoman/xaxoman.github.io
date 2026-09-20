@@ -96,7 +96,7 @@ const eyebrow: React.CSSProperties = {
   fontSize: 12,
   letterSpacing: "0.18em",
   textTransform: "uppercase",
-  color: "var(--dim)",
+  color: "var(--ok)",
   fontWeight: 500,
   marginBottom: 18,
 }
@@ -151,7 +151,7 @@ function ServiceRow({
   const text = (
     <div>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-        <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--dim)", fontWeight: 500 }}>
+        <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: `var(--s${Number(index)})`, fontWeight: 500 }}>
           {index}
         </div>
         {badgeKey && (
@@ -836,34 +836,13 @@ export default function Home() {
 
       {/* Reviews */}
       <Reveal style={{ padding: "96px 0" }}>
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px" }}>
           <ClientOnly>
-            <span
-              style={{
-                display: "inline-block",
-                border: "1px solid var(--line2)",
-                borderRadius: 9999,
-                padding: "8px 20px",
-                fontSize: 13,
-                color: "var(--soft)",
-                background: "var(--faint)",
-              }}
-            >
-              {t("reviews.badge")}
-            </span>
-            <h2
-              style={{
-                fontSize: "clamp(30px, 4.2vw, 50px)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.025em",
-                fontWeight: 700,
-                margin: "26px auto 0",
-                maxWidth: 780,
-              }}
-            >
+            <div style={eyebrow}>{t("reviews.eyebrow")}</div>
+            <h2 style={{ ...h2Style, maxWidth: 780 }}>
               {t("reviews.title")}
               <br />
-              <span style={{ color: "var(--muted)" }}>{t("reviews.title2")}</span>
+              {t("reviews.title2")}
             </h2>
           </ClientOnly>
         </div>
@@ -943,7 +922,7 @@ export default function Home() {
           <ClientOnly>
             <div style={{ borderTop: "1px solid var(--line)" }}>
               {[0, 1, 2, 3, 4, 5].map((i) => (
-                <details key={i} data-faq="1" open={i === 0}>
+                <details key={i} data-faq="1">
                   <summary>
                     {t(`faq.${i}.q`)}
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" aria-hidden="true">
