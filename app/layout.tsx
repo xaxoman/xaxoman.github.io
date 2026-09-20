@@ -20,14 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="it" suppressHydrationWarning>
       <head>
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet" />
         <script defer src="https://cloud.umami.is/script.js" data-website-id="55ba1438-54fc-4978-90db-9f918791812f"></script>
         <link rel="icon" href="/favicon.svg" />
       </head>
       <body className={`${inter.variable} min-h-screen flex flex-col`}>
-        <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <LanguageProvider>
             <Header />
             <main className="flex-grow">{children}</main>
