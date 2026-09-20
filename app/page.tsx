@@ -519,24 +519,6 @@ export default function Home() {
                   </Link>
                 </ClientOnly>
               </div>
-
-              <ClientOnly>
-                <div
-                  className="!hidden md:!flex"
-                  style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px 24px", marginTop: 40, fontSize: 13, letterSpacing: "0.04em" }}
-                >
-                  {[0, 1, 2, 3].map((i, idx) => (
-                    <span key={i} style={{ display: "flex", gap: 24 }}>
-                      <span style={{ color: `var(--s${i + 1})`, fontWeight: 500 }}>{t(`home.hero.audience.${i}`)}</span>
-                      {idx < 3 && (
-                        <span className="hidden sm:inline" style={{ color: "var(--rule)" }}>
-                          /
-                        </span>
-                      )}
-                    </span>
-                  ))}
-                </div>
-              </ClientOnly>
             </div>
 
             <div style={{ display: "grid", gap: 20, marginTop: 72 }} className="!grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
