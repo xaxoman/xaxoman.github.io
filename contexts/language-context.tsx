@@ -26,7 +26,6 @@ const translationData = {
     "nav.cta": "Start a brief",
 
     // Home — hero
-    "home.badge": "AVAILABLE FOR NEW PROJECTS",
     "home.hero.title": "Let's build your",
     "home.hero.word.0": "website.",
     "home.hero.cta.0": "Start a website brief",
@@ -122,15 +121,6 @@ const translationData = {
     "reviews.next": "Next review",
     "reviews.description": "Six recent projects, described by the people who paid for them.",
     "reviews.cta": "Start a brief →",
-
-    "reviews.stat.0.value": "4.9/5",
-    "reviews.stat.0.label": "Average rating across delivered projects",
-    "reviews.stat.1.value": "27",
-    "reviews.stat.1.label": "Projects delivered since 2021",
-    "reviews.stat.2.value": "< 1 day",
-    "reviews.stat.2.label": "Average reply to a new brief",
-    "reviews.stat.3.value": "9 / 10",
-    "reviews.stat.3.label": "Clients who came back with a second project",
 
     "review.bonometti.name": "Marta Bonometti",
     "review.bonometti.role": "Owner, Ferramenta Bonometti — Crema",
@@ -405,7 +395,6 @@ const translationData = {
     "nav.cta": "Invia un brief",
 
     // Home — hero
-    "home.badge": "DISPONIBILE PER NUOVI PROGETTI",
     "home.hero.title": "Costruiamo il tuo",
     "home.hero.word.0": "sito web.",
     "home.hero.cta.0": "Invia un brief per il sito",
@@ -501,15 +490,6 @@ const translationData = {
     "reviews.next": "Recensione successiva",
     "reviews.description": "Sei progetti recenti, raccontati da chi li ha pagati.",
     "reviews.cta": "Invia un brief →",
-
-    "reviews.stat.0.value": "4,9/5",
-    "reviews.stat.0.label": "Valutazione media sui progetti consegnati",
-    "reviews.stat.1.value": "27",
-    "reviews.stat.1.label": "Progetti consegnati dal 2021",
-    "reviews.stat.2.value": "< 1 giorno",
-    "reviews.stat.2.label": "Risposta media a un nuovo brief",
-    "reviews.stat.3.value": "9 / 10",
-    "reviews.stat.3.label": "Clienti tornati con un secondo progetto",
 
     "review.bonometti.name": "Marta Bonometti",
     "review.bonometti.role": "Titolare, Ferramenta Bonometti — Crema",
