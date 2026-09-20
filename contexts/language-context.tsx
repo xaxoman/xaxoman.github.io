@@ -36,12 +36,8 @@ const translationData = {
     "home.hero.word.3": "your AI automation.",
     "home.hero.cta.3": "Start an automation brief",
     "home.hero.description":
-      "I'm Dennis Xhafaj, a freelance full-stack developer in Crema, Italy. You describe the problem in a short brief; I come back with scope, timeline and a fixed quote — no discovery theatre, no retainer you didn't ask for.",
+      "Freelance full-stack developer in Crema, Italy. Send a short brief; you get scope, timeline and a fixed quote back.",
     "home.hero.secondaryCta": "See recent work",
-    "home.hero.audience.0": "E-commerce owners",
-    "home.hero.audience.1": "Founders building an MVP",
-    "home.hero.audience.2": "Agencies subcontracting dev work",
-    "home.hero.audience.3": "Teams automating with AI",
 
     // Home — hero brief card
     "hero.card.title": "New brief",
@@ -405,12 +401,8 @@ const translationData = {
     "home.hero.word.3": "la tua automazione AI.",
     "home.hero.cta.3": "Invia un brief per l'automazione",
     "home.hero.description":
-      "Sono Dennis Xhafaj, sviluppatore full-stack freelance a Crema, Italia. Mi descrivi il problema in un breve brief; io torno con perimetro, tempistiche e un preventivo fisso — niente teatrini di discovery, niente abbonamento che non hai chiesto.",
+      "Sviluppatore full-stack freelance a Crema, Italia. Mandami un breve brief: ricevi perimetro, tempistiche e un prezzo fisso.",
     "home.hero.secondaryCta": "Guarda i lavori recenti",
-    "home.hero.audience.0": "Titolari di e-commerce",
-    "home.hero.audience.1": "Founder che costruiscono un MVP",
-    "home.hero.audience.2": "Agenzie che esternalizzano sviluppo",
-    "home.hero.audience.3": "Team che automatizzano con l'AI",
 
     // Home — hero brief card
     "hero.card.title": "Nuovo brief",
