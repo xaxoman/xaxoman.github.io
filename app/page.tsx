@@ -180,9 +180,16 @@ function ServiceRow({
         <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--muted)", margin: "0 0 24px", maxWidth: 440 }}>
           {t(descKey)}
         </p>
-        <div style={{ display: "grid", gap: 10, fontSize: 15, color: "var(--soft)" }}>
+        <div style={{ display: "grid", gap: 13, fontSize: 15, color: "var(--soft)" }}>
           {bulletKeys.map((k) => (
-            <div key={k}>✓&nbsp;&nbsp;{t(k)}</div>
+            <div key={k} data-bullet="1">
+              <span data-bullet-mark="1" style={{ color: `var(--s${Number(index)})` }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+              {t(k)}
+            </div>
           ))}
         </div>
       </ClientOnly>

@@ -68,6 +68,19 @@ a, button, input, textarea, select { transition: color .18s ease, background-col
 [data-lift] { transition: transform .28s cubic-bezier(.22,.61,.36,1), border-color .28s ease, box-shadow .28s ease; }
 [data-lift]:hover { transform: translateY(-4px); border-color: var(--focus); }
 [data-row]:hover { border-color: var(--focus); background: var(--faint); }
+
+/* Service bullets: the tick sits in a chip that fills with the row's accent
+   as the pointer passes, so the list reads as part of the coloured row. */
+[data-bullet] { display: flex; align-items: center; gap: 12px; }
+[data-bullet-mark] {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; flex: none; border-radius: 9999px;
+  background: var(--chip); box-shadow: inset 0 0 0 1px transparent;
+  transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s ease;
+}
+[data-bullet-mark] svg { position: relative; z-index: 1; }
+[data-bullet]:hover [data-bullet-mark] { transform: scale(1.12); box-shadow: inset 0 0 0 1.5px currentColor; }
+@media (prefers-reduced-motion: reduce) { [data-bullet]:hover [data-bullet-mark] { transform: none; } }
 @keyframes dx-scan { 0% { transform: translateY(-20%); } 100% { transform: translateY(420%); } }
 @keyframes dx-bar { 0% { width: 8%; } 55% { width: 100%; } 70% { width: 100%; opacity: 1; } 100% { width: 100%; opacity: 0; } }
 @keyframes dx-line { 0%, 100% { opacity: .25; } 50% { opacity: .8; } }
