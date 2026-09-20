@@ -9,11 +9,10 @@ import Reveal from "@/components/reveal"
 
 const WORDS = [0, 1, 2, 3]
 
-// PLACEHOLDER TESTIMONIALS — the people and companies below are invented,
-// and so are the numbers in their metrics. Swap each entry for a real
-// client quote (with their permission) before treating this section as
-// anything a visitor should rely on. The copy lives in the translation
-// files under `review.<id>.*`.
+// PLACEHOLDER TESTIMONIALS — the people, companies and figures below are
+// invented. Swap each entry for a real client quote (with their
+// permission) before treating this section as anything a visitor should
+// rely on. The copy lives in the translation files under `review.<id>.*`.
 const REVIEWS = [
   { id: "bonometti", initials: "MB" },
   { id: "reboldi", initials: "AR" },
@@ -255,7 +254,7 @@ function ReviewCarousel() {
 
   return (
     <div
-      style={{ "--card": "clamp(260px, 74vw, 460px)", "--gap": "24px" } as React.CSSProperties}
+      style={{ "--card": "clamp(268px, 80vw, 560px)", "--gap": "24px" } as React.CSSProperties}
       aria-roledescription="carousel"
     >
       <div style={{ overflow: "hidden", padding: "48px 0 8px" }}>
@@ -293,7 +292,7 @@ function ReviewCarousel() {
                   borderRadius: 16,
                   background: on ? "var(--card-hi)" : "var(--card)",
                   boxShadow: on ? "var(--shadow)" : "none",
-                  padding: 28,
+                  padding: "26px 30px 24px",
                   cursor: on ? "default" : "pointer",
                   opacity: on ? 1 : 0.45,
                   transform: on ? "none" : "scale(0.94)",
@@ -301,30 +300,9 @@ function ReviewCarousel() {
                 }}
               >
                 <ClientOnly>
-                  <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--soft)", margin: 0 }}>
+                  <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--soft)", margin: 0 }}>
                     {t(`review.${r.id}.quote`)}
                   </p>
-                  <div
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 8,
-                      marginTop: 22,
-                      borderRadius: 9999,
-                      padding: "6px 13px",
-                      fontSize: 12,
-                      fontWeight: 500,
-                      color: `var(--s${(i % 4) + 1})`,
-                      background: "var(--faint)",
-                      border: "1px solid var(--line)",
-                    }}
-                  >
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M3 17l6-6 4 4 7-7"></path>
-                      <path d="M14 7h6v6"></path>
-                    </svg>
-                    {t(`review.${r.id}.metric`)}
-                  </div>
                   <div
                     style={{
                       display: "flex",
@@ -332,9 +310,7 @@ function ReviewCarousel() {
                       justifyContent: "space-between",
                       gap: 16,
                       flexWrap: "wrap",
-                      marginTop: 24,
-                      paddingTop: 22,
-                      borderTop: "1px solid var(--line)",
+                      marginTop: 26,
                     }}
                   >
                     <span style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
@@ -343,8 +319,8 @@ function ReviewCarousel() {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          width: 42,
-                          height: 42,
+                          width: 40,
+                          height: 40,
                           flex: "none",
                           borderRadius: 9999,
                           border: "1px solid var(--line2)",

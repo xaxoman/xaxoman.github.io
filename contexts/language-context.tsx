@@ -134,39 +134,27 @@ const translationData = {
 
     "review.bonometti.name": "Marta Bonometti",
     "review.bonometti.role": "Owner, Ferramenta Bonometti — Crema",
-    "review.bonometti.quote":
-      "We had 2,300 items sitting in a management system and customers still phoned to ask whether something was in stock. Dennis put the catalogue online in six weeks and wired it to the warehouse. Orders arrive already paid for now, and the phone rings a lot less.",
-    "review.bonometti.metric": "+34% online orders in 4 months",
+    "review.bonometti.quote": "Dennis put 2,300 products online in six weeks and wired the catalogue to our warehouse. Orders arrive already paid for, and the phone rings a lot less.",
 
     "review.reboldi.name": "Andrea Reboldi",
     "review.reboldi.role": "Co-founder, Nordovest Lab — Milan",
-    "review.reboldi.quote":
-      "I needed something investors could click on, not another deck. We agreed the scope on a Tuesday and had a working MVP — sign-up, payments, dashboard — five weeks later. He talked me out of two features I had asked for, and he was right about both.",
-    "review.reboldi.metric": "MVP live in 5 weeks",
+    "review.reboldi.quote": "We agreed the scope on a Tuesday and had a working MVP five weeks later. He talked me out of two features I had asked for, and he was right about both.",
 
     "review.terzi.name": "Giulia Terzi",
     "review.terzi.role": "Account director, Studio Ventuno — Bergamo",
-    "review.terzi.quote":
-      "We hand him the development we can't absorb in-house. Fixed price up front, an answer the same day, and I have never once had to chase him for a status update. That last part is rarer than it should be.",
-    "review.terzi.metric": "11 projects together",
+    "review.terzi.quote": "Fixed price up front, an answer the same day, and I have never once had to chase him for a status update.",
 
     "review.vimercati.name": "Paolo Vimercati",
     "review.vimercati.role": "Partner, Vimercati & Associati — Cremona",
-    "review.vimercati.quote":
-      "Our old site was built in 2016 and nobody in the office could change a comma of it. Our secretary now updates the news page herself. We get four or five serious enquiries a month through it; that used to be a year's worth.",
-    "review.vimercati.metric": "5× qualified enquiries",
+    "review.vimercati.quote": "Our secretary updates the site herself now. We get four or five serious enquiries a month through it; that used to be a year's worth.",
 
     "review.grassi.name": "Elena Grassi",
     "review.grassi.role": "Operations manager, Cascina Verdelli — Lodi",
-    "review.grassi.quote":
-      "Every order came in by email and somebody retyped it into the system — about three hours out of someone's day. Now it arrives, gets read and gets filed on its own. We only see the ones that don't fit the pattern.",
-    "review.grassi.metric": "~14 hours a week back",
+    "review.grassi.quote": "Orders used to be retyped by hand, about three hours out of someone's day. Now they arrive, get read and get filed on their own.",
 
     "review.cattaneo.name": "Davide Cattaneo",
     "review.cattaneo.role": "Owner, Cattaneo Arredamenti — Brescia",
-    "review.cattaneo.quote":
-      "He moved us off a platform that was quietly costing us a fortune in monthly fees, and we didn't lose a single search position doing it. He also explained each step in language I could follow, which nobody before him had bothered to do.",
-    "review.cattaneo.metric": "−61% platform costs",
+    "review.cattaneo.quote": "He moved us off a platform that was quietly costing us a fortune, without losing a single search position along the way.",
 
     "tag.freelance": "Freelance",
     "tag.mobileApp": "Mobile app",
@@ -525,39 +513,27 @@ const translationData = {
 
     "review.bonometti.name": "Marta Bonometti",
     "review.bonometti.role": "Titolare, Ferramenta Bonometti — Crema",
-    "review.bonometti.quote":
-      "Avevamo 2.300 articoli fermi nel gestionale e i clienti telefonavano comunque per sapere se un pezzo c'era. Dennis ha portato il catalogo online in sei settimane e l'ha collegato al magazzino. Adesso gli ordini arrivano già pagati, e il telefono suona molto meno.",
-    "review.bonometti.metric": "+34% ordini online in 4 mesi",
+    "review.bonometti.quote": "Dennis ha portato 2.300 articoli online in sei settimane e ha collegato il catalogo al magazzino. Gli ordini arrivano già pagati e il telefono suona molto meno.",
 
     "review.reboldi.name": "Andrea Reboldi",
     "review.reboldi.role": "Co-fondatore, Nordovest Lab — Milano",
-    "review.reboldi.quote":
-      "Mi serviva qualcosa su cui gli investitori potessero cliccare, non l'ennesima presentazione. Abbiamo definito il perimetro un martedì e cinque settimane dopo avevamo un MVP funzionante: registrazione, pagamenti, dashboard. Mi ha sconsigliato due funzionalità che avevo chiesto, e su entrambe aveva ragione.",
-    "review.reboldi.metric": "MVP online in 5 settimane",
+    "review.reboldi.quote": "Abbiamo definito il perimetro un martedì e cinque settimane dopo avevamo un MVP funzionante. Mi ha sconsigliato due funzionalità che avevo chiesto, e aveva ragione su entrambe.",
 
     "review.terzi.name": "Giulia Terzi",
     "review.terzi.role": "Account director, Studio Ventuno — Bergamo",
-    "review.terzi.quote":
-      "Gli passiamo lo sviluppo che internamente non riusciamo ad assorbire. Prezzo fisso concordato prima, risposta in giornata, e non ho mai dovuto rincorrerlo per sapere a che punto siamo. L'ultimo punto è più raro di quanto dovrebbe.",
-    "review.terzi.metric": "11 progetti insieme",
+    "review.terzi.quote": "Prezzo fisso concordato prima, risposta in giornata, e non ho mai dovuto rincorrerlo per sapere a che punto siamo.",
 
     "review.vimercati.name": "Paolo Vimercati",
     "review.vimercati.role": "Socio, Vimercati & Associati — Cremona",
-    "review.vimercati.quote":
-      "Il vecchio sito era del 2016 e in studio nessuno riusciva a cambiarci una virgola. Adesso la nostra segretaria aggiorna da sola la pagina delle novità. Dal sito arrivano quattro o cinque richieste serie al mese: prima era il totale di un anno.",
-    "review.vimercati.metric": "5× richieste qualificate",
+    "review.vimercati.quote": "Adesso la nostra segretaria aggiorna il sito da sola. Arrivano quattro o cinque richieste serie al mese: prima era il totale di un anno.",
 
     "review.grassi.name": "Elena Grassi",
     "review.grassi.role": "Responsabile operations, Cascina Verdelli — Lodi",
-    "review.grassi.quote":
-      "Ogni ordine arrivava via email e qualcuno lo ribatteva a mano nel gestionale: circa tre ore della giornata di una persona. Adesso arriva, viene letto e archiviato da solo. Vediamo solo quelli che non rientrano nello schema.",
-    "review.grassi.metric": "~14 ore a settimana recuperate",
+    "review.grassi.quote": "Gli ordini venivano ribattuti a mano, circa tre ore della giornata di una persona. Adesso arrivano, vengono letti e archiviati da soli.",
 
     "review.cattaneo.name": "Davide Cattaneo",
     "review.cattaneo.role": "Titolare, Cattaneo Arredamenti — Brescia",
-    "review.cattaneo.quote":
-      "Ci ha spostati da una piattaforma che in silenzio ci costava una fortuna di canoni mensili, senza perdere una sola posizione su Google. E mi ha spiegato ogni passaggio con parole che potevo seguire, cosa che prima di lui non aveva fatto nessuno.",
-    "review.cattaneo.metric": "−61% costi di piattaforma",
+    "review.cattaneo.quote": "Ci ha spostati da una piattaforma che in silenzio ci costava una fortuna, senza perdere una sola posizione su Google.",
 
     "tag.freelance": "Freelance",
     "tag.mobileApp": "App mobile",
