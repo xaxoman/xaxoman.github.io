@@ -26,14 +26,14 @@ const translationData = {
     "nav.cta": "Start a brief",
 
     // Home — hero
-    "home.hero.title": "Let's build your",
-    "home.hero.word.0": "website.",
+    "home.hero.title": "Let's build",
+    "home.hero.word.0": "your website.",
     "home.hero.cta.0": "Start a website brief",
-    "home.hero.word.1": "online store.",
+    "home.hero.word.1": "your online store.",
     "home.hero.cta.1": "Start a store brief",
-    "home.hero.word.2": "mobile app.",
+    "home.hero.word.2": "your mobile app.",
     "home.hero.cta.2": "Start an app brief",
-    "home.hero.word.3": "AI automation.",
+    "home.hero.word.3": "your AI automation.",
     "home.hero.cta.3": "Start an automation brief",
     "home.hero.description":
       "I'm Dennis Xhafaj, a freelance full-stack developer in Crema, Italy. You describe the problem in a short brief; I come back with scope, timeline and a fixed quote — no discovery theatre, no retainer you didn't ask for.",
@@ -395,14 +395,14 @@ const translationData = {
     "nav.cta": "Invia un brief",
 
     // Home — hero
-    "home.hero.title": "Costruiamo il tuo",
-    "home.hero.word.0": "sito web.",
+    "home.hero.title": "Costruiamo",
+    "home.hero.word.0": "il tuo sito web.",
     "home.hero.cta.0": "Invia un brief per il sito",
-    "home.hero.word.1": "negozio online.",
+    "home.hero.word.1": "il tuo negozio online.",
     "home.hero.cta.1": "Invia un brief per il negozio",
-    "home.hero.word.2": "app mobile.",
+    "home.hero.word.2": "la tua app mobile.",
     "home.hero.cta.2": "Invia un brief per l'app",
-    "home.hero.word.3": "automazione AI.",
+    "home.hero.word.3": "la tua automazione AI.",
     "home.hero.cta.3": "Invia un brief per l'automazione",
     "home.hero.description":
       "Sono Dennis Xhafaj, sviluppatore full-stack freelance a Crema, Italia. Mi descrivi il problema in un breve brief; io torno con perimetro, tempistiche e un preventivo fisso — niente teatrini di discovery, niente abbonamento che non hai chiesto.",
