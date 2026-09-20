@@ -222,10 +222,21 @@ function ReviewCarousel() {
   const [pos, setPos] = useState<number>(n)
   const [animate, setAnimate] = useState(true)
 
+  const [paused, setPaused] = useState(false)
+
   const go = (dir: -1 | 1) => {
     setAnimate(true)
     setPos((i) => i + dir)
   }
+
+  // Advance every 3s. Listing `pos` restarts the timer after any move, so
+  // a card the visitor just chose gets its full three seconds. Hovering,
+  // or tabbing into the slider, holds it; so does a reduced-motion setting.
+  useEffect(() => {
+    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    const id = setInterval(() => go(1), 3000)
+    return () => clearInterval(id)
+  }, [paused, pos])
 
   const normalise = (e: React.TransitionEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget || e.propertyName !== "transform") return
@@ -242,8 +253,8 @@ function ReviewCarousel() {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: 44,
-    height: 44,
+    width: 52,
+    height: 52,
     borderRadius: 9999,
     border: "1px solid var(--line2)",
     background: "transparent",
@@ -256,6 +267,10 @@ function ReviewCarousel() {
     <div
       style={{ "--card": "clamp(268px, 80vw, 560px)", "--gap": "24px" } as React.CSSProperties}
       aria-roledescription="carousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
     >
       <div style={{ overflow: "hidden", padding: "48px 0 8px" }}>
         <div
@@ -359,17 +374,14 @@ function ReviewCarousel() {
       </div>
 
       <ClientOnly>
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 14, margin: "40px 0 56px" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, margin: "40px 0 56px" }}>
           <button type="button" onClick={() => go(-1)} style={arrow} aria-label={t("reviews.prev")} className="hover:bg-[var(--chip)]">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="m14 6-6 6 6 6"></path>
             </svg>
           </button>
-          <span style={{ fontSize: 13, color: "var(--dim)", minWidth: 54, letterSpacing: "0.06em" }}>
-            {(((pos % n) + n) % n) + 1} / {n}
-          </span>
           <button type="button" onClick={() => go(1)} style={arrow} aria-label={t("reviews.next")} className="hover:bg-[var(--chip)]">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="m10 6 6 6-6 6"></path>
             </svg>
           </button>
