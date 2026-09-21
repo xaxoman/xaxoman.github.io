@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react"
 import { BLOG_POSTS, getPostBySlug } from "@/lib/blog-data"
 import JsonLd from "@/components/json-ld"
+import BlogCover from "@/components/blog-cover"
 
 const BASE = "https://albaniancoder.vercel.app"
 
@@ -145,6 +146,10 @@ export default async function BlogPostPage({ params }: PageProps) {
           )}
         </div>
       </header>
+
+      <div style={{ marginBottom: 48 }}>
+        <BlogCover category={post.category} slug={post.slug} ratio="2 / 1" />
+      </div>
 
       <p style={{ fontSize: 17, lineHeight: 1.8, color: "var(--soft)", margin: "0 0 52px" }}>{post.intro}</p>
 

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ArrowRight, Clock } from "lucide-react"
 import { BLOG_POSTS } from "@/lib/blog-data"
 import JsonLd from "@/components/json-ld"
+import BlogCover from "@/components/blog-cover"
 
 const BASE = "https://albaniancoder.vercel.app"
 
@@ -85,6 +86,10 @@ export default function BlogIndexPage() {
               color: "var(--fg)",
             }}
           >
+            <div style={{ marginBottom: 20 }}>
+              <BlogCover category={post.category} slug={post.slug} />
+            </div>
+
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, fontSize: 12 }}>
               <span
                 style={{
