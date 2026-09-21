@@ -15,19 +15,61 @@ export const metadata: Metadata = {
   },
 }
 
-const breadcrumbJsonLd = {
+const BASE = "https://albaniancoder.vercel.app"
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://albaniancoder.vercel.app" },
-    { "@type": "ListItem", position: 2, name: "Chi sono", item: "https://albaniancoder.vercel.app/about" },
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${BASE}/about#person`,
+      name: "Dennis Xhafaj",
+      jobTitle: "Sviluppatore full-stack freelance",
+      description:
+        "Sviluppatore full-stack freelance a Crema: siti web, e-commerce, app web e mobile e automazioni AI per PMI e professionisti.",
+      url: `${BASE}/about`,
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/about` },
+      email: "xhafaj.dennis@protonmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Crema",
+        addressRegion: "CR",
+        postalCode: "26013",
+        addressCountry: "IT",
+      },
+      knowsLanguage: ["it", "en", "sq"],
+      knowsAbout: [
+        "Sviluppo web full-stack",
+        "Siti web per PMI",
+        "E-commerce",
+        "Gestionali su misura",
+        "App mobile",
+        "Automazioni AI",
+        "SEO locale",
+        "TypeScript",
+        "React",
+        "Angular",
+        ".NET",
+        "Node.js",
+      ],
+      worksFor: { "@id": `${BASE}/#business` },
+      sameAs: ["https://github.com/xaxoman", "https://linkedin.com/in/dennis-xhafaj-b48a2528a"],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${BASE}/about#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+        { "@type": "ListItem", position: 2, name: "Chi sono", item: `${BASE}/about` },
+      ],
+    },
   ],
 }
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={jsonLd} />
       <AboutClient />
     </>
   )

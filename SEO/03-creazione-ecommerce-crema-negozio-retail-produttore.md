@@ -83,4 +83,4 @@ Possiamo integrare l'e-commerce direttamente con software di spedizione (es. Qap
 
 Che tu sia un negozio del centro di Crema o un produttore del territorio cremasco, parliamo del tuo progetto senza giri di parole:
 
-👉 **[Avvia un brief per il tuo e-commerce su dennisxhafaj.com/contact](https://albaniancoder.vercel.app/contact)** e scopri costi, tempi e fattibilità con un preventivo a prezzo fisso.
+👉 **[Avvia un brief per il tuo e-commerce su albaniancoder.vercel.app/contact](https://albaniancoder.vercel.app/contact)** e scopri costi, tempi e fattibilità con un preventivo a prezzo fisso.

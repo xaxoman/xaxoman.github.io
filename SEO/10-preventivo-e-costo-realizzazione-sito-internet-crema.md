@@ -84,4 +84,4 @@ Gli unici costi vivi annuali sono quelli dell'hosting moderno e del dominio (sol
 
 Nessuna pressione commerciale, nessuna scoperta teatrale:
 
-👉 **[Invia il tuo brief su dennisxhafaj.com/contact](https://albaniancoder.vercel.app/contact)**: descrivi cosa vorresti realizzare e riceverai un preventivo a prezzo fisso in 24 ore.
+👉 **[Invia il tuo brief su albaniancoder.vercel.app/contact](https://albaniancoder.vercel.app/contact)**: descrivi cosa vorresti realizzare e riceverai un preventivo a prezzo fisso in 24 ore.

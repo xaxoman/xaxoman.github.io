@@ -93,4 +93,4 @@ A differenza delle sponsorizzate (che svaniscono nel momento in cui smetti di pa
 
 Se la tua attività locale, studio o laboratorio ha bisogno di visibilità reale su Google:
 
-👉 **[Richiedi una consulenza Local SEO su dennisxhafaj.com/contact](https://albaniancoder.vercel.app/contact)**: esamineremo la tua scheda attuale e il tuo sito web con un piano d'azione chiaro e un preventivo a prezzo fisso.
+👉 **[Richiedi una consulenza Local SEO su albaniancoder.vercel.app/contact](https://albaniancoder.vercel.app/contact)**: esamineremo la tua scheda attuale e il tuo sito web con un piano d'azione chiaro e un preventivo a prezzo fisso.

@@ -18,14 +18,24 @@ export const metadata: Metadata = {
 const businessJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://albaniancoder.vercel.app/#business",
   name: "Dennis Xhafaj — Sviluppo Web e Automazioni AI",
   url: "https://albaniancoder.vercel.app",
   description:
     "Sviluppatore full-stack freelance a Crema: siti web, e-commerce, app web e mobile e automazioni AI per PMI e professionisti.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Crema",
+    addressRegion: "CR",
+    postalCode: "26013",
+    addressCountry: "IT",
+  },
+  email: "xhafaj.dennis@protonmail.com",
   areaServed: ["Crema", "Provincia di Cremona", "Lombardia", "Italia"],
   knowsLanguage: ["it", "en"],
   founder: {
     "@type": "Person",
+    "@id": "https://albaniancoder.vercel.app/about#person",
     name: "Dennis Xhafaj",
     jobTitle: "Sviluppatore full-stack freelance",
     url: "https://albaniancoder.vercel.app/about",

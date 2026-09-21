@@ -84,4 +84,4 @@ Sì, ma senza obbligarti a contratti capestro mensili. Se hai bisogno di un aggi
 
 Se hai un'attività a Crema e preferisci la concretezza di un professionista dedicato rispetto alla burocrazia delle agenzie:
 
-👉 **[Invia il tuo brief su dennisxhafaj.com/contact](https://albaniancoder.vercel.app/contact)** e ricevi una stima chiara e senza impegno.
+👉 **[Invia il tuo brief su albaniancoder.vercel.app/contact](https://albaniancoder.vercel.app/contact)** e ricevi una stima chiara e senza impegno.
