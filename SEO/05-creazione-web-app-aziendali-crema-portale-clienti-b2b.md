@@ -89,4 +89,4 @@ Assolutamente. L'interfaccia è progettata per essere utilizzata indifferentemen
 
 Parliamo del tuo flusso di lavoro e vediamo come automatizzarlo:
 
-👉 **[Invia la tua richiesta su dennisxhafaj.com/contact](https://albaniancoder.vercel.app/contact)** per discutere i requisiti tecnici e ricevere un preventivo chiaro a prezzo fisso.
+👉 **[Invia la tua richiesta su albaniancoder.vercel.app/contact](https://albaniancoder.vercel.app/contact)** per discutere i requisiti tecnici e ricevere un preventivo chiaro a prezzo fisso.

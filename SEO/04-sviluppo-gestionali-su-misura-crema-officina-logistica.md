@@ -91,4 +91,4 @@ Sì. Tutti i dati sono protetti da autenticazione a due fattori, crittografia SS
 
 Se anche la tua azienda sta perdendo tempo prezioso tra fogli Excel slegati e foglietti volanti:
 
-👉 **[Invia un breve brief su dennisxhafaj.com/contact](https://albaniancoder.vercel.app/contact)**: descrivi quali attività vorresti digitalizzare per ricevere una proposta di architettura e un preventivo a prezzo fisso.
+👉 **[Invia un breve brief su albaniancoder.vercel.app/contact](https://albaniancoder.vercel.app/contact)**: descrivi quali attività vorresti digitalizzare per ricevere una proposta di architettura e un preventivo a prezzo fisso.
