@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   description:
     "Sviluppatore full-stack freelance a Crema. Realizzo siti web, e-commerce, app e automazioni AI per PMI e professionisti: perimetro, tempi e prezzo fisso.",
   alternates: { canonical: "/" },
+  verification: {
+    google: "rprGTZwrGgT6h_WIkyTvt8V9qRI-cRwt-Z5hAtIcQi4",
+  },
   openGraph: {
     type: "website",
     locale: "it_IT",
