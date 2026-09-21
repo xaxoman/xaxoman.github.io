@@ -17,14 +17,18 @@ const solidBtn: React.CSSProperties = {
 }
 
 function ServiceBlock({
+  id,
   eyebrowKey,
   badgeKey,
   titleKey,
   descKey,
   rowKeys,
   extra,
+  guide,
   zIndex,
 }: {
+  id: string
+  guide: { slug: string; label: string }
   eyebrowKey: string
   badgeKey?: string
   titleKey: string
@@ -35,9 +39,11 @@ function ServiceBlock({
 }) {
   return (
     <div
+      id={id}
       style={{
         position: "sticky",
         top: 68,
+        scrollMarginTop: 90,
         zIndex,
         background: "var(--bg)",
         borderTop: "1px solid var(--line2)",
@@ -63,6 +69,21 @@ function ServiceBlock({
             {t(titleKey)}
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--muted)", margin: 0 }}>{t(descKey)}</p>
+          <Link
+            href={`/blog/${guide.slug}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              marginTop: 20,
+              fontSize: 15,
+              fontWeight: 500,
+              textDecoration: "underline",
+              textUnderlineOffset: 3,
+            }}
+          >
+            {guide.label} →
+          </Link>
         </div>
         {rowKeys ? (
           <div style={{ display: "grid", gap: 12, alignContent: "start" }}>
@@ -96,6 +117,8 @@ export default function ServicesClient() {
 
       <Reveal style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 40px" }}>
         <ServiceBlock
+          id="siti-web"
+          guide={{ slug: "sito-web-aziende-manifatturiere", label: "Guida: cosa cerca un buyer in un sito aziendale" }}
           eyebrowKey="services.websites.eyebrow"
           titleKey="services.websites.title"
           descKey="services.websites.description"
@@ -103,6 +126,8 @@ export default function ServicesClient() {
           zIndex={1}
         />
         <ServiceBlock
+          id="ecommerce"
+          guide={{ slug: "aprire-ecommerce-negozio-fisico", label: "Guida: aprire un e-commerce avendo un negozio" }}
           eyebrowKey="services.ecommerce.eyebrow"
           titleKey="services.ecommerce.title"
           descKey="services.ecommerce.description"
@@ -110,6 +135,8 @@ export default function ServicesClient() {
           zIndex={2}
         />
         <ServiceBlock
+          id="app"
+          guide={{ slug: "portale-ordini-b2b", label: "Guida: far ordinare i clienti da soli" }}
           eyebrowKey="services.apps.eyebrow"
           titleKey="services.apps.title"
           descKey="services.apps.description"
@@ -117,6 +144,8 @@ export default function ServicesClient() {
           zIndex={3}
         />
         <ServiceBlock
+          id="automazione"
+          guide={{ slug: "gestionale-su-misura-vs-excel", label: "Guida: quando smettere di usare Excel" }}
           eyebrowKey="services.automation.eyebrow"
           badgeKey="service.automation.badge"
           titleKey="services.automation.title"

@@ -111,7 +111,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Solo se hai qualcosa di tecnico da dire e qualcuno che lo scriva. Meglio tre pagine di lavorazioni fatte bene che venti articoli generici: nel B2B industriale le pagine di servizio portano quasi tutte le richieste.",
       },
     ],
-    service: { label: "Come lavoro sui siti aziendali", href: "/services" },
+    service: { label: "Come lavoro sui siti aziendali", href: "/services#siti-web" },
     related: ["rifare-sito-senza-perdere-posizionamento", "quanto-costa-un-sito-web", "seo-locale-google-maps-crema"],
   },
   {
@@ -190,7 +190,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "LinkedIn è utile per la rete professionale, ma non intercetta chi cerca su Google 'avvocato lavoro Crema'. Le due cose rispondono a bisogni diversi e non si sostituiscono.",
       },
     ],
-    service: { label: "Siti per professionisti e PMI", href: "/services" },
+    service: { label: "Siti per professionisti e PMI", href: "/services#siti-web" },
     related: ["seo-locale-google-maps-crema", "quanto-costa-un-sito-web", "freelance-o-agenzia-web"],
   },
   {
@@ -279,7 +279,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "No, l'e-commerce è un canale di vendita della stessa attività. Vanno però verificati alcuni adempimenti specifici con il commercialista, in particolare sulla vendita a distanza e sulle vendite verso altri Paesi UE.",
       },
     ],
-    service: { label: "Come realizzo gli e-commerce", href: "/services" },
+    service: { label: "Come realizzo gli e-commerce", href: "/services#ecommerce" },
     related: ["aumentare-conversioni-ecommerce", "quanto-costa-un-sito-web", "gestionale-su-misura-vs-excel"],
   },
   {
@@ -365,7 +365,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Il codice e il database sono tuoi e vanno consegnati. È una clausola da mettere per iscritto prima di iniziare, insieme agli accessi all'hosting: è la differenza tra un software tuo e un software che usi.",
       },
     ],
-    service: { label: "Web app e gestionali su misura", href: "/services" },
+    service: { label: "Web app e gestionali su misura", href: "/services#app" },
     related: ["portale-ordini-b2b", "quanto-costa-un-sito-web", "aprire-ecommerce-negozio-fisico"],
   },
   {
@@ -440,7 +440,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Da sei a dieci settimane per una prima versione con listini, catalogo, carrello, storico e integrazione. Il fattore che determina i tempi è quasi sempre l'accesso ai dati del gestionale esistente.",
       },
     ],
-    service: { label: "Web app e portali B2B", href: "/services" },
+    service: { label: "Web app e portali B2B", href: "/services#app" },
     related: ["gestionale-su-misura-vs-excel", "aprire-ecommerce-negozio-fisico", "quanto-costa-un-sito-web"],
   },
   {
@@ -515,7 +515,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Vale lo stesso principio, con un'attenzione in più: il dominio vecchio va mantenuto attivo e pagato per almeno un anno, altrimenti i redirect smettono di funzionare e si perde tutto insieme al dominio.",
       },
     ],
-    service: { label: "Rifacimento e performance", href: "/services" },
+    service: { label: "Rifacimento e performance", href: "/services#siti-web" },
     related: ["seo-locale-google-maps-crema", "sito-web-aziende-manifatturiere", "quanto-costa-un-sito-web"],
   },
   {
@@ -589,7 +589,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Dipende molto dal settore e dallo scontrino medio: tra l'uno e il tre per cento è la norma per molti store, sopra il tre è buono. Ha senso confrontarsi con sé stessi nel tempo più che con medie generali.",
       },
     ],
-    service: { label: "E-commerce e checkout", href: "/services" },
+    service: { label: "E-commerce e checkout", href: "/services#ecommerce" },
     related: ["aprire-ecommerce-negozio-fisico", "rifare-sito-senza-perdere-posizionamento", "quanto-costa-un-sito-web"],
   },
   {
@@ -665,7 +665,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Gli annunci locali esistono e funzionano, ma su una scheda mal configurata sono soldi sprecati. Prima si sistemano categoria, dati e recensioni, poi eventualmente si valuta la pubblicità.",
       },
     ],
-    service: { label: "SEO e performance", href: "/services" },
+    service: { label: "SEO e performance", href: "/services#siti-web" },
     related: ["rifare-sito-senza-perdere-posizionamento", "sito-web-studio-legale-commercialista", "quanto-costa-un-sito-web"],
   },
   {
