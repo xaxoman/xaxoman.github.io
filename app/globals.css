@@ -18,7 +18,10 @@
   --tag-g-fg: #15803d; --tag-g-bg: rgba(74,222,128,0.2);
   --tag-b-fg: #1d4ed8; --tag-b-bg: rgba(96,165,250,0.2);
   --s1: #0284c7; --s2: #7c3aed; --s3: #b45309; --s4: #047857; --s-fg: #ffffff;
-  --beam: rgba(0,0,0,0.18); --dots-hi: rgba(0,0,0,0.42); --wash: 0.10;
+  /* Headline-weight variants of the accents: darkened so the rotating word
+     clears 4.5:1 on the hero background, which --s1..--s4 do not. */
+  --s1-ink: #0369a1; --s2-ink: #6d28d9; --s3-ink: #9a4a07; --s4-ink: #036249;
+  --beam: rgba(0,0,0,0.18); --dots-hi: rgba(0,0,0,0.42); --wash: 0.26; --bloom: 0.16;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -36,7 +39,8 @@
   --tag-g-fg: #4ade80; --tag-g-bg: rgba(20,83,45,0.3);
   --tag-b-fg: #60a5fa; --tag-b-bg: rgba(30,58,138,0.3);
   --s1: #7dd3fc; --s2: #c4b5fd; --s3: #fcd34d; --s4: #6ee7b7; --s-fg: #0a0a0a;
-  --beam: rgba(255,255,255,0.5); --dots-hi: rgba(255,255,255,0.8); --wash: 0.14;
+  --s1-ink: #7dd3fc; --s2-ink: #c4b5fd; --s3-ink: #fcd34d; --s4-ink: #6ee7b7;
+  --beam: rgba(255,255,255,0.5); --dots-hi: rgba(255,255,255,0.8); --wash: 0.20; --bloom: 0.22;
 }
 
 html { background: var(--bg); }
@@ -112,6 +116,11 @@ a, button, input, textarea, select { transition: color .18s ease, background-col
 [data-hero-layer] { position: absolute; inset: 0; display: block; pointer-events: none; }
 [data-hero-wash] { opacity: 0; transition: opacity .9s cubic-bezier(.22,.61,.36,1); }
 [data-hero-wash][data-on="1"] { opacity: var(--wash); }
+[data-hero-bloom] {
+  opacity: var(--bloom);
+  filter: blur(26px);
+  transition: background .9s cubic-bezier(.22,.61,.36,1);
+}
 [data-hero-grid] {
   background-image: radial-gradient(var(--dots) 1px, transparent 1px);
   background-size: 24px 24px;

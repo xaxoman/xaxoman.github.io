@@ -26,25 +26,18 @@ const translationData = {
     "nav.cta": "Start a brief",
 
     // Home — hero
+    "home.hero.eyebrow": "Freelance web developer in Crema",
     "home.hero.title": "Let's build",
     "home.hero.word.0": "your website.",
-    "home.hero.cta.0": "Start a website brief",
     "home.hero.word.1": "your online store.",
-    "home.hero.cta.1": "Start a store brief",
     "home.hero.word.2": "your mobile app.",
-    "home.hero.cta.2": "Start an app brief",
     "home.hero.word.3": "your AI automation.",
-    "home.hero.cta.3": "Start an automation brief",
-    "home.hero.description":
-      "Freelance full-stack developer in Crema, Italy. Send a short brief; you get scope, timeline and a fixed quote back.",
+    "home.hero.promise": "Scope, timeline and a fixed price agreed before we start — not at the end.",
+    "home.hero.cta": "Get a free quote",
     "home.hero.secondaryCta": "See recent work",
-
-    // Home — hero brief card
-    "hero.card.title": "New brief",
-    "hero.card.need": "What you need",
-    "hero.card.timeline": "Timeline",
-    "hero.card.problem": "The problem",
-    "hero.card.reply": "Back to you with scope, timeline and a fixed quote — usually within one working day.",
+    "home.hero.trust.author": "Dennis Xhafaj, full-stack developer",
+    "home.hero.trust.reply": "Reply within one working day",
+    "home.hero.trust.price": "Fixed price, agreed up front",
 
     // Home — four things
     "home.build.eyebrow": "What I build",
@@ -393,25 +386,18 @@ const translationData = {
     "nav.cta": "Invia un brief",
 
     // Home — hero
+    "home.hero.eyebrow": "Sviluppatore web freelance a Crema",
     "home.hero.title": "Costruiamo",
     "home.hero.word.0": "il tuo sito web.",
-    "home.hero.cta.0": "Invia un brief per il sito",
     "home.hero.word.1": "il tuo negozio online.",
-    "home.hero.cta.1": "Invia un brief per il negozio",
     "home.hero.word.2": "la tua app mobile.",
-    "home.hero.cta.2": "Invia un brief per l'app",
     "home.hero.word.3": "la tua automazione AI.",
-    "home.hero.cta.3": "Invia un brief per l'automazione",
-    "home.hero.description":
-      "Sviluppatore full-stack freelance a Crema, Italia. Mandami un breve brief: ricevi perimetro, tempistiche e un prezzo fisso.",
+    "home.hero.promise": "Perimetro, tempi e prezzo fisso concordati prima di iniziare — non a fine progetto.",
+    "home.hero.cta": "Richiedi un preventivo gratuito",
     "home.hero.secondaryCta": "Guarda i lavori recenti",
-
-    // Home — hero brief card
-    "hero.card.title": "Nuovo brief",
-    "hero.card.need": "Di cosa hai bisogno",
-    "hero.card.timeline": "Tempistiche",
-    "hero.card.problem": "Il problema",
-    "hero.card.reply": "Ti rispondo con perimetro, tempistiche e un prezzo fisso — di solito entro un giorno lavorativo.",
+    "home.hero.trust.author": "Dennis Xhafaj, sviluppatore full-stack",
+    "home.hero.trust.reply": "Risposta entro un giorno lavorativo",
+    "home.hero.trust.price": "Prezzo fisso, concordato prima",
 
     // Home — four things
     "home.build.eyebrow": "Cosa realizzo",
