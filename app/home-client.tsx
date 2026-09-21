@@ -3,6 +3,7 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { t } from "@/contexts/language-context"
 import Reveal from "@/components/reveal"
 import JsonLd from "@/components/json-ld"
@@ -394,18 +395,27 @@ function ReviewCarousel() {
 export default function HomeClient() {
   const [wordIndex, setWordIndex] = useState(0)
   const [wordPhase, setWordPhase] = useState<"in" | "out">("in")
+  // The rotator stops while the pointer (or keyboard focus) is in the hero, so
+  // the sentence a visitor is reading holds still long enough to finish it.
+  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
+    if (paused) return
+    if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return
+
+    let swap: ReturnType<typeof setTimeout> | undefined
     const timer = setInterval(() => {
       setWordPhase("out")
-      const swap = setTimeout(() => {
+      swap = setTimeout(() => {
         setWordIndex((i) => (i + 1) % WORDS.length)
         setWordPhase("in")
       }, 340)
-      return () => clearTimeout(swap)
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [])
+    }, 4800)
+    return () => {
+      clearInterval(timer)
+      if (swap) clearTimeout(swap)
+    }
+  }, [paused])
 
   // The pointer is a lamp: it lights the dot grid it passes over, and the
   // primary CTA blooms and drifts toward it.
@@ -438,7 +448,20 @@ export default function HomeClient() {
     <>
       {/* Hero */}
       <Reveal style={{ borderBottom: "1px solid var(--line)" }}>
-        <div data-hero="1" onPointerMove={trackHero} onPointerLeave={resetHero} style={{ position: "relative", overflow: "hidden" }}>
+        <div
+          data-hero="1"
+          onPointerMove={trackHero}
+          onPointerLeave={(e) => {
+            resetHero(e)
+            setPaused(false)
+          }}
+          // Mouse only: a tap fires pointerenter without a reliable matching
+          // pointerleave, which would freeze the rotator for the whole visit.
+          onPointerEnter={(e) => setPaused(e.pointerType === "mouse")}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={() => setPaused(false)}
+          style={{ position: "relative", overflow: "hidden" }}
+        >
           {WORDS.map((i) => (
             <span
               key={i}
@@ -450,8 +473,18 @@ export default function HomeClient() {
           ))}
           <span data-hero-layer="1" data-hero-grid="1" />
           <span data-hero-layer="1" data-hero-lit="1" />
-          <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "104px 24px 72px" }}>
+          {/* Always-on bloom behind the CTA: the hover-only lamp leaves touch
+              devices with a flat background, and that is most of the traffic. */}
+          <span
+            data-hero-layer="1"
+            data-hero-bloom="1"
+            aria-hidden="true"
+            style={{ background: `radial-gradient(ellipse 34% 30% at 50% 62%, var(--s${wordIndex + 1}), transparent 72%)` }}
+          />
+          <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "clamp(36px, 5vw, 56px) 24px clamp(44px, 4.5vw, 56px)" }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <p style={{ ...eyebrow, marginBottom: 16 }}>{t("home.hero.eyebrow")}</p>
+
               <h1
                 style={{
                   fontSize: "clamp(38px, 5.6vw, 68px)",
@@ -462,13 +495,17 @@ export default function HomeClient() {
                   maxWidth: 940,
                 }}
               >
-                  <span style={{ color: "var(--muted)" }}>{t("home.hero.title")}</span>
-                <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }}>
+                  <span>{t("home.hero.title")}</span>
+                <span style={{ display: "grid", gridTemplateColumns: "1fr", overflow: "hidden" }} aria-live="polite">
                     {WORDS.map((i) => (
                       <span
                         key={i}
                         data-word={i === wordIndex ? wordPhase : undefined}
-                        style={{ gridArea: "1 / 1", visibility: i === wordIndex ? "visible" : "hidden" }}
+                        style={{
+                          gridArea: "1 / 1",
+                          visibility: i === wordIndex ? "visible" : "hidden",
+                          color: `var(--s${i + 1}-ink)`,
+                        }}
                       >
                         {t(`home.hero.word.${i}`)}
                       </span>
@@ -476,11 +513,11 @@ export default function HomeClient() {
                 </span>
               </h1>
 
-                <p style={{ fontSize: 17, lineHeight: 1.65, color: "var(--muted)", maxWidth: 620, margin: "28px 0 0" }}>
-                  {t("home.hero.description")}
+                <p style={{ fontSize: "clamp(18px, 2.2vw, 21px)", lineHeight: 1.5, fontWeight: 500, maxWidth: 640, margin: "18px 0 0" }}>
+                  {t("home.hero.promise")}
                 </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, marginTop: 38 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, marginTop: 28 }}>
                   <span data-lamp="1" onPointerMove={trackLamp} onPointerLeave={resetLamp}>
                     <span data-lamp-glow="1" aria-hidden="true" />
                     <Link
@@ -488,7 +525,7 @@ export default function HomeClient() {
                       href="/contact"
                       style={{ ...solidBtn, display: "inline-flex", alignItems: "center", gap: 10, minWidth: 250, justifyContent: "center", whiteSpace: "nowrap" }}
                     >
-                      {t(`home.hero.cta.${wordIndex}`)}
+                      {t("home.hero.cta")}
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M7 17 17 7"></path>
                         <path d="M8 7h9v9"></path>
@@ -510,9 +547,42 @@ export default function HomeClient() {
                     {t("home.hero.secondaryCta")}
                   </Link>
               </div>
+
+              {/* Trust row. Every claim here restates a commitment made elsewhere
+                  on the site — no counts, ratings or testimonials, which would
+                  need real numbers behind them before they can go above the fold. */}
+              <ul
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "10px 22px",
+                  listStyle: "none",
+                  margin: "24px 0 0",
+                  padding: 0,
+                  fontSize: 14,
+                  color: "var(--muted)",
+                }}
+              >
+                <li style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                  <span style={{ position: "relative", display: "block", width: 26, height: 26, borderRadius: 9999, overflow: "hidden", border: "1px solid var(--line2)", flex: "none" }}>
+                    <Image src="/profile-image.png" alt="" fill sizes="26px" style={{ objectFit: "cover" }} />
+                  </span>
+                  <span>{t("home.hero.trust.author")}</span>
+                </li>
+                {["reply", "price"].map((k) => (
+                  <li key={k} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: "none" }}>
+                      <path d="m4 12.5 5 5L20 6.5"></path>
+                    </svg>
+                    <span>{t(`home.hero.trust.${k}`)}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div style={{ display: "grid", gap: 20, marginTop: 72 }} className="!grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
+            <div style={{ display: "grid", gap: 20, marginTop: "clamp(28px, 3vw, 36px)" }} className="!grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
               {HERO_SERVICES.map((svc, i) => (
                 <Link
                   key={svc.id}
@@ -524,7 +594,7 @@ export default function HomeClient() {
                     borderRadius: 14,
                     background: "var(--card)",
                     boxShadow: "var(--shadow)",
-                    padding: "26px 24px 28px",
+                    padding: "22px 22px 24px",
                   }}
                 >
                   <span
@@ -537,7 +607,7 @@ export default function HomeClient() {
                       borderRadius: 9999,
                       background: "var(--chip)",
                       color: `var(--s${i + 1})`,
-                      marginBottom: 26,
+                      marginBottom: 18,
                     }}
                   >
                     <ServiceIcon id={svc.id} />
