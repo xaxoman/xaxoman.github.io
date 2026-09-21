@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { CASE_STUDIES } from "@/lib/case-studies-data"
+import { BLOG_POSTS } from "@/lib/blog-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://albaniancoder.vercel.app"
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/case-studies`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.95,
@@ -43,12 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const caseStudyRoutes: MetadataRoute.Sitemap = CASE_STUDIES.map((cs) => ({
-    url: `${baseUrl}/case-studies/${cs.slug}`,
-    lastModified: new Date(),
+  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt),
     changeFrequency: "monthly",
     priority: 0.85,
   }))
 
-  return [...staticRoutes, ...caseStudyRoutes]
+  return [...staticRoutes, ...blogRoutes]
 }

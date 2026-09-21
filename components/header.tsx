@@ -7,12 +7,11 @@ import { Menu, X } from "lucide-react"
 import LanguageSwitcher from "./language-switcher"
 import ThemeToggle from "./theme-toggle"
 import { t } from "@/contexts/language-context"
-import ClientOnly from "@/components/client-only"
 
 const NAV = [
   { key: "nav.home", href: "/" },
   { key: "nav.services", href: "/services" },
-  { key: "nav.work", href: "/work" },
+  { key: "nav.blog", href: "/blog" },
   { key: "nav.about", href: "/about" },
 ]
 
@@ -66,7 +65,7 @@ export default function Header() {
                   color: active ? "var(--fg)" : "var(--muted)",
                 }}
               >
-                <ClientOnly>{t(item.key)}</ClientOnly>
+                {t(item.key)}
                 <span
                   style={{
                     display: "block",
@@ -90,7 +89,7 @@ export default function Header() {
               fontWeight: 700,
             }}
           >
-            <ClientOnly>{t("nav.cta")}</ClientOnly>
+            {t("nav.cta")}
           </Link>
           <LanguageSwitcher />
           <ThemeToggle />
@@ -131,7 +130,7 @@ export default function Header() {
                 color: pathname === item.href ? "var(--fg)" : "var(--muted)",
               }}
             >
-              <ClientOnly>{t(item.key)}</ClientOnly>
+              {t(item.key)}
             </Link>
           ))}
           <Link
@@ -147,7 +146,7 @@ export default function Header() {
               textAlign: "center",
             }}
           >
-            <ClientOnly>{t("nav.cta")}</ClientOnly>
+            {t("nav.cta")}
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 4 }}>
             <LanguageSwitcher />
