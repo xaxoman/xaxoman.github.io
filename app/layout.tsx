@@ -10,8 +10,18 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
-  title: "Dennis Xhafaj — Full-stack developer & AI automation",
-  description: "Freelance full-stack developer in Crema, Italy. Websites, e-commerce, apps and AI automation for businesses.",
+  metadataBase: new URL("https://albaniancoder.vercel.app"),
+  title: "Sviluppatore Web Freelance a Crema – Siti, App e Automazioni AI",
+  description:
+    "Sviluppatore full-stack freelance a Crema. Realizzo siti web, e-commerce, app e automazioni AI per PMI e professionisti: perimetro, tempi e prezzo fisso.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "it_IT",
+    siteName: "Dennis Xhafaj",
+    url: "/",
+  },
+  twitter: { card: "summary_large_image" },
 }
 
 export default function RootLayout({

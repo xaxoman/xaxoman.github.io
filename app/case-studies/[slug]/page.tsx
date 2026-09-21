@@ -24,7 +24,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${study.title} | Dennis Xhafaj`,
     description: study.description,
-    keywords: study.keywords,
     alternates: {
       canonical: canonicalUrl,
     },

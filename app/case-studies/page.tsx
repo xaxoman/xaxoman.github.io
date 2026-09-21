@@ -7,15 +7,6 @@ export const metadata: Metadata = {
   title: "Case Study & Soluzioni per Aziende a Crema | Dennis Xhafaj",
   description:
     "Approfondimenti e case study per PMI, liberi professionisti e attività a Crema: creazione siti web performanti, e-commerce, gestionali su misura e Local SEO.",
-  keywords: [
-    "creazione siti web crema",
-    "sviluppo siti web per pmi crema e provincia",
-    "sviluppo gestionali su misura crema",
-    "creazione ecommerce crema",
-    "posizionamento seo siti internet crema",
-    "web designer freelance crema",
-    "preventivo sito web crema",
-  ],
 }
 
 const solidBtn: React.CSSProperties = {

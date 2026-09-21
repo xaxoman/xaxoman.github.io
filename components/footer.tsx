@@ -2,7 +2,6 @@
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
 import { t } from "@/contexts/language-context"
-import ClientOnly from "@/components/client-only"
 
 const PAGES = [
   { key: "nav.home", href: "/" },
@@ -29,11 +28,9 @@ export default function Footer() {
       >
         <div>
           <div style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.06em", marginBottom: 14 }}>DENNIS XHAFAJ</div>
-          <ClientOnly>
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--muted)", margin: 0, maxWidth: 300 }}>
               {t("footer.tagline")}
             </p>
-          </ClientOnly>
         </div>
 
         <div>
@@ -47,12 +44,12 @@ export default function Footer() {
               marginBottom: 18,
             }}
           >
-            <ClientOnly>{t("footer.pages")}</ClientOnly>
+            {t("footer.pages")}
           </div>
           <div style={{ display: "grid", gap: 11, justifyItems: "start", fontSize: 15 }}>
             {PAGES.map((p) => (
               <Link key={p.href} href={p.href} style={{ color: "var(--muted)", fontSize: 15 }}>
-                <ClientOnly>{t(p.key)}</ClientOnly>
+                {t(p.key)}
               </Link>
             ))}
           </div>
@@ -69,7 +66,7 @@ export default function Footer() {
               marginBottom: 18,
             }}
           >
-            <ClientOnly>{t("footer.elsewhere")}</ClientOnly>
+            {t("footer.elsewhere")}
           </div>
           <div style={{ display: "grid", gap: 13, justifyItems: "start", fontSize: 15 }}>
             <a
@@ -111,12 +108,8 @@ export default function Footer() {
           color: "var(--dim)",
         }}
       >
-        <ClientOnly>
           <span>{t("footer.copyright").replace("{year}", new Date().getFullYear().toString())}</span>
-        </ClientOnly>
-        <ClientOnly>
           <span>{t("footer.location")}</span>
-        </ClientOnly>
       </div>
     </footer>
   )
