@@ -109,6 +109,11 @@ const translationData = {
     // Home — reviews
     // NOTE: placeholder testimonials. The people, companies and figures
     // below are invented — replace them with real, permitted quotes.
+    // Home — ultimi articoli
+    "home.blog.eyebrow": "Guides",
+    "home.blog.title": "What I usually explain on the phone.",
+    "home.blog.all": "All guides →",
+
     "reviews.eyebrow": "Client reviews",
     "reviews.title": "Don't take my word for it.",
     "reviews.title2": "27 businesses already have.",
@@ -471,6 +476,11 @@ const translationData = {
     // Home — recensioni
     // NOTA: testimonianze segnaposto. Persone, aziende e numeri qui sotto
     // sono inventati — sostituiscili con citazioni reali e autorizzate.
+    // Home — ultimi articoli
+    "home.blog.eyebrow": "Guide",
+    "home.blog.title": "Quello che di solito spiego al telefono.",
+    "home.blog.all": "Tutte le guide →",
+
     "reviews.eyebrow": "Recensioni dei clienti",
     "reviews.title": "Non fidarti solo della mia parola.",
     "reviews.title2": "27 aziende l'hanno già fatto.",
@@ -657,7 +667,7 @@ const translationData = {
 
     // About page
     "about.eyebrow": "Chi sono",
-    "about.title": "Sono Denis Xhafaj, sviluppatore full-stack e appassionato di tecnologia.",
+    "about.title": "Sono Dennis Xhafaj, sviluppatore full-stack e appassionato di tecnologia.",
     "about.p0":
       "Lavoro come sviluppatore freelance da Crema, Italia, costruendo siti web, negozi online, app e — sempre di più — l'automazione AI che sta dietro a tutto questo. La maggior parte dei miei clienti sono piccoli team che hanno bisogno di una sola persona in grado di portare un problema dalla conversazione alla produzione, senza un project manager in mezzo.",
     "about.p1":

@@ -6,6 +6,8 @@ import Link from "next/link"
 import { t } from "@/contexts/language-context"
 import Reveal from "@/components/reveal"
 import JsonLd from "@/components/json-ld"
+import BlogCover from "@/components/blog-cover"
+import { BLOG_POSTS } from "@/lib/blog-data"
 
 const WORDS = [0, 1, 2, 3]
 
@@ -23,10 +25,10 @@ const REVIEWS = [
 ] as const
 
 const HERO_SERVICES = [
-  { id: "websites" },
-  { id: "ecommerce" },
-  { id: "apps" },
-  { id: "automation" },
+  { id: "websites", href: "/services#siti-web" },
+  { id: "ecommerce", href: "/services#ecommerce" },
+  { id: "apps", href: "/services#app" },
+  { id: "automation", href: "/services#automazione" },
 ] as const
 
 function ServiceIcon({ id }: { id: (typeof HERO_SERVICES)[number]["id"] }) {
@@ -514,7 +516,7 @@ export default function HomeClient() {
               {HERO_SERVICES.map((svc, i) => (
                 <Link
                   key={svc.id}
-                  href="/services"
+                  href={svc.href}
                   data-lift="1"
                   style={{
                     display: "block",
@@ -917,6 +919,49 @@ export default function HomeClient() {
                 </details>
               ))}
             </div>
+        </div>
+      </Reveal>
+
+      {/* Ultimi articoli */}
+      <Reveal style={{ borderTop: "1px solid var(--line)" }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 32, flexWrap: "wrap", marginBottom: 48 }}>
+            <div>
+              <div style={eyebrow}>{t("home.blog.eyebrow")}</div>
+              <h2 style={{ ...h2Style, maxWidth: 560 }}>{t("home.blog.title")}</h2>
+            </div>
+            <Link href="/blog" style={ghostBtn}>
+              {t("home.blog.all")}
+            </Link>
+          </div>
+
+          <div style={{ display: "grid", gap: 20 }} className="!grid-cols-1 md:!grid-cols-3">
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                data-lift="1"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  border: "1px solid var(--line2)",
+                  borderRadius: 14,
+                  background: "var(--card)",
+                  boxShadow: "var(--shadow)",
+                  padding: 22,
+                }}
+              >
+                <div style={{ marginBottom: 18 }}>
+                  <BlogCover category={post.category} slug={post.slug} />
+                </div>
+                <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 500, color: "var(--dim)", marginBottom: 10 }}>
+                  {post.category} · {post.readTime}
+                </div>
+                <h3 style={{ fontSize: 18, lineHeight: 1.3, fontWeight: 700, margin: "0 0 10px" }}>{post.title}</h3>
+                <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)", margin: 0 }}>{post.excerpt}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </Reveal>
 
