@@ -26,7 +26,8 @@ const translationData = {
     "nav.cta": "Start a brief",
 
     // Home — hero
-    "home.hero.eyebrow": "Freelance web developer in Crema",
+    "home.hero.author": "Dennis Xhafaj",
+    "home.hero.authorRole": " — freelance web developer in Crema",
     "home.hero.title": "Let's build",
     "home.hero.word.0": "your website.",
     "home.hero.word.1": "your online store.",
@@ -35,9 +36,6 @@ const translationData = {
     "home.hero.promise": "Scope, timeline and a fixed price agreed before we start — not at the end.",
     "home.hero.cta": "Get a free quote",
     "home.hero.secondaryCta": "See recent work",
-    "home.hero.trust.author": "Dennis Xhafaj, full-stack developer",
-    "home.hero.trust.reply": "Reply within one working day",
-    "home.hero.trust.price": "Fixed price, agreed up front",
 
     // Home — four things
     "home.build.eyebrow": "What I build",
@@ -386,7 +384,8 @@ const translationData = {
     "nav.cta": "Invia un brief",
 
     // Home — hero
-    "home.hero.eyebrow": "Sviluppatore web freelance a Crema",
+    "home.hero.author": "Dennis Xhafaj",
+    "home.hero.authorRole": " — sviluppatore web freelance a Crema",
     "home.hero.title": "Costruiamo",
     "home.hero.word.0": "il tuo sito web.",
     "home.hero.word.1": "il tuo negozio online.",
@@ -395,9 +394,6 @@ const translationData = {
     "home.hero.promise": "Perimetro, tempi e prezzo fisso concordati prima di iniziare — non a fine progetto.",
     "home.hero.cta": "Richiedi un preventivo gratuito",
     "home.hero.secondaryCta": "Guarda i lavori recenti",
-    "home.hero.trust.author": "Dennis Xhafaj, sviluppatore full-stack",
-    "home.hero.trust.reply": "Risposta entro un giorno lavorativo",
-    "home.hero.trust.price": "Prezzo fisso, concordato prima",
 
     // Home — four things
     "home.build.eyebrow": "Cosa realizzo",
