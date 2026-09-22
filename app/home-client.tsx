@@ -4,6 +4,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { AppWindow, ShoppingBag, Sparkles, TabletSmartphone } from "lucide-react"
 import { t } from "@/contexts/language-context"
 import Reveal from "@/components/reveal"
 import JsonLd from "@/components/json-ld"
@@ -32,55 +33,21 @@ const HERO_SERVICES = [
   { id: "automation", href: "/services#automazione" },
 ] as const
 
+// Lucide replaces the four hand-drawn glyphs: same 24px grid and stroke
+// language as the rest of the site, but properly optically balanced.
+// Four distinct silhouettes on purpose — window, bag, nested rects, stars.
+// Box-shaped glyphs for both "apps" and "automation" read as the same icon
+// at 21px.
+const SERVICE_ICONS = {
+  websites: AppWindow,
+  ecommerce: ShoppingBag,
+  apps: TabletSmartphone,
+  automation: Sparkles,
+} as const
+
 function ServiceIcon({ id }: { id: (typeof HERO_SERVICES)[number]["id"] }) {
-  const common = {
-    width: 20,
-    height: 20,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.7,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true,
-  }
-  if (id === "websites")
-    return (
-      <svg {...common}>
-        <rect x="2.5" y="4" width="19" height="13" rx="2"></rect>
-        <path d="M2.5 8.5h19"></path>
-        <path d="M8 21h8"></path>
-        <path d="M12 17v4"></path>
-      </svg>
-    )
-  if (id === "ecommerce")
-    return (
-      <svg {...common}>
-        <path d="M4 7h16l-1.2 11.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8z"></path>
-        <path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"></path>
-      </svg>
-    )
-  if (id === "apps")
-    return (
-      <svg {...common}>
-        <rect x="2.5" y="3.5" width="14" height="13" rx="2"></rect>
-        <path d="M2.5 7.5h14"></path>
-        <rect x="14.5" y="10" width="7" height="10.5" rx="1.8"></rect>
-      </svg>
-    )
-  return (
-    <svg {...common}>
-      <path d="M12 3v3"></path>
-      <path d="M12 18v3"></path>
-      <path d="M3 12h3"></path>
-      <path d="M18 12h3"></path>
-      <circle cx="12" cy="12" r="4"></circle>
-      <path d="m5.6 5.6 2.1 2.1"></path>
-      <path d="m16.3 16.3 2.1 2.1"></path>
-      <path d="m18.4 5.6-2.1 2.1"></path>
-      <path d="m7.7 16.3-2.1 2.1"></path>
-    </svg>
-  )
+  const Icon = SERVICE_ICONS[id]
+  return <Icon size={21} strokeWidth={1.7} absoluteStrokeWidth aria-hidden="true" />
 }
 
 function Stars() {
@@ -483,7 +450,31 @@ export default function HomeClient() {
           />
           <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", padding: "clamp(36px, 5vw, 56px) 24px clamp(44px, 4.5vw, 56px)" }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <p style={{ ...eyebrow, marginBottom: 16 }}>{t("home.hero.eyebrow")}</p>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 11,
+                  marginBottom: 20,
+                  maxWidth: "100%",
+                  padding: "6px 16px 6px 6px",
+                  // Pill on one line, softened to a rounded rect once the text
+                  // wraps — a 9999px radius on a two-line box looks like a bug.
+                  borderRadius: 22,
+                  border: "1px solid var(--line2)",
+                  background: "var(--card)",
+                  boxShadow: "var(--shadow)",
+                  textAlign: "left",
+                }}
+              >
+                <span style={{ position: "relative", display: "block", width: 34, height: 34, borderRadius: 9999, overflow: "hidden", flex: "none" }}>
+                  <Image src="/profile-image.png" alt="" fill sizes="34px" style={{ objectFit: "cover" }} priority />
+                </span>
+                <span style={{ fontSize: "clamp(13px, 3.4vw, 14px)", lineHeight: 1.3, fontWeight: 500, minWidth: 0 }}>
+                  {t("home.hero.author")}
+                  <span style={{ color: "var(--muted)", fontWeight: 400 }}>{t("home.hero.authorRole")}</span>
+                </span>
+              </div>
 
               <h1
                 style={{
@@ -547,39 +538,6 @@ export default function HomeClient() {
                     {t("home.hero.secondaryCta")}
                   </Link>
               </div>
-
-              {/* Trust row. Every claim here restates a commitment made elsewhere
-                  on the site — no counts, ratings or testimonials, which would
-                  need real numbers behind them before they can go above the fold. */}
-              <ul
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px 22px",
-                  listStyle: "none",
-                  margin: "24px 0 0",
-                  padding: 0,
-                  fontSize: 14,
-                  color: "var(--muted)",
-                }}
-              >
-                <li style={{ display: "flex", alignItems: "center", gap: 9 }}>
-                  <span style={{ position: "relative", display: "block", width: 26, height: 26, borderRadius: 9999, overflow: "hidden", border: "1px solid var(--line2)", flex: "none" }}>
-                    <Image src="/profile-image.png" alt="" fill sizes="26px" style={{ objectFit: "cover" }} />
-                  </span>
-                  <span>{t("home.hero.trust.author")}</span>
-                </li>
-                {["reply", "price"].map((k) => (
-                  <li key={k} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flex: "none" }}>
-                      <path d="m4 12.5 5 5L20 6.5"></path>
-                    </svg>
-                    <span>{t(`home.hero.trust.${k}`)}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div style={{ display: "grid", gap: 20, marginTop: "clamp(28px, 3vw, 36px)" }} className="!grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
